@@ -1,0 +1,27 @@
+query fetchResources(
+  $filter: EQLQueryFilterResources
+  $offset: NonNegativeInt
+  $first: PositiveIntMax200
+  $orderBy: EQLOrderByClauseResources
+) {
+  resources(offset: $offset, filter: $filter, first: $first, orderBy: $orderBy) {
+    totalCount
+    pageInfo {
+      hasNextPage
+    }
+    edges {
+      cursor
+      node {
+        UID
+        Name
+        Category
+        ResourceTags {
+          UID
+          Tag {
+            Name
+          }
+        }
+      }
+    }
+  }
+}

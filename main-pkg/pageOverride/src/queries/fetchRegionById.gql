@@ -1,0 +1,6 @@
+query fetchRegionById($id: ID!){
+  regionsById(UID: $id) {
+    UID
+    Name
+  }
+}

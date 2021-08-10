@@ -1,0 +1,18 @@
+{
+  "type": "webpage",
+  "name": "Page Override",
+  "description": "Page Override with List tab",
+  "url": "page-override",
+  "render": {
+    "showInNavBar": false,
+    "type": "page"
+  },
+  "genTypes": false,
+  "dependencies": [
+    {
+      "type": "local-node",
+      "dependencyName": "shared",
+      "options": { "devDependency": false }
+    }
+  ]
+}
