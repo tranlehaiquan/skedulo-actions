@@ -35,18 +35,25 @@ const REGION_STANDARD_FIELDS: Array<GroupDefinition<Regions>> = [
 ]
 
 const RegionFormTab: React.FC<RegionFormTabProps> = ({ region, handleUpdate }) => {
-  const handleSubmit = React.useCallback(async (form: FormSubmission<UpdateRegions>) => {
-    const updateData = { ...region, ...form.fields }
+  const handleSubmit = React.useCallback(
+    async (form: FormSubmission<UpdateRegions>) => {
+      const updateData = { ...region, ...form.fields }
 
-    handleUpdate(updateData)
-  }, [region])
+      handleUpdate(updateData)
+    },
+    [region]
+  )
 
-  const objectFormConfig = React.useMemo(() => Object.assign(
-    {},
-    ...(REGION_STANDARD_FIELDS.map(group =>
-      _fromPairs(group.fields.map(({ name, isRequired }) => [name, isRequired ? { isRequired: true } : {}]))
-    ))
-  ), [])
+  const objectFormConfig = React.useMemo(
+    () =>
+      Object.assign(
+        {},
+        ...REGION_STANDARD_FIELDS.map((group) =>
+          _fromPairs(group.fields.map(({ name, isRequired }) => [name, isRequired ? { isRequired: true } : {}]))
+        )
+      ),
+    []
+  )
 
   return (
     <div className="crud-full-page__body scroll cx-pb-0">

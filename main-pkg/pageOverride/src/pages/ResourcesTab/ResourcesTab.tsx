@@ -1,10 +1,6 @@
 import React, { memo, useState, useCallback, useMemo, useEffect } from 'react'
 
-import {
-  Button,
-  DynamicTable,
-  IDynamicTable
-} from '@skedulo/sked-ui'
+import { Button, DynamicTable, IDynamicTable } from '@skedulo/sked-ui'
 import { IDynamicTableColumn } from '@skedulo/sked-ui/dist/components/dynamic-table/interfaces'
 
 import { useGlobalLoading } from 'shared/dist/components'
@@ -18,11 +14,7 @@ import { toastMessage } from '../../commons/utils'
 
 const { fetchResources } = dataService
 
-export const tableColumns = ({
-  submitCb,
-}: {
-  submitCb: () => Promise<void>
-}) => {
+export const tableColumns = ({ submitCb }: { submitCb: () => Promise<void> }) => {
   return [
     {
       Header: 'Name',
@@ -45,7 +37,11 @@ export const tableColumns = ({
           <div className="cx-mb-4 cx-flex">
             <AssignTagPopout
               resourceId={row.original.UID}
-              trigger={<Button buttonType="transparent" icon="plus" className="cx-text-primary">Add Tag</Button>}
+              trigger={
+                <Button buttonType="transparent" icon="plus" className="cx-text-primary">
+                  Add Tag
+                </Button>
+              }
               submitCb={submitCb}
               excludedTagIds={row.original.ResourceTags.map((item) => item.UID)}
             />

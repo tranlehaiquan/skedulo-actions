@@ -13,9 +13,7 @@ const App: React.FC = () => {
     return null
   }
 
-  return (
-    <RegionDetail UID={UID} />
-  )
+  return <RegionDetail UID={UID} />
 }
 
 export default withGlobalLoading(App)

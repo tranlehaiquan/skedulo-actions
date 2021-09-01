@@ -48,19 +48,22 @@ const RegionDetail = ({ UID }: RegionDetailProps) => {
     }
   }, [UID])
 
-  const handleUpdate = useCallback(async (updateData: UpdateRegions) => {
-    if (!_isEqual(updateData, region)) {
-      try {
-        startGlobalLoading()
-        await dataService.updateRegion(updateData)
-        getRegionDetail(updateData.UID)
-      } catch (error) {
-        toastMessage.error('Update failed.')
-      } finally {
-        endGlobalLoading()
+  const handleUpdate = useCallback(
+    async (updateData: UpdateRegions) => {
+      if (!_isEqual(updateData, region)) {
+        try {
+          startGlobalLoading()
+          await dataService.updateRegion(updateData)
+          getRegionDetail(updateData.UID)
+        } catch (error) {
+          toastMessage.error('Update failed.')
+        } finally {
+          endGlobalLoading()
+        }
       }
-    }
-  }, [region])
+    },
+    [region]
+  )
 
   useEffect(() => {
     if (UID) {

@@ -19,47 +19,53 @@ const AssignTagPopout: React.FC<AssignTagPopoutProp> = (props) => {
 
   const [selectedTag, setSelectedTag] = React.useState<Tags | null>(null)
 
-  const fetchTagOptions = React.useCallback(async (searchTerm: string) => {
-    const res = await searchObject('Tags', searchTerm)
+  const fetchTagOptions = React.useCallback(
+    async (searchTerm: string) => {
+      const res = await searchObject('Tags', searchTerm)
 
-    return res.filter(item => !excludedTagIds.includes(item.UID)).map(item => ({ ...item, value: item.UID, label: item.Name }))
-  }, [excludedTagIds])
+      return res
+        .filter((item) => !excludedTagIds.includes(item.UID))
+        .map((item) => ({ ...item, value: item.UID, label: item.Name }))
+    },
+    [excludedTagIds]
+  )
 
-  const onSubmit = React.useCallback(async (callback) => {
-    if (!selectedTag) {
-      return
-    }
-    try {
-      startGlobalLoading()
-      const formData = {
-        TagId: selectedTag?.UID || '',
-        ResourceId: resourceId,
+  const onSubmit = React.useCallback(
+    async (callback) => {
+      if (!selectedTag) {
+        return
       }
+      try {
+        startGlobalLoading()
+        const formData = {
+          TagId: selectedTag?.UID || '',
+          ResourceId: resourceId,
+        }
 
-      await dataService.insertResourceTag(formData)
+        await dataService.insertResourceTag(formData)
 
-      if (typeof callback === 'function') {
-        callback()
+        if (typeof callback === 'function') {
+          callback()
+        }
+        if (typeof submitCb === 'function') {
+          await submitCb()
+        }
+      } catch (error) {
+        toastMessage.error(error.message)
+      } finally {
+        endGlobalLoading()
       }
-      if (typeof submitCb === 'function') {
-        await submitCb()
-      }
-    } catch (error) {
-      toastMessage.error(error.message)
-    } finally {
-      endGlobalLoading()
-    }
-  }, [selectedTag, submitCb])
+    },
+    [selectedTag, submitCb]
+  )
 
   const onTagSelect = React.useCallback((selectedItem: any) => {
     setSelectedTag(selectedItem as Tags)
   }, [])
 
   return (
-    <PopOut
-      trigger={() => trigger}
-    >
-      {hidePopout => (
+    <PopOut trigger={() => trigger}>
+      {(hidePopout) => (
         <div className="cx-p-4 cx-bg-white cx-border">
           <div className="cx-mb-4">
             <FormLabel status="required">Tag</FormLabel>

@@ -13,7 +13,7 @@ import { Services, GraphQLMutationResult, credentials } from './Services'
 export const searchObject = shareServices.searchObject
 
 export class DataServices {
-  constructor (private readonly services: Services) {}
+  constructor(private readonly services: Services) {}
 
   httpApi = axios.create({
     baseURL: credentials.apiServer,
@@ -23,10 +23,7 @@ export class DataServices {
   })
 
   fetchGraphQl = async <T>(body: object): Promise<T> => {
-    const res = await this.httpApi.post(
-      'https://api.skedulo.com/graphql/graphql',
-      body
-    )
+    const res = await this.httpApi.post('https://api.skedulo.com/graphql/graphql', body)
 
     return res?.data?.data as T
   }
@@ -63,19 +60,23 @@ export class DataServices {
   }
 
   updateRegion = async (updateInput: UpdateRegions): Promise<GraphQLMutationResult> => {
-    return await this.services.graphQL.mutate(generateSingleMutation<UpdateRegions>({
-      schemaName: 'Regions',
-      mutationType: 'update',
-      data: updateInput,
-    }))
+    return await this.services.graphQL.mutate(
+      generateSingleMutation<UpdateRegions>({
+        schemaName: 'Regions',
+        mutationType: 'update',
+        data: updateInput,
+      })
+    )
   }
 
   insertResourceTag = async (input: NewResourceTags): Promise<GraphQLMutationResult> => {
-    const res = await this.services.graphQL.mutate(generateSingleMutation<NewResourceTags>({
-      schemaName: 'ResourceTags',
-      mutationType: 'insert',
-      data: input,
-    }))
+    const res = await this.services.graphQL.mutate(
+      generateSingleMutation<NewResourceTags>({
+        schemaName: 'ResourceTags',
+        mutationType: 'insert',
+        data: input,
+      })
+    )
 
     return res
   }

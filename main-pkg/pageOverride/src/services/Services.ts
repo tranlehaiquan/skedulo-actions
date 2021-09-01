@@ -11,14 +11,14 @@ export interface GraphQLMutationResult {
   errors: null | Array<{
     message: string
     path?: string[]
-    locations?: Array<{ line: number, column: number }>
+    locations?: Array<{ line: number; column: number }>
   }>
 }
 
 interface GraphQLError {
   getErrors: () => string[]
   // eslint-disable-next-line @typescript-eslint/no-misused-new
-  new(): GraphQLError
+  new (): GraphQLError
 }
 
 type Model = string
@@ -85,14 +85,13 @@ export interface Credentials {
   apiServer: string
   apiAccessToken: string
 
-  vendor: { type: 'skedulo', url: string, token: null } | { type: 'salesforce', url: string, token: string }
+  vendor: { type: 'skedulo'; url: string; token: null } | { type: 'salesforce'; url: string; token: string }
 }
 
 export interface Navigation {
-  registerRouteHandler: (routeHandler: (routeState: {
-    routes: string | string[]
-    params: { [paramName: string]: any }
-  }) => void) => void
+  registerRouteHandler: (
+    routeHandler: (routeState: { routes: string | string[]; params: { [paramName: string]: any } }) => void
+  ) => void
   setParentRoute: (route: string) => void
 }
 

@@ -16,13 +16,13 @@ const RegionForm = ({ formParams, formDefinition }: RegionFormProps) => {
   const { fields, isFormReadonly, resetFieldsToInitialValues, errors, submitted, customFieldUpdate } = formParams
 
   const formFields = React.useMemo(() => {
-    return formDefinition.map(item => (
+    return formDefinition.map((item) => (
       <div className="vertical-panel" key={`form-group-${item.key}`}>
         <div className="header">
           <h2>{item.groupLabel}</h2>
         </div>
         <div className="content">
-          {item.fields.map(field => {
+          {item.fields.map((field) => {
             return (
               <WrappedFormInput
                 {...field}
@@ -30,7 +30,7 @@ const RegionForm = ({ formParams, formDefinition }: RegionFormProps) => {
                 key={field.name}
                 isReadonly={isFormReadonly}
                 value={fields[field.name as keyof UpdateRegions] as string}
-                error={submitted ? errors[field.name as keyof UpdateRegions] as string : ''}
+                error={submitted ? (errors[field.name as keyof UpdateRegions] as string) : ''}
                 customFieldUpdate={customFieldUpdate as (key: string) => (value: any) => void}
               />
             )
@@ -69,7 +69,6 @@ const RegionForm = ({ formParams, formDefinition }: RegionFormProps) => {
         </Button>
       </div>
     </>
-
   )
 }
 

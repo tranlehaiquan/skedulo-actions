@@ -22,7 +22,7 @@ class ConsoleLogOnBuildWebpackPlugin {
     })
 
     compiler.hooks.done.tap(pluginName, compilation => {
-      console.log(`${getHoursMinuteSeconds()}: Compile completed`)
+      console.log(`${getHoursMinuteSeconds()}: Compile completed 🙏 🎉`)
     })
   }
 }
