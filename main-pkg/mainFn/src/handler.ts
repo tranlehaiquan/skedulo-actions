@@ -9,7 +9,7 @@ import { getCompiledRoutes } from './routes'
 
 import { Fetch } from './shared/fetch'
 
-function initFetch ({headers}: FunctionPayload) {
+function initFetch({ headers }: FunctionPayload) {
   Fetch.authorization = headers.Authorization
   Fetch.apiServer = headers['sked-api-server']
 }
@@ -19,20 +19,19 @@ const customHandler = async (payload: FunctionPayload): Promise<FunctionResponse
   const start = Date.now()
 
   try {
-
     const { method, path, headers, body, querystring } = payload
 
     const matchedRoute = getCompiledRoutes()
-      .filter(route => route.method === method.toLowerCase())
-      .find(route => !!route.regex.exec(path))
+      .filter((route) => route.method === method.toLowerCase())
+      .find((route) => !!route.regex.exec(path))
 
-    initFetch(payload);
+    initFetch(payload)
 
     if (matchedRoute) {
       return await matchedRoute.handler(body, headers, method, path, querystring)
     } else {
       return {
-        status: 404
+        status: 404,
       }
     }
   } catch (e) {
@@ -41,8 +40,8 @@ const customHandler = async (payload: FunctionPayload): Promise<FunctionResponse
     return {
       status: 400,
       body: {
-        error: e.message
-      }
+        error: e.message,
+      },
     }
   } finally {
     console.info(`${payload.method}: ${payload.path}: ${Date.now() - start}ms`)

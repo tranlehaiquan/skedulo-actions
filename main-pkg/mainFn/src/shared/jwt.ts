@@ -1,25 +1,24 @@
 import * as jwt from 'jsonwebtoken'
 
 interface SkedJWT {
-
   // No idea what this is
   at_hash: string
 
-  'https://api.skedulo.com/name': string,
-  'https://api.skedulo.com/organization_id': string,
-  'https://api.skedulo.com/username': string,
-  'https://api.skedulo.com/vendor': string,
+  'https://api.skedulo.com/name': string
+  'https://api.skedulo.com/organization_id': string
+  'https://api.skedulo.com/username': string
+  'https://api.skedulo.com/vendor': string
 
   nonce: string
 
   // Issuer
-  iss: string,
+  iss: string
   // Sked-Env | UserId
-  sub: string,
+  sub: string
   // Audience | Client ID
-  aud: string,
+  aud: string
   // Expiry in Seconds
-  exp: number,
+  exp: number
   // Issue date in seconds
   iat: number
 }

@@ -1,13 +1,13 @@
-import { JobAllocations } from "shared/dist/__graphql/graphql";
+import { JobAllocations } from 'shared/dist/__graphql/graphql'
 
 export interface HasId {
   UID: string
 }
 
 export interface GraphQlRequest {
-  query: string,
+  query: string
   variables?: {
-   [key: string]: any
+    [key: string]: any
   }
 }
 
@@ -33,7 +33,7 @@ export interface JobAllocationSubscription {
 export enum OPERATION {
   INSERT = 'INSERT',
   UPDATE = 'UPDATE',
-  DELETE = 'DELETE'
+  DELETE = 'DELETE',
 }
 
 export const API_SERVER = 'https://api.skedulo.com'
