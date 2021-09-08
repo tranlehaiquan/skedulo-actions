@@ -1,7 +1,26 @@
-# project-name
+# BOILERPLATE CODEBASE FOR PLATFORM DEVELOPMENT 
 
-* Components:
 
-1. [Component Name]: [folder/link]
+# Connected Page
+======
+## Folder Structure
 
-2. 
+[TBU]
+
+## Architecture
+
+[TBU]
+
+## Eslint + Prettier
+
+[TBU]
+
+## Testing
+
+[TBU]
+
+## Deployment
+
+[TBU]
+
+## Commons
