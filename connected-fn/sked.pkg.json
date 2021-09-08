@@ -3,9 +3,7 @@
   "name": "skedulo-pkg-starter",
   "summary": "Skedulo Package Starter",
   "components": {
-    "webpages": {
-      "items": ["pageOverride"]
-    },
+    "functions": { "items": ["mainFn"] },
     "libraries": { "items": ["shared"] }
   }
 }
