@@ -41,6 +41,7 @@ const RegionFormTab: React.FC<RegionFormTabProps> = ({ region, handleUpdate }) =
 
       handleUpdate(updateData)
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [region]
   )
 

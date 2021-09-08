@@ -36,6 +36,7 @@ const RegionDetail = ({ UID }: RegionDetailProps) => {
     } finally {
       endGlobalLoading()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleGoBack = useCallback(async () => {
@@ -62,6 +63,7 @@ const RegionDetail = ({ UID }: RegionDetailProps) => {
         }
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [region]
   )
 
@@ -71,6 +73,7 @@ const RegionDetail = ({ UID }: RegionDetailProps) => {
     } else {
       handleGoBack()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [UID])
 
   if (!region) {

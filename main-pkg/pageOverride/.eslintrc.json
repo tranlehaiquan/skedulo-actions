@@ -5,11 +5,12 @@
   },
   "extends": [
     "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
     "standard-with-typescript",
-    "plugin:prettier/recommended",
     "plugin:import/errors",
     "plugin:import/warnings",
-    "plugin:import/typescript"
+    "plugin:import/typescript",
+    "plugin:prettier/recommended" //should be at the last
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {

@@ -56,6 +56,7 @@ const AssignTagPopout: React.FC<AssignTagPopoutProp> = (props) => {
         endGlobalLoading()
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [selectedTag, submitCb]
   )
 

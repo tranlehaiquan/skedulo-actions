@@ -68,16 +68,19 @@ const ResourcesTab: React.FC<{ regionId: string }> = ({ regionId }) => {
     } finally {
       endGlobalLoading()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const submitCb = useCallback(async () => {
     return await getResources(regionId)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [regionId])
 
   useEffect(() => {
     if (regionId) {
       getResources(regionId)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [regionId])
 
   const tableConfig: IDynamicTable<Resources> = useMemo(
@@ -90,6 +93,7 @@ const ResourcesTab: React.FC<{ regionId: string }> = ({ regionId }) => {
       sortByControl: 'disabled',
       initialRowStateKey: 'id',
     }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [resources, submitCb]
   )
 

@@ -38,6 +38,7 @@ const RegionForm = ({ formParams, formDefinition }: RegionFormProps) => {
         </div>
       </div>
     ))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [formParams])
 
   return (
