@@ -1,8 +1,5 @@
-# BOILERPLATE CODEBASE FOR PLATFORM DEVELOPMENT 
+# Boilerplate codebase for platform development
 
-
-# Connected Page
-======
 ## Folder Structure
 
 [TBU]
