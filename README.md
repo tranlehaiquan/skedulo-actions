@@ -1,7 +1,23 @@
-# project-name
+# Boilerplate codebase for platform development
 
-* Components:
+## Folder Structure
 
-1. [Component Name]: [folder/link]
+[TBU]
 
-2. 
+## Architecture
+
+[TBU]
+
+## Eslint + Prettier
+
+[TBU]
+
+## Testing
+
+[TBU]
+
+## Deployment
+
+[TBU]
+
+## Commons
