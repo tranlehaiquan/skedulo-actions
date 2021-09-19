@@ -1,0 +1,9 @@
+query fetchResourceById($UID: ID!) {
+  resourcesById(UID: $UID) {
+    UID
+    Name
+    ResourceType
+    FSM
+    RequestedWorkingHoursPerWeek
+  }
+}

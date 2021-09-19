@@ -1,0 +1,27 @@
+query fetchResources($filterResource: EQLQueryFilterResources!) {
+  resources(filter: $filterResource, orderBy: "CreatedDate DESC") {
+    edges {
+      node {
+        Category
+        EmploymentType
+        ResourceType
+        UID
+        Name
+        Email
+        EmploymentType
+        IsActive
+        ResourceType
+        PrimaryRegion {
+          UID
+          Name
+        }
+        ResourceTags {
+          Tag {
+            Type
+            Name
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "webpage",
+  "name": "Extra Information",
+  "description": "Resource extra information tab in Resource Details page",
+  "url": "extra-information",
+  "render": {
+    "showInNavBar": true,
+    "type": "embedded",
+    "hook": "resource-details"
+  },
+  "genTypes": false,
+  "dependencies": [
+    {
+      "type": "local-node",
+      "dependencyName": "shared",
+      "options": { "devDependency": false }
+    }
+  ]
+}
