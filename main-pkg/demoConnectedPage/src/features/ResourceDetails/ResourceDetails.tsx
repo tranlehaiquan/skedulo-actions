@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { Resources } from 'shared/dist/__graphql/graphql'
+import * as React from 'react'
+import { useEffect, useState } from 'react'
 
 import { useServices } from '../../contexts/services/ServicesContext'
 
@@ -8,7 +8,7 @@ const ResourceDetails = () => {
 
   const resourceId = getReferenceUIDFromContext()
 
-  const [resource, setResource] = useState<Resources | null>(null)
+  const [resource, setResource] = useState<{ name: string; email: string; phone: string } | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
@@ -32,7 +32,14 @@ const ResourceDetails = () => {
     <>
       {loading && <div>{'Loading...'}</div>}
       {error && <div id="error_messasge">{error}</div>}
-      <div id="resource_name">{resource?.Name}</div>
+      {!loading && !error && (
+        <div id="resource_details">
+          <div>{'Resource details:'}</div>
+          <div>{resource?.name}</div>
+          <div>{resource?.email}</div>
+          <div>{resource?.phone}</div>
+        </div>
+      )}
     </>
   )
 }
