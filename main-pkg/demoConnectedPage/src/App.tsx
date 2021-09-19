@@ -3,14 +3,20 @@ import { ToastContainer } from 'react-toastify'
 
 import { withGlobalLoading } from 'shared/dist/components/GlobalLoading'
 
-import ServicesProvider, { AppServices } from './contexts/services'
+import AppServices from './services/appServices'
+
+import ServicesProvider from './contexts/services'
+import makeServicesAdapter from './contexts/services/servicesAdapter'
+
 import { MainPage } from './pages'
 
 import 'react-toastify/dist/ReactToastify.css'
 
+const servicesAdapter = makeServicesAdapter(AppServices)()
+
 const App: React.FC = () => {
   return (
-    <ServicesProvider {...AppServices}>
+    <ServicesProvider {...servicesAdapter}>
       <MainPage />
       <ToastContainer
         position="top-right"

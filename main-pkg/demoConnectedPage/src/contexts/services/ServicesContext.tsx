@@ -8,8 +8,8 @@ export function useServices() {
   return useContext(ServicesContext) as IServiceAdapter
 }
 
-const ServicesProvider: React.FC<IServiceAdapter> = ({ children, ...services }) => {
-  return <ServicesContext.Provider value={services}>{children}</ServicesContext.Provider>
+const ServicesProvider: React.FC<IServiceAdapter> = ({ children, ...servicesAdapter }) => {
+  return <ServicesContext.Provider value={servicesAdapter}>{children}</ServicesContext.Provider>
 }
 
 export default ServicesProvider

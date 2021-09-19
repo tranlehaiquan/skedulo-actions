@@ -4,7 +4,7 @@ import AppServices from '../../services/appServices'
 
 import IServiceAdapter from './IServicesContextApdapter'
 
-const makeServicesAdapter = (appServices: typeof AppServices): IServiceAdapter => ({
+const makeServicesAdapter = (appServices: typeof AppServices) => (): IServiceAdapter => ({
   fetchResources: (filter?: string) => {
     return appServices.fetchResource(filter)
   },
@@ -22,6 +22,4 @@ const makeServicesAdapter = (appServices: typeof AppServices): IServiceAdapter =
   },
 })
 
-const servicesAdapter = makeServicesAdapter(AppServices)
-
-export default servicesAdapter
+export default makeServicesAdapter
