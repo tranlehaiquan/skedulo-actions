@@ -1,4 +1,4 @@
- jimport AppServices from '../../services/appServices'
+import AppServices from '../../services/appServices'
 
 import IServiceAdapter from './IServicesContextApdapter'
 
