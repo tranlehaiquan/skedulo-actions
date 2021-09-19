@@ -4,7 +4,7 @@
   "summary": "Skedulo Package Starter",
   "components": {
     "webpages": {
-      "items": ["pageOverride"]
+      "items": ["resourceExtraInformationTab"]
     },
     "libraries": { "items": ["shared"] }
   }
