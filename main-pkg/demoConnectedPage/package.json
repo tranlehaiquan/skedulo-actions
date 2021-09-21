@@ -66,7 +66,8 @@
     "lodash": "^4.17.15",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-toastify": "^7.0.4"
+    "react-toastify": "^7.0.4",
+    "plop": "2.3.0"
   },
   "scripts": {
     "bootstrap": "yarn install --pure-lockfile",
@@ -74,7 +75,9 @@
     "test": "node scripts/test.js --env=jsdom",
     "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
     "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
-    "compile": "webpack --config ./config/webpack.config.js --env.production"
+    "compile": "webpack --config ./config/webpack.config.js --env.production",
+    "generate": "plop --plopfile internals/generators/index.js",
+    "prettify": "prettier --write"
   },
   "jest": {
     "coverageReporters": [
