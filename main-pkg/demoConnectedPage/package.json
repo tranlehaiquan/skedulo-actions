@@ -64,10 +64,10 @@
     "date-fns": "^2.23.0",
     "date-fns-tz": "^1.0.10",
     "lodash": "^4.17.15",
+    "plop": "2.3.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-toastify": "^7.0.4",
-    "plop": "2.3.0"
+    "react-toastify": "^7.0.4"
   },
   "scripts": {
     "bootstrap": "yarn install --pure-lockfile",
