@@ -166,6 +166,96 @@ export interface NewAvailabilityTemplates {
   Start?: Maybe<LocalDate>;
 }
 
+export interface NewBusinessRegion {
+  BusinessUnitId?: Maybe<string>;
+
+  Name?: Maybe<string>;
+}
+
+export interface NewBusinessUnit {
+  Name?: Maybe<string>;
+}
+
+export interface NewClass {
+  EndDate?: Maybe<LocalDate>;
+
+  Name?: Maybe<string>;
+
+  RegionsId?: Maybe<string>;
+
+  SalesforceClassID?: Maybe<string>;
+
+  StartDate?: Maybe<LocalDate>;
+
+  TotalCompletedSessions?: Maybe<number>;
+
+  TotalSessions?: Maybe<number>;
+
+  UniversityId?: Maybe<string>;
+}
+
+export interface NewClassHireRequestResource {
+  ClassRoleHireRequestId?: Maybe<string>;
+
+  ResourceId?: Maybe<string>;
+}
+
+export interface NewClassOffer {
+  ClassId?: Maybe<string>;
+
+  ClassRoleId?: Maybe<string>;
+
+  Name?: Maybe<string>;
+
+  Status?: Maybe<string>;
+}
+
+export interface NewClassOfferSession {
+  ClassOfferId?: Maybe<string>;
+
+  Name?: Maybe<string>;
+
+  SessionId?: Maybe<string>;
+}
+
+export interface NewClassRole {
+  ClassId?: Maybe<string>;
+
+  HireResources?: Maybe<boolean>;
+
+  Name?: Maybe<string>;
+
+  Quantity?: Maybe<number>;
+
+  RoleAllocationCount?: Maybe<number>;
+}
+
+export interface NewClassRoleAllocation {
+  ClassRoleId?: Maybe<string>;
+
+  Name?: Maybe<string>;
+
+  ResourceId?: Maybe<string>;
+
+  Status?: Maybe<string>;
+}
+
+export interface NewClassRoleHireRequest {
+  ClassRoleId?: Maybe<string>;
+
+  ResourceId?: Maybe<string>;
+}
+
+export interface NewClassRoleTag {
+  ClassRoleId?: Maybe<string>;
+
+  Required?: Maybe<boolean>;
+
+  TagId?: Maybe<string>;
+
+  Weighting?: Maybe<number>;
+}
+
 export interface NewClientAvailabilities {
   AccountId?: Maybe<string>;
 
@@ -244,7 +334,17 @@ export interface NewHolidays {
   StartDate: LocalDate;
 }
 
+export interface NewJobAllocationRateCard {
+  JobAllocationId?: Maybe<string>;
+
+  RateCardId?: Maybe<string>;
+}
+
 export interface NewJobAllocations {
+  AllocationType?: Maybe<string>;
+
+  ClassRoleId?: Maybe<string>;
+
   DeclineDescription?: Maybe<string>;
 
   DeclineReason?: Maybe<string>;
@@ -304,6 +404,8 @@ export interface NewJobAllocations {
   TravelDistance?: Maybe<number>;
 
   TravelTime?: Maybe<number>;
+
+  UnavailabilityCancellation?: Maybe<boolean>;
 }
 
 export interface NewJobDependencies {
@@ -389,6 +491,8 @@ export interface NewJobs {
 
   CanBeDeclined?: Maybe<boolean>;
 
+  ClassId?: Maybe<string>;
+
   CompletionNotes?: Maybe<string>;
 
   ContactId?: Maybe<string>;
@@ -449,6 +553,8 @@ export interface NewJobs {
 
   TemplatedJobId?: Maybe<string>;
 
+  TimesheetRestriction?: Maybe<string>;
+
   Type?: Maybe<string>;
 
   Urgency?: Maybe<string>;
@@ -500,6 +606,24 @@ export interface NewProducts {
   ProductCode?: Maybe<string>;
 }
 
+export interface NewRateCard {
+  BusinessUnitId?: Maybe<string>;
+
+  EndDate?: Maybe<string>;
+
+  Name?: Maybe<string>;
+
+  Rate?: Maybe<number>;
+
+  ResourceId?: Maybe<string>;
+
+  RoleTagId?: Maybe<string>;
+
+  StartDate?: Maybe<string>;
+
+  Type?: Maybe<string>;
+}
+
 export interface NewRecurringSchedules {
   AckAllJobs?: Maybe<boolean>;
 
@@ -511,6 +635,10 @@ export interface NewRecurringSchedules {
 }
 
 export interface NewRegions {
+  BusinessRegionId?: Maybe<string>;
+
+  BusinessUnitId?: Maybe<string>;
+
   CountryCode?: Maybe<string>;
 
   Description?: Maybe<string>;
@@ -524,6 +652,36 @@ export interface NewRegions {
   Radius?: Maybe<number>;
 
   Timezone: string;
+}
+
+export interface NewResourceClassOffer {
+  ClassOfferId?: Maybe<string>;
+
+  Name?: Maybe<string>;
+
+  OfferType?: Maybe<string>;
+
+  ResourceId?: Maybe<string>;
+
+  Response?: Maybe<string>;
+
+  Status?: Maybe<string>;
+
+  TimeNotified?: Maybe<string>;
+
+  TimeResponse?: Maybe<string>;
+}
+
+export interface NewResourceClassOfferSession {
+  Name?: Maybe<string>;
+
+  OfferType?: Maybe<string>;
+
+  ResourceClassOfferId?: Maybe<string>;
+
+  SessionId?: Maybe<string>;
+
+  Status?: Maybe<string>;
 }
 
 export interface NewResourceJobOffers {
@@ -655,8 +813,6 @@ export interface NewResources {
 
   EmploymentType?: Maybe<string>;
 
-  FSM?: Maybe<string>;
-
   GeoLatitude?: Maybe<number>;
 
   GeoLongitude?: Maybe<number>;
@@ -679,9 +835,9 @@ export interface NewResources {
 
   Rating?: Maybe<number>;
 
-  RequestedWorkingHoursPerWeek?: Maybe<number>;
-
   ResourceType?: Maybe<string>;
+
+  TimesheetRestriction?: Maybe<string>;
 
   UserId?: Maybe<string>;
 
@@ -992,6 +1148,94 @@ export interface NewTemplatedShifts {
   StartTimeOfDay: LocalTime;
 }
 
+export interface NewTimesheet {
+  ApprovedById?: Maybe<string>;
+
+  ApprovedDate?: Maybe<LocalDate>;
+
+  ApproverComments?: Maybe<string>;
+
+  EndDate?: Maybe<LocalDate>;
+
+  ResourceId?: Maybe<string>;
+
+  StartDate?: Maybe<LocalDate>;
+
+  Status?: Maybe<string>;
+
+  SubmitterComments?: Maybe<string>;
+}
+
+export interface NewTimesheetEntry {
+  ActivityId?: Maybe<string>;
+
+  Description?: Maybe<string>;
+
+  Distance?: Maybe<number>;
+
+  EndDate?: Maybe<LocalDate>;
+
+  EndTime?: Maybe<LocalTime>;
+
+  EntryType?: Maybe<string>;
+
+  JobId?: Maybe<string>;
+
+  ShiftId?: Maybe<string>;
+
+  StartDate?: Maybe<LocalDate>;
+
+  StartTime?: Maybe<LocalTime>;
+
+  TimesheetId?: Maybe<string>;
+
+  UnavailabilityId?: Maybe<string>;
+}
+
+export interface NewTimesheetRestrictionConfigs {
+  JobTypesRestrictions?: Maybe<string>;
+
+  UserRestrictions?: Maybe<string>;
+}
+
+export interface NewskedBroadcastRecipients {
+  sked_BroadcastId: string;
+
+  sked_ContactId?: Maybe<string>;
+
+  sked_Date?: Maybe<LocalDate>;
+
+  sked_ErrorInformation?: Maybe<string>;
+
+  sked_NotificationMethod?: Maybe<string>;
+
+  sked_Phone?: Maybe<string>;
+
+  sked_ResourceId?: Maybe<string>;
+
+  sked_Status?: Maybe<string>;
+
+  sked_Timestamp?: Maybe<string>;
+}
+
+export interface NewskedBroadcasts {
+  sked_Broadcast?: Maybe<string>;
+
+  sked_Date?: Maybe<LocalDate>;
+
+  sked_NotSent?: Maybe<number>;
+
+  sked_NotificationMethod?: Maybe<string>;
+
+  sked_RecipientType?: Maybe<string>;
+
+  sked_Sent?: Maybe<number>;
+
+  sked_Timestamp?: Maybe<string>;
+
+  sked_TotalRecipients?: Maybe<number>;
+}
+
 export interface UpdateAccountResourceScores {
   AccountId?: Maybe<string>;
 
@@ -1182,6 +1426,116 @@ export interface UpdateAvailabilityTemplates {
   UID: string;
 }
 
+export interface UpdateBusinessRegion {
+  BusinessUnitId?: Maybe<string>;
+
+  Name?: Maybe<string>;
+
+  UID: string;
+}
+
+export interface UpdateBusinessUnit {
+  Name?: Maybe<string>;
+
+  UID: string;
+}
+
+export interface UpdateClass {
+  EndDate?: Maybe<LocalDate>;
+
+  Name?: Maybe<string>;
+
+  RegionsId?: Maybe<string>;
+
+  SalesforceClassID?: Maybe<string>;
+
+  StartDate?: Maybe<LocalDate>;
+
+  TotalCompletedSessions?: Maybe<number>;
+
+  TotalSessions?: Maybe<number>;
+
+  UID: string;
+
+  UniversityId?: Maybe<string>;
+}
+
+export interface UpdateClassHireRequestResource {
+  ClassRoleHireRequestId?: Maybe<string>;
+
+  ResourceId?: Maybe<string>;
+
+  UID: string;
+}
+
+export interface UpdateClassOffer {
+  ClassId?: Maybe<string>;
+
+  ClassRoleId?: Maybe<string>;
+
+  Name?: Maybe<string>;
+
+  Status?: Maybe<string>;
+
+  UID: string;
+}
+
+export interface UpdateClassOfferSession {
+  ClassOfferId?: Maybe<string>;
+
+  Name?: Maybe<string>;
+
+  SessionId?: Maybe<string>;
+
+  UID: string;
+}
+
+export interface UpdateClassRole {
+  ClassId?: Maybe<string>;
+
+  HireResources?: Maybe<boolean>;
+
+  Name?: Maybe<string>;
+
+  Quantity?: Maybe<number>;
+
+  RoleAllocationCount?: Maybe<number>;
+
+  UID: string;
+}
+
+export interface UpdateClassRoleAllocation {
+  ClassRoleId?: Maybe<string>;
+
+  Name?: Maybe<string>;
+
+  ResourceId?: Maybe<string>;
+
+  Status?: Maybe<string>;
+
+  UID: string;
+}
+
+export interface UpdateClassRoleHireRequest {
+  ClassRoleId?: Maybe<string>;
+
+  ResourceId?: Maybe<string>;
+
+  UID: string;
+}
+
+export interface UpdateClassRoleTag {
+  ClassRoleId?: Maybe<string>;
+
+  Required?: Maybe<boolean>;
+
+  TagId?: Maybe<string>;
+
+  UID: string;
+
+  Weighting?: Maybe<number>;
+}
+
 export interface UpdateClientAvailabilities {
   AccountId?: Maybe<string>;
 
@@ -1270,7 +1624,19 @@ export interface UpdateHolidays {
   UID: string;
 }
 
+export interface UpdateJobAllocationRateCard {
+  JobAllocationId?: Maybe<string>;
+
+  RateCardId?: Maybe<string>;
+
+  UID: string;
+}
+
 export interface UpdateJobAllocations {
+  AllocationType?: Maybe<string>;
+
+  ClassRoleId?: Maybe<string>;
+
   DeclineDescription?: Maybe<string>;
 
   DeclineReason?: Maybe<string>;
@@ -1332,6 +1698,8 @@ export interface UpdateJobAllocations {
   TravelTime?: Maybe<number>;
 
   UID: string;
+
+  UnavailabilityCancellation?: Maybe<boolean>;
 }
 
 export interface UpdateJobDependencies {
@@ -1429,6 +1797,8 @@ export interface UpdateJobs {
 
   CanBeDeclined?: Maybe<boolean>;
 
+  ClassId?: Maybe<string>;
+
   CompletionNotes?: Maybe<string>;
 
   ContactId?: Maybe<string>;
@@ -1489,6 +1859,8 @@ export interface UpdateJobs {
 
   TemplatedJobId?: Maybe<string>;
 
+  TimesheetRestriction?: Maybe<string>;
+
   Type?: Maybe<string>;
 
   UID: string;
@@ -1548,6 +1920,26 @@ export interface UpdateProducts {
   UID: string;
 }
 
+export interface UpdateRateCard {
+  BusinessUnitId?: Maybe<string>;
+
+  EndDate?: Maybe<string>;
+
+  Name?: Maybe<string>;
+
+  Rate?: Maybe<number>;
+
+  ResourceId?: Maybe<string>;
+
+  RoleTagId?: Maybe<string>;
+
+  StartDate?: Maybe<string>;
+
+  Type?: Maybe<string>;
+
+  UID: string;
+}
+
 export interface UpdateRecurringSchedules {
   AckAllJobs?: Maybe<boolean>;
 
@@ -1561,6 +1953,10 @@ export interface UpdateRecurringSchedules {
 }
 
 export interface UpdateRegions {
+  BusinessRegionId?: Maybe<string>;
+
+  BusinessUnitId?: Maybe<string>;
+
   CountryCode?: Maybe<string>;
 
   Description?: Maybe<string>;
@@ -1574,6 +1970,40 @@ export interface UpdateRegions {
   Radius?: Maybe<number>;
 
   Timezone?: Maybe<string>;
+
+  UID: string;
+}
+
+export interface UpdateResourceClassOffer {
+  ClassOfferId?: Maybe<string>;
+
+  Name?: Maybe<string>;
+
+  OfferType?: Maybe<string>;
+
+  ResourceId?: Maybe<string>;
+
+  Response?: Maybe<string>;
+
+  Status?: Maybe<string>;
+
+  TimeNotified?: Maybe<string>;
+
+  TimeResponse?: Maybe<string>;
+
+  UID: string;
+}
+
+export interface UpdateResourceClassOfferSession {
+  Name?: Maybe<string>;
+
+  OfferType?: Maybe<string>;
+
+  ResourceClassOfferId?: Maybe<string>;
+
+  SessionId?: Maybe<string>;
+
+  Status?: Maybe<string>;
 
   UID: string;
 }
@@ -1727,8 +2157,6 @@ export interface UpdateResources {
 
   EmploymentType?: Maybe<string>;
 
-  FSM?: Maybe<string>;
-
   GeoLatitude?: Maybe<number>;
 
   GeoLongitude?: Maybe<number>;
@@ -1751,9 +2179,9 @@ export interface UpdateResources {
 
   Rating?: Maybe<number>;
 
-  RequestedWorkingHoursPerWeek?: Maybe<number>;
-
   ResourceType?: Maybe<string>;
+
+  TimesheetRestriction?: Maybe<string>;
 
   UID: string;
 
@@ -2108,6 +2536,104 @@ export interface UpdateTemplatedShifts {
   UID: string;
 }
 
+export interface UpdateTimesheet {
+  ApprovedById?: Maybe<string>;
+
+  ApprovedDate?: Maybe<LocalDate>;
+
+  ApproverComments?: Maybe<string>;
+
+  EndDate?: Maybe<LocalDate>;
+
+  ResourceId?: Maybe<string>;
+
+  StartDate?: Maybe<LocalDate>;
+
+  Status?: Maybe<string>;
+
+  SubmitterComments?: Maybe<string>;
+
+  UID: string;
+}
+
+export interface UpdateTimesheetEntry {
+  ActivityId?: Maybe<string>;
+
+  Description?: Maybe<string>;
+
+  Distance?: Maybe<number>;
+
+  EndDate?: Maybe<LocalDate>;
+
+  EndTime?: Maybe<LocalTime>;
+
+  EntryType?: Maybe<string>;
+
+  JobId?: Maybe<string>;
+
+  ShiftId?: Maybe<string>;
+
+  StartDate?: Maybe<LocalDate>;
+
+  StartTime?: Maybe<LocalTime>;
+
+  TimesheetId?: Maybe<string>;
+
+  UID: string;
+
+  UnavailabilityId?: Maybe<string>;
+}
+
+export interface UpdateTimesheetRestrictionConfigs {
+  JobTypesRestrictions?: Maybe<string>;
+
+  UID: string;
+
+  UserRestrictions?: Maybe<string>;
+}
+
+export interface UpdateskedBroadcastRecipients {
+  UID: string;
+
+  sked_BroadcastId?: Maybe<string>;
+
+  sked_ContactId?: Maybe<string>;
+
+  sked_Date?: Maybe<LocalDate>;
+
+  sked_ErrorInformation?: Maybe<string>;
+
+  sked_NotificationMethod?: Maybe<string>;
+
+  sked_Phone?: Maybe<string>;
+
+  sked_ResourceId?: Maybe<string>;
+
+  sked_Status?: Maybe<string>;
+
+  sked_Timestamp?: Maybe<string>;
+}
+
+export interface UpdateskedBroadcasts {
+  UID: string;
+
+  sked_Broadcast?: Maybe<string>;
+
+  sked_Date?: Maybe<LocalDate>;
+
+  sked_NotSent?: Maybe<number>;
+
+  sked_NotificationMethod?: Maybe<string>;
+
+  sked_RecipientType?: Maybe<string>;
+
+  sked_Sent?: Maybe<number>;
+
+  sked_Timestamp?: Maybe<string>;
+
+  sked_TotalRecipients?: Maybe<number>;
+}
+
 export interface UpsertAccountResourceScores {
   AccountId: string;
 
@@ -2298,6 +2824,116 @@ export interface UpsertAvailabilityTemplates {
   UID?: Maybe<string>;
 }
 
+export interface UpsertBusinessRegion {
+  BusinessUnitId?: Maybe<string>;
+
+  Name?: Maybe<string>;
+
+  UID?: Maybe<string>;
+}
+
+export interface UpsertBusinessUnit {
+  Name?: Maybe<string>;
+
+  UID?: Maybe<string>;
+}
+
+export interface UpsertClass {
+  EndDate?: Maybe<LocalDate>;
+
+  Name?: Maybe<string>;
+
+  RegionsId?: Maybe<string>;
+
+  SalesforceClassID?: Maybe<string>;
+
+  StartDate?: Maybe<LocalDate>;
+
+  TotalCompletedSessions?: Maybe<number>;
+
+  TotalSessions?: Maybe<number>;
+
+  UID?: Maybe<string>;
+
+  UniversityId?: Maybe<string>;
+}
+
+export interface UpsertClassHireRequestResource {
+  ClassRoleHireRequestId?: Maybe<string>;
+
+  ResourceId?: Maybe<string>;
+
+  UID?: Maybe<string>;
+}
+
+export interface UpsertClassOffer {
+  ClassId?: Maybe<string>;
+
+  ClassRoleId?: Maybe<string>;
+
+  Name?: Maybe<string>;
+
+  Status?: Maybe<string>;
+
+  UID?: Maybe<string>;
+}
+
+export interface UpsertClassOfferSession {
+  ClassOfferId?: Maybe<string>;
+
+  Name?: Maybe<string>;
+
+  SessionId?: Maybe<string>;
+
+  UID?: Maybe<string>;
+}
+
+export interface UpsertClassRole {
+  ClassId?: Maybe<string>;
+
+  HireResources?: Maybe<boolean>;
+
+  Name?: Maybe<string>;
+
+  Quantity?: Maybe<number>;
+
+  RoleAllocationCount?: Maybe<number>;
+
+  UID?: Maybe<string>;
+}
+
+export interface UpsertClassRoleAllocation {
+  ClassRoleId?: Maybe<string>;
+
+  Name?: Maybe<string>;
+
+  ResourceId?: Maybe<string>;
+
+  Status?: Maybe<string>;
+
+  UID?: Maybe<string>;
+}
+
+export interface UpsertClassRoleHireRequest {
+  ClassRoleId?: Maybe<string>;
+
+  ResourceId?: Maybe<string>;
+
+  UID?: Maybe<string>;
+}
+
+export interface UpsertClassRoleTag {
+  ClassRoleId?: Maybe<string>;
+
+  Required?: Maybe<boolean>;
+
+  TagId?: Maybe<string>;
+
+  UID?: Maybe<string>;
+
+  Weighting?: Maybe<number>;
+}
+
 export interface UpsertClientAvailabilities {
   AccountId?: Maybe<string>;
 
@@ -2386,7 +3022,19 @@ export interface UpsertHolidays {
   UID?: Maybe<string>;
 }
 
+export interface UpsertJobAllocationRateCard {
+  JobAllocationId?: Maybe<string>;
+
+  RateCardId?: Maybe<string>;
+
+  UID?: Maybe<string>;
+}
+
 export interface UpsertJobAllocations {
+  AllocationType?: Maybe<string>;
+
+  ClassRoleId?: Maybe<string>;
+
   DeclineDescription?: Maybe<string>;
 
   DeclineReason?: Maybe<string>;
@@ -2448,6 +3096,8 @@ export interface UpsertJobAllocations {
   TravelTime?: Maybe<number>;
 
   UID?: Maybe<string>;
+
+  UnavailabilityCancellation?: Maybe<boolean>;
 }
 
 export interface UpsertJobDependencies {
@@ -2545,6 +3195,8 @@ export interface UpsertJobs {
 
   CanBeDeclined?: Maybe<boolean>;
 
+  ClassId?: Maybe<string>;
+
   CompletionNotes?: Maybe<string>;
 
   ContactId?: Maybe<string>;
@@ -2605,6 +3257,8 @@ export interface UpsertJobs {
 
   TemplatedJobId?: Maybe<string>;
 
+  TimesheetRestriction?: Maybe<string>;
+
   Type?: Maybe<string>;
 
   UID?: Maybe<string>;
@@ -2664,6 +3318,26 @@ export interface UpsertProducts {
   UID?: Maybe<string>;
 }
 
+export interface UpsertRateCard {
+  BusinessUnitId?: Maybe<string>;
+
+  EndDate?: Maybe<string>;
+
+  Name?: Maybe<string>;
+
+  Rate?: Maybe<number>;
+
+  ResourceId?: Maybe<string>;
+
+  RoleTagId?: Maybe<string>;
+
+  StartDate?: Maybe<string>;
+
+  Type?: Maybe<string>;
+
+  UID?: Maybe<string>;
+}
+
 export interface UpsertRecurringSchedules {
   AckAllJobs?: Maybe<boolean>;
 
@@ -2677,6 +3351,10 @@ export interface UpsertRecurringSchedules {
 }
 
 export interface UpsertRegions {
+  BusinessRegionId?: Maybe<string>;
+
+  BusinessUnitId?: Maybe<string>;
+
   CountryCode?: Maybe<string>;
 
   Description?: Maybe<string>;
@@ -2690,6 +3368,40 @@ export interface UpsertRegions {
   Radius?: Maybe<number>;
 
   Timezone: string;
+
+  UID?: Maybe<string>;
+}
+
+export interface UpsertResourceClassOffer {
+  ClassOfferId?: Maybe<string>;
+
+  Name?: Maybe<string>;
+
+  OfferType?: Maybe<string>;
+
+  ResourceId?: Maybe<string>;
+
+  Response?: Maybe<string>;
+
+  Status?: Maybe<string>;
+
+  TimeNotified?: Maybe<string>;
+
+  TimeResponse?: Maybe<string>;
+
+  UID?: Maybe<string>;
+}
+
+export interface UpsertResourceClassOfferSession {
+  Name?: Maybe<string>;
+
+  OfferType?: Maybe<string>;
+
+  ResourceClassOfferId?: Maybe<string>;
+
+  SessionId?: Maybe<string>;
+
+  Status?: Maybe<string>;
 
   UID?: Maybe<string>;
 }
@@ -2843,8 +3555,6 @@ export interface UpsertResources {
 
   EmploymentType?: Maybe<string>;
 
-  FSM?: Maybe<string>;
-
   GeoLatitude?: Maybe<number>;
 
   GeoLongitude?: Maybe<number>;
@@ -2867,9 +3577,9 @@ export interface UpsertResources {
 
   Rating?: Maybe<number>;
 
-  RequestedWorkingHoursPerWeek?: Maybe<number>;
-
   ResourceType?: Maybe<string>;
+
+  TimesheetRestriction?: Maybe<string>;
 
   UID?: Maybe<string>;
 
@@ -3224,6 +3934,104 @@ export interface UpsertTemplatedShifts {
   UID?: Maybe<string>;
 }
 
+export interface UpsertTimesheet {
+  ApprovedById?: Maybe<string>;
+
+  ApprovedDate?: Maybe<LocalDate>;
+
+  ApproverComments?: Maybe<string>;
+
+  EndDate?: Maybe<LocalDate>;
+
+  ResourceId?: Maybe<string>;
+
+  StartDate?: Maybe<LocalDate>;
+
+  Status?: Maybe<string>;
+
+  SubmitterComments?: Maybe<string>;
+
+  UID?: Maybe<string>;
+}
+
+export interface UpsertTimesheetEntry {
+  ActivityId?: Maybe<string>;
+
+  Description?: Maybe<string>;
+
+  Distance?: Maybe<number>;
+
+  EndDate?: Maybe<LocalDate>;
+
+  EndTime?: Maybe<LocalTime>;
+
+  EntryType?: Maybe<string>;
+
+  JobId?: Maybe<string>;
+
+  ShiftId?: Maybe<string>;
+
+  StartDate?: Maybe<LocalDate>;
+
+  StartTime?: Maybe<LocalTime>;
+
+  TimesheetId?: Maybe<string>;
+
+  UID?: Maybe<string>;
+
+  UnavailabilityId?: Maybe<string>;
+}
+
+export interface UpsertTimesheetRestrictionConfigs {
+  JobTypesRestrictions?: Maybe<string>;
+
+  UID?: Maybe<string>;
+
+  UserRestrictions?: Maybe<string>;
+}
+
+export interface UpsertskedBroadcastRecipients {
+  UID?: Maybe<string>;
+
+  sked_BroadcastId: string;
+
+  sked_ContactId?: Maybe<string>;
+
+  sked_Date?: Maybe<LocalDate>;
+
+  sked_ErrorInformation?: Maybe<string>;
+
+  sked_NotificationMethod?: Maybe<string>;
+
+  sked_Phone?: Maybe<string>;
+
+  sked_ResourceId?: Maybe<string>;
+
+  sked_Status?: Maybe<string>;
+
+  sked_Timestamp?: Maybe<string>;
+}
+
+export interface UpsertskedBroadcasts {
+  UID?: Maybe<string>;
+
+  sked_Broadcast?: Maybe<string>;
+
+  sked_Date?: Maybe<LocalDate>;
+
+  sked_NotSent?: Maybe<number>;
+
+  sked_NotificationMethod?: Maybe<string>;
+
+  sked_RecipientType?: Maybe<string>;
+
+  sked_Sent?: Maybe<number>;
+
+  sked_Timestamp?: Maybe<string>;
+
+  sked_TotalRecipients?: Maybe<number>;
+}
+
 export enum SchemaSubscriptionOp {
   Insert = "INSERT",
   Update = "UPDATE",
@@ -3290,6 +4098,30 @@ export type EqlOrderByClauseAttendees = any;
 /** Valid values are (Attended, Absent, Cancelled) */
 export type AttendeeStatus = any;
 
+/** EQL query filter for object type ClassRole */
+export type EqlQueryFilterClassRole = any;
+
+/** EQL order by clause for object type ClassRole */
+export type EqlOrderByClauseClassRole = any;
+
+/** EQL query filter for object type ClassRoleAllocation */
+export type EqlQueryFilterClassRoleAllocation = any;
+
+/** EQL order by clause for object type ClassRoleAllocation */
+export type EqlOrderByClauseClassRoleAllocation = any;
+
+/** EQL query filter for object type ClassRoleTag */
+export type EqlQueryFilterClassRoleTag = any;
+
+/** EQL order by clause for object type ClassRoleTag */
+export type EqlOrderByClauseClassRoleTag = any;
+
+/** Valid values are (Global, Human, Asset) */
+export type TagClassification = any;
+
+/** A date without a time-zone in the ISO-8601 calendar system */
+export type LocalDate = any;
+
 /** Valid values are (Pending, Confirmed, Declined, Error) */
 export type CustomerConfirmationStatus = any;
 
@@ -3302,6 +4134,12 @@ export type EqlQueryFilterJobAllocations = any;
 /** EQL order by clause for object type JobAllocations */
 export type EqlOrderByClauseJobAllocations = any;
 
+/** EQL query filter for object type JobAllocationRateCard */
+export type EqlQueryFilterJobAllocationRateCard = any;
+
+/** EQL order by clause for object type JobAllocationRateCard */
+export type EqlOrderByClauseJobAllocationRateCard = any;
+
 /** Valid values are (Queued, Pending Allocation, Pending Dispatch, Dispatched, Ready, En Route, On Site, In Progress, Complete, Cancelled) */
 export type JobStatus = any;
 
@@ -3310,9 +4148,6 @@ export type EqlQueryFilterResourceRequirementTags = any;
 
 /** EQL order by clause for object type ResourceRequirementTags */
 export type EqlOrderByClauseResourceRequirementTags = any;
-
-/** Valid values are (Global, Human, Asset) */
-export type TagClassification = any;
 
 /** Valid values are (Pending Dispatch, Dispatched, Confirmed, En Route, Checked In, In Progress, Complete, Deleted, Declined) */
 export type JobAllocationStatus = any;
@@ -3530,6 +4365,24 @@ export type EqlQueryFilterAvailabilityPatternResources = any;
 /** EQL order by clause for object type AvailabilityPatternResources */
 export type EqlOrderByClauseAvailabilityPatternResources = any;
 
+/** EQL query filter for object type RateCard */
+export type EqlQueryFilterRateCard = any;
+
+/** EQL order by clause for object type RateCard */
+export type EqlOrderByClauseRateCard = any;
+
+/** EQL query filter for object type ResourceClassOffer */
+export type EqlQueryFilterResourceClassOffer = any;
+
+/** EQL order by clause for object type ResourceClassOffer */
+export type EqlOrderByClauseResourceClassOffer = any;
+
+/** EQL query filter for object type ResourceClassOfferSession */
+export type EqlQueryFilterResourceClassOfferSession = any;
+
+/** EQL order by clause for object type ResourceClassOfferSession */
+export type EqlOrderByClauseResourceClassOfferSession = any;
+
 /** EQL query filter for object type ResourceOverrides */
 export type EqlQueryFilterResourceOverrides = any;
 
@@ -3599,9 +4452,6 @@ export type EqlQueryFilterAvailabilityTemplateEntries = any;
 /** EQL order by clause for object type AvailabilityTemplateEntries */
 export type EqlOrderByClauseAvailabilityTemplateEntries = any;
 
-/** A date without a time-zone in the ISO-8601 calendar system */
-export type LocalDate = any;
-
 /** EQL query filter for object type AvailabilityTemplateResources */
 export type EqlQueryFilterAvailabilityTemplateResources = any;
 
@@ -3616,6 +4466,48 @@ export type EqlQueryFilterAvailabilityTemplates = any;
 
 /** EQL order by clause for object type AvailabilityTemplates */
 export type EqlOrderByClauseAvailabilityTemplates = any;
+
+/** EQL query filter for object type BusinessRegion */
+export type EqlQueryFilterBusinessRegion = any;
+
+/** EQL order by clause for object type BusinessRegion */
+export type EqlOrderByClauseBusinessRegion = any;
+
+/** EQL query filter for object type BusinessUnit */
+export type EqlQueryFilterBusinessUnit = any;
+
+/** EQL order by clause for object type BusinessUnit */
+export type EqlOrderByClauseBusinessUnit = any;
+
+/** EQL query filter for object type Class */
+export type EqlQueryFilterClass = any;
+
+/** EQL order by clause for object type Class */
+export type EqlOrderByClauseClass = any;
+
+/** EQL query filter for object type ClassHireRequestResource */
+export type EqlQueryFilterClassHireRequestResource = any;
+
+/** EQL order by clause for object type ClassHireRequestResource */
+export type EqlOrderByClauseClassHireRequestResource = any;
+
+/** EQL query filter for object type ClassOffer */
+export type EqlQueryFilterClassOffer = any;
+
+/** EQL order by clause for object type ClassOffer */
+export type EqlOrderByClauseClassOffer = any;
+
+/** EQL query filter for object type ClassOfferSession */
+export type EqlQueryFilterClassOfferSession = any;
+
+/** EQL order by clause for object type ClassOfferSession */
+export type EqlOrderByClauseClassOfferSession = any;
+
+/** EQL query filter for object type ClassRoleHireRequest */
+export type EqlQueryFilterClassRoleHireRequest = any;
+
+/** EQL order by clause for object type ClassRoleHireRequest */
+export type EqlOrderByClauseClassRoleHireRequest = any;
 
 /** EQL query filter for object type HolidayRegions */
 export type EqlQueryFilterHolidayRegions = any;
@@ -3659,11 +4551,41 @@ export type EqlQueryFilterShiftOffers = any;
 /** EQL order by clause for object type ShiftOffers */
 export type EqlOrderByClauseShiftOffers = any;
 
+/** EQL query filter for object type sked_BroadcastRecipients */
+export type EqlQueryFilterskedBroadcastRecipients = any;
+
+/** EQL order by clause for object type sked_BroadcastRecipients */
+export type EqlOrderByClauseskedBroadcastRecipients = any;
+
+/** EQL query filter for object type sked_Broadcasts */
+export type EqlQueryFilterskedBroadcasts = any;
+
+/** EQL order by clause for object type sked_Broadcasts */
+export type EqlOrderByClauseskedBroadcasts = any;
+
 /** EQL query filter for object type Tags */
 export type EqlQueryFilterTags = any;
 
 /** EQL order by clause for object type Tags */
 export type EqlOrderByClauseTags = any;
+
+/** EQL query filter for object type Timesheet */
+export type EqlQueryFilterTimesheet = any;
+
+/** EQL order by clause for object type Timesheet */
+export type EqlOrderByClauseTimesheet = any;
+
+/** EQL query filter for object type TimesheetEntry */
+export type EqlQueryFilterTimesheetEntry = any;
+
+/** EQL order by clause for object type TimesheetEntry */
+export type EqlOrderByClauseTimesheetEntry = any;
+
+/** EQL query filter for object type TimesheetRestrictionConfigs */
+export type EqlQueryFilterTimesheetRestrictionConfigs = any;
+
+/** EQL order by clause for object type TimesheetRestrictionConfigs */
+export type EqlOrderByClauseTimesheetRestrictionConfigs = any;
 
 /** EQL query filter for object type Users */
 export type EqlQueryFilterUsers = any;
@@ -3677,11 +4599,23 @@ export type EqlRecordFilterActivities = any;
 /** An EQL filter string, which can access the Current and Previous values of the Activities object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
 export type EqlRecordChangeFilterActivities = any;
 
+/** EQL record filter for object type Timesheet */
+export type EqlRecordFilterTimesheet = any;
+
+/** An EQL filter string, which can access the Current and Previous values of the Timesheet object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
+export type EqlRecordChangeFilterTimesheet = any;
+
 /** EQL record filter for object type JobAllocations */
 export type EqlRecordFilterJobAllocations = any;
 
 /** An EQL filter string, which can access the Current and Previous values of the JobAllocations object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
 export type EqlRecordChangeFilterJobAllocations = any;
+
+/** EQL record filter for object type TimesheetEntry */
+export type EqlRecordFilterTimesheetEntry = any;
+
+/** An EQL filter string, which can access the Current and Previous values of the TimesheetEntry object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
+export type EqlRecordChangeFilterTimesheetEntry = any;
 
 /** EQL record filter for object type Jobs */
 export type EqlRecordFilterJobs = any;
@@ -3876,6 +4810,46 @@ export interface Query {
 
   availabilityTemplatesById?: Maybe<AvailabilityTemplates>;
 
+  businessRegion: BusinessRegionConnection;
+
+  businessRegionById?: Maybe<BusinessRegion>;
+
+  businessUnit: BusinessUnitConnection;
+
+  businessUnitById?: Maybe<BusinessUnit>;
+
+  class: ClassConnection;
+
+  classById?: Maybe<Class>;
+
+  classHireRequestResource: ClassHireRequestResourceConnection;
+
+  classHireRequestResourceById?: Maybe<ClassHireRequestResource>;
+
+  classOffer: ClassOfferConnection;
+
+  classOfferById?: Maybe<ClassOffer>;
+
+  classOfferSession: ClassOfferSessionConnection;
+
+  classOfferSessionById?: Maybe<ClassOfferSession>;
+
+  classRole: ClassRoleConnection;
+
+  classRoleAllocation: ClassRoleAllocationConnection;
+
+  classRoleAllocationById?: Maybe<ClassRoleAllocation>;
+
+  classRoleById?: Maybe<ClassRole>;
+
+  classRoleHireRequest: ClassRoleHireRequestConnection;
+
+  classRoleHireRequestById?: Maybe<ClassRoleHireRequest>;
+
+  classRoleTag: ClassRoleTagConnection;
+
+  classRoleTagById?: Maybe<ClassRoleTag>;
+
   clientAvailabilities: ClientAvailabilitiesConnection;
 
   clientAvailabilitiesById?: Maybe<ClientAvailabilities>;
@@ -3895,6 +4869,10 @@ export interface Query {
   holidays: HolidaysConnection;
 
   holidaysById?: Maybe<Holidays>;
+
+  jobAllocationRateCard: JobAllocationRateCardConnection;
+
+  jobAllocationRateCardById?: Maybe<JobAllocationRateCard>;
 
   jobAllocations: JobAllocationsConnection;
 
@@ -3940,6 +4918,10 @@ export interface Query {
 
   productsById?: Maybe<Products>;
 
+  rateCard: RateCardConnection;
+
+  rateCardById?: Maybe<RateCard>;
+
   recurringSchedules: RecurringSchedulesConnection;
 
   recurringSchedulesById?: Maybe<RecurringSchedules>;
@@ -3947,6 +4929,14 @@ export interface Query {
   regions: RegionsConnection;
 
   regionsById?: Maybe<Regions>;
+
+  resourceClassOffer: ResourceClassOfferConnection;
+
+  resourceClassOfferById?: Maybe<ResourceClassOffer>;
+
+  resourceClassOfferSession: ResourceClassOfferSessionConnection;
+
+  resourceClassOfferSessionById?: Maybe<ResourceClassOfferSession>;
 
   resourceJobOffers: ResourceJobOffersConnection;
 
@@ -4014,6 +5004,14 @@ export interface Query {
 
   shiftsById?: Maybe<Shifts>;
 
+  sked_BroadcastRecipients: SkedBroadcastRecipientsConnection;
+
+  sked_BroadcastRecipientsById?: Maybe<SkedBroadcastRecipients>;
+
+  sked_Broadcasts: SkedBroadcastsConnection;
+
+  sked_BroadcastsById?: Maybe<SkedBroadcasts>;
+
   tags: TagsConnection;
 
   tagsById?: Maybe<Tags>;
@@ -4079,6 +5077,18 @@ export interface Query {
   templatedShifts: TemplatedShiftsConnection;
 
   templatedShiftsById?: Maybe<TemplatedShifts>;
+
+  timesheet: TimesheetConnection;
+
+  timesheetById?: Maybe<Timesheet>;
+
+  timesheetEntry: TimesheetEntryConnection;
+
+  timesheetEntryById?: Maybe<TimesheetEntry>;
+
+  timesheetRestrictionConfigs: TimesheetRestrictionConfigsConnection;
+
+  timesheetRestrictionConfigsById?: Maybe<TimesheetRestrictionConfigs>;
 
   users: UsersConnection;
 
@@ -4354,8 +5364,6 @@ export interface Resources {
 
   EmploymentType?: Maybe<string>;
 
-  FSM?: Maybe<string>;
-
   GeoLatitude?: Maybe<number>;
 
   GeoLongitude?: Maybe<number>;
@@ -4388,11 +5396,15 @@ export interface Resources {
 
   PrimaryRegionId: string;
 
+  RateCards: RateCard[];
+
   Rating?: Maybe<number>;
 
-  RequestedWorkingHoursPerWeek?: Maybe<number>;
-
   ResourceActivities: ActivityResources[];
+
+  ResourceClassOffers: ResourceClassOffer[];
+
+  ResourceJobOffers: ResourceJobOffers[];
 
   ResourceOverrides: ResourceOverrides[];
 
@@ -4411,6 +5423,8 @@ export interface Resources {
   TemplatedResourceActivities: TemplatedActivityResources[];
 
   TemplatedResourceShifts: TemplatedResourceShifts[];
+
+  TimesheetRestriction?: Maybe<string>;
 
   UID: string;
 
@@ -4568,6 +5582,10 @@ export interface Jobs {
 
   CanBeDeclined: boolean;
 
+  Class?: Maybe<Class>;
+
+  ClassId?: Maybe<string>;
+
   CompletionNotes?: Maybe<string>;
 
   Contact?: Maybe<Contacts>;
@@ -4678,6 +5696,8 @@ export interface Jobs {
 
   TemplatedJobId?: Maybe<string>;
 
+  TimesheetRestriction?: Maybe<string>;
+
   Timezone: string;
 
   Type?: Maybe<string>;
@@ -4723,7 +5743,245 @@ export interface Attendees {
   UID: string;
 }
 
+export interface Class {
+  ClassRoles: ClassRole[];
+
+  ClassSessions: Jobs[];
+
+  CreatedBy: Users;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  DeliveryModel?: Maybe<string>;
+
+  EndDate?: Maybe<LocalDate>;
+
+  LastModifiedBy: Users;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Name?: Maybe<string>;
+
+  Regions?: Maybe<Regions>;
+
+  RegionsId?: Maybe<string>;
+
+  SalesforceClassID?: Maybe<string>;
+
+  StartDate?: Maybe<LocalDate>;
+
+  StudentSuccessManager?: Maybe<string>;
+
+  TotalCompletedSessions?: Maybe<number>;
+
+  TotalSessions?: Maybe<number>;
+
+  UID: string;
+
+  University?: Maybe<Accounts>;
+
+  UniversityId?: Maybe<string>;
+}
+
+export interface ClassRole {
+  Class?: Maybe<Class>;
+
+  ClassId?: Maybe<string>;
+
+  ClassRoleAllocations: ClassRoleAllocation[];
+
+  ClassRoleTags: ClassRoleTag[];
+
+  CreatedBy: Users;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  HireResources: boolean;
+
+  LastModifiedBy: Users;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Name?: Maybe<string>;
+
+  Quantity?: Maybe<number>;
+
+  RoleAllocationCount?: Maybe<number>;
+
+  UID: string;
+}
+
+export interface ClassRoleAllocation {
+  ClassRole?: Maybe<ClassRole>;
+
+  ClassRoleId?: Maybe<string>;
+
+  CreatedBy: Users;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  LastModifiedBy: Users;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Name?: Maybe<string>;
+
+  Resource?: Maybe<Resources>;
+
+  ResourceId?: Maybe<string>;
+
+  Status?: Maybe<string>;
+
+  UID: string;
+}
+
+export interface ClassRoleTag {
+  ClassRole?: Maybe<ClassRole>;
+
+  ClassRoleId?: Maybe<string>;
+
+  CreatedBy: Users;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  LastModifiedBy: Users;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Required: boolean;
+
+  Tag?: Maybe<Tags>;
+
+  TagId?: Maybe<string>;
+
+  UID: string;
+
+  Weighting?: Maybe<number>;
+}
+
+export interface Tags {
+  Classification?: Maybe<TagClassification>;
+
+  CreatedBy: Users;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  LastModifiedBy: Users;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Name: string;
+
+  Type?: Maybe<string>;
+
+  UID: string;
+}
+
+export interface Regions {
+  BusinessRegion?: Maybe<BusinessRegion>;
+
+  BusinessRegionId?: Maybe<string>;
+
+  BusinessUnit?: Maybe<BusinessUnit>;
+
+  BusinessUnitId?: Maybe<string>;
+
+  CountryCode?: Maybe<string>;
+
+  CreatedBy: Users;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  Description?: Maybe<string>;
+
+  GeoLatitude?: Maybe<number>;
+
+  GeoLongitude?: Maybe<number>;
+
+  LastModifiedBy: Users;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Name: string;
+
+  Radius?: Maybe<number>;
+
+  Resources: Resources[];
+
+  Timezone: string;
+
+  UID: string;
+}
+
+export interface BusinessRegion {
+  BusinessUnit?: Maybe<BusinessUnit>;
+
+  BusinessUnitId?: Maybe<string>;
+
+  CreatedBy: Users;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  LastModifiedBy: Users;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Name?: Maybe<string>;
+
+  UID: string;
+}
+
+export interface BusinessUnit {
+  CreatedBy: Users;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  LastModifiedBy: Users;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Name?: Maybe<string>;
+
+  UID: string;
+}
+
 export interface JobAllocations {
+  AllocationType?: Maybe<string>;
+
+  ClassRoleId?: Maybe<string>;
+
   CreatedBy: Users;
 
   CreatedById: string;
@@ -4759,6 +6017,8 @@ export interface JobAllocations {
   GeoStartTravelLongitude?: Maybe<number>;
 
   Job: Jobs;
+
+  JobAllocationRateCards: JobAllocationRateCard[];
 
   JobId: string;
 
@@ -4803,6 +6063,70 @@ export interface JobAllocations {
   TravelDistance?: Maybe<number>;
 
   TravelTime?: Maybe<number>;
+
+  UID: string;
+
+  UnavailabilityCancellation: boolean;
+}
+
+export interface JobAllocationRateCard {
+  CreatedBy: Users;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  JobAllocation?: Maybe<JobAllocations>;
+
+  JobAllocationId?: Maybe<string>;
+
+  LastModifiedBy: Users;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  RateCard?: Maybe<RateCard>;
+
+  RateCardId?: Maybe<string>;
+
+  UID: string;
+}
+
+export interface RateCard {
+  BusinessUnit?: Maybe<BusinessUnit>;
+
+  BusinessUnitId?: Maybe<string>;
+
+  CreatedBy: Users;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  EndDate?: Maybe<string>;
+
+  LastModifiedBy: Users;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Name?: Maybe<string>;
+
+  Rate?: Maybe<number>;
+
+  Resource?: Maybe<Resources>;
+
+  ResourceId?: Maybe<string>;
+
+  RoleTag?: Maybe<Tags>;
+
+  RoleTagId?: Maybe<string>;
+
+  StartDate?: Maybe<string>;
+
+  Type?: Maybe<string>;
 
   UID: string;
 }
@@ -4877,28 +6201,6 @@ export interface ResourceRequirementTags {
   UID: string;
 
   Weighting?: Maybe<number>;
-}
-
-export interface Tags {
-  Classification?: Maybe<TagClassification>;
-
-  CreatedBy: Users;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  LastModifiedBy: Users;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  Name: string;
-
-  Type?: Maybe<string>;
-
-  UID: string;
 }
 
 export interface JobDependencies {
@@ -5163,38 +6465,6 @@ export interface RecurringSchedules {
   Pattern?: Maybe<string>;
 
   Summary?: Maybe<string>;
-
-  UID: string;
-}
-
-export interface Regions {
-  CountryCode?: Maybe<string>;
-
-  CreatedBy: Users;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  Description?: Maybe<string>;
-
-  GeoLatitude?: Maybe<number>;
-
-  GeoLongitude?: Maybe<number>;
-
-  LastModifiedBy: Users;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  Name: string;
-
-  Radius?: Maybe<number>;
-
-  Resources: Resources[];
-
-  Timezone: string;
 
   UID: string;
 }
@@ -6119,6 +7389,104 @@ export interface AvailabilityPatterns {
   UID: string;
 }
 
+export interface ResourceClassOffer {
+  ClassOffer?: Maybe<ClassOffer>;
+
+  ClassOfferId?: Maybe<string>;
+
+  CreatedBy: Users;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  LastModifiedBy: Users;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Name?: Maybe<string>;
+
+  OfferType?: Maybe<string>;
+
+  Resource?: Maybe<Resources>;
+
+  ResourceClassOfferSessions: ResourceClassOfferSession[];
+
+  ResourceId?: Maybe<string>;
+
+  Response?: Maybe<string>;
+
+  Status?: Maybe<string>;
+
+  TimeNotified?: Maybe<string>;
+
+  TimeResponse?: Maybe<string>;
+
+  UID: string;
+}
+
+export interface ClassOffer {
+  Class?: Maybe<Class>;
+
+  ClassId?: Maybe<string>;
+
+  ClassRole?: Maybe<ClassRole>;
+
+  ClassRoleId?: Maybe<string>;
+
+  CreatedBy: Users;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  LastModifiedBy: Users;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Name?: Maybe<string>;
+
+  ResourceClassOffers: ResourceClassOffer[];
+
+  Status?: Maybe<string>;
+
+  UID: string;
+}
+
+export interface ResourceClassOfferSession {
+  CreatedBy: Users;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  LastModifiedBy: Users;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Name?: Maybe<string>;
+
+  OfferType?: Maybe<string>;
+
+  ResourceClassOffer?: Maybe<ResourceClassOffer>;
+
+  ResourceClassOfferId?: Maybe<string>;
+
+  Session?: Maybe<Jobs>;
+
+  SessionId?: Maybe<string>;
+
+  Status?: Maybe<string>;
+
+  UID: string;
+}
+
 export interface ResourceOverrides {
   CreatedBy: Users;
 
@@ -6561,6 +7929,240 @@ export interface AvailabilityTemplatesEdge {
   offset: number;
 }
 
+export interface BusinessRegionConnection {
+  edges: BusinessRegionEdge[];
+
+  pageInfo: PageInfo;
+
+  totalCount: number;
+}
+
+export interface BusinessRegionEdge {
+  cursor: string;
+
+  node: BusinessRegion;
+
+  offset: number;
+}
+
+export interface BusinessUnitConnection {
+  edges: BusinessUnitEdge[];
+
+  pageInfo: PageInfo;
+
+  totalCount: number;
+}
+
+export interface BusinessUnitEdge {
+  cursor: string;
+
+  node: BusinessUnit;
+
+  offset: number;
+}
+
+export interface ClassConnection {
+  edges: ClassEdge[];
+
+  pageInfo: PageInfo;
+
+  totalCount: number;
+}
+
+export interface ClassEdge {
+  cursor: string;
+
+  node: Class;
+
+  offset: number;
+}
+
+export interface ClassHireRequestResourceConnection {
+  edges: ClassHireRequestResourceEdge[];
+
+  pageInfo: PageInfo;
+
+  totalCount: number;
+}
+
+export interface ClassHireRequestResourceEdge {
+  cursor: string;
+
+  node: ClassHireRequestResource;
+
+  offset: number;
+}
+
+export interface ClassHireRequestResource {
+  ClassRoleHireRequest?: Maybe<ClassRoleHireRequest>;
+
+  ClassRoleHireRequestId?: Maybe<string>;
+
+  CreatedBy: Users;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  LastModifiedBy: Users;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Resource?: Maybe<Resources>;
+
+  ResourceId?: Maybe<string>;
+
+  UID: string;
+}
+
+export interface ClassRoleHireRequest {
+  ClassRole?: Maybe<ClassRole>;
+
+  ClassRoleId?: Maybe<string>;
+
+  CreatedBy: Users;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  LastModifiedBy: Users;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Resource?: Maybe<Resources>;
+
+  ResourceId?: Maybe<string>;
+
+  UID: string;
+}
+
+export interface ClassOfferConnection {
+  edges: ClassOfferEdge[];
+
+  pageInfo: PageInfo;
+
+  totalCount: number;
+}
+
+export interface ClassOfferEdge {
+  cursor: string;
+
+  node: ClassOffer;
+
+  offset: number;
+}
+
+export interface ClassOfferSessionConnection {
+  edges: ClassOfferSessionEdge[];
+
+  pageInfo: PageInfo;
+
+  totalCount: number;
+}
+
+export interface ClassOfferSessionEdge {
+  cursor: string;
+
+  node: ClassOfferSession;
+
+  offset: number;
+}
+
+export interface ClassOfferSession {
+  ClassOffer?: Maybe<ClassOffer>;
+
+  ClassOfferId?: Maybe<string>;
+
+  CreatedBy: Users;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  LastModifiedBy: Users;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Name?: Maybe<string>;
+
+  Session?: Maybe<Jobs>;
+
+  SessionId?: Maybe<string>;
+
+  UID: string;
+}
+
+export interface ClassRoleConnection {
+  edges: ClassRoleEdge[];
+
+  pageInfo: PageInfo;
+
+  totalCount: number;
+}
+
+export interface ClassRoleEdge {
+  cursor: string;
+
+  node: ClassRole;
+
+  offset: number;
+}
+
+export interface ClassRoleAllocationConnection {
+  edges: ClassRoleAllocationEdge[];
+
+  pageInfo: PageInfo;
+
+  totalCount: number;
+}
+
+export interface ClassRoleAllocationEdge {
+  cursor: string;
+
+  node: ClassRoleAllocation;
+
+  offset: number;
+}
+
+export interface ClassRoleHireRequestConnection {
+  edges: ClassRoleHireRequestEdge[];
+
+  pageInfo: PageInfo;
+
+  totalCount: number;
+}
+
+export interface ClassRoleHireRequestEdge {
+  cursor: string;
+
+  node: ClassRoleHireRequest;
+
+  offset: number;
+}
+
+export interface ClassRoleTagConnection {
+  edges: ClassRoleTagEdge[];
+
+  pageInfo: PageInfo;
+
+  totalCount: number;
+}
+
+export interface ClassRoleTagEdge {
+  cursor: string;
+
+  node: ClassRoleTag;
+
+  offset: number;
+}
+
 export interface ClientAvailabilitiesConnection {
   edges: ClientAvailabilitiesEdge[];
 
@@ -6687,6 +8289,22 @@ export interface HolidaysEdge {
   cursor: string;
 
   node: Holidays;
+
+  offset: number;
+}
+
+export interface JobAllocationRateCardConnection {
+  edges: JobAllocationRateCardEdge[];
+
+  pageInfo: PageInfo;
+
+  totalCount: number;
+}
+
+export interface JobAllocationRateCardEdge {
+  cursor: string;
+
+  node: JobAllocationRateCard;
 
   offset: number;
 }
@@ -6867,6 +8485,22 @@ export interface ProductsEdge {
   offset: number;
 }
 
+export interface RateCardConnection {
+  edges: RateCardEdge[];
+
+  pageInfo: PageInfo;
+
+  totalCount: number;
+}
+
+export interface RateCardEdge {
+  cursor: string;
+
+  node: RateCard;
+
+  offset: number;
+}
+
 export interface RecurringSchedulesConnection {
   edges: RecurringSchedulesEdge[];
 
@@ -6895,6 +8529,38 @@ export interface RegionsEdge {
   cursor: string;
 
   node: Regions;
+
+  offset: number;
+}
+
+export interface ResourceClassOfferConnection {
+  edges: ResourceClassOfferEdge[];
+
+  pageInfo: PageInfo;
+
+  totalCount: number;
+}
+
+export interface ResourceClassOfferEdge {
+  cursor: string;
+
+  node: ResourceClassOffer;
+
+  offset: number;
+}
+
+export interface ResourceClassOfferSessionConnection {
+  edges: ResourceClassOfferSessionEdge[];
+
+  pageInfo: PageInfo;
+
+  totalCount: number;
+}
+
+export interface ResourceClassOfferSessionEdge {
+  cursor: string;
+
+  node: ResourceClassOfferSession;
 
   offset: number;
 }
@@ -7155,6 +8821,110 @@ export interface ShiftsEdge {
   offset: number;
 }
 
+export interface SkedBroadcastRecipientsConnection {
+  edges: SkedBroadcastRecipientsEdge[];
+
+  pageInfo: PageInfo;
+
+  totalCount: number;
+}
+
+export interface SkedBroadcastRecipientsEdge {
+  cursor: string;
+
+  node: SkedBroadcastRecipients;
+
+  offset: number;
+}
+
+export interface SkedBroadcastRecipients {
+  CreatedBy: Users;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  LastModifiedBy: Users;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  UID: string;
+
+  sked_Broadcast: SkedBroadcasts;
+
+  sked_BroadcastId: string;
+
+  sked_Contact?: Maybe<Contacts>;
+
+  sked_ContactId?: Maybe<string>;
+
+  sked_Date?: Maybe<LocalDate>;
+
+  sked_ErrorInformation?: Maybe<string>;
+
+  sked_NotificationMethod?: Maybe<string>;
+
+  sked_Phone?: Maybe<string>;
+
+  sked_Resource?: Maybe<Resources>;
+
+  sked_ResourceId?: Maybe<string>;
+
+  sked_Status?: Maybe<string>;
+
+  sked_Timestamp?: Maybe<string>;
+}
+
+export interface SkedBroadcasts {
+  CreatedBy: Users;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  LastModifiedBy: Users;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  UID: string;
+
+  sked_Broadcast?: Maybe<string>;
+
+  sked_Date?: Maybe<LocalDate>;
+
+  sked_NotSent?: Maybe<number>;
+
+  sked_NotificationMethod?: Maybe<string>;
+
+  sked_RecipientType?: Maybe<string>;
+
+  sked_Sent?: Maybe<number>;
+
+  sked_Timestamp?: Maybe<string>;
+
+  sked_TotalRecipients?: Maybe<number>;
+}
+
+export interface SkedBroadcastsConnection {
+  edges: SkedBroadcastsEdge[];
+
+  pageInfo: PageInfo;
+
+  totalCount: number;
+}
+
+export interface SkedBroadcastsEdge {
+  cursor: string;
+
+  node: SkedBroadcasts;
+
+  offset: number;
+}
+
 export interface TagsConnection {
   edges: TagsEdge[];
 
@@ -7411,6 +9181,162 @@ export interface TemplatedShiftsEdge {
   offset: number;
 }
 
+export interface TimesheetConnection {
+  edges: TimesheetEdge[];
+
+  pageInfo: PageInfo;
+
+  totalCount: number;
+}
+
+export interface TimesheetEdge {
+  cursor: string;
+
+  node: Timesheet;
+
+  offset: number;
+}
+
+export interface Timesheet {
+  ApprovedBy?: Maybe<Users>;
+
+  ApprovedById?: Maybe<string>;
+
+  ApprovedDate?: Maybe<LocalDate>;
+
+  ApproverComments?: Maybe<string>;
+
+  CreatedBy: Users;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  EndDate?: Maybe<LocalDate>;
+
+  LastModifiedBy: Users;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Resource?: Maybe<Resources>;
+
+  ResourceId?: Maybe<string>;
+
+  StartDate?: Maybe<LocalDate>;
+
+  Status?: Maybe<string>;
+
+  SubmitterComments?: Maybe<string>;
+
+  Timesheet: TimesheetEntry[];
+
+  UID: string;
+}
+
+export interface TimesheetEntry {
+  Activity?: Maybe<Activities>;
+
+  ActivityId?: Maybe<string>;
+
+  CreatedBy: Users;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  Description?: Maybe<string>;
+
+  Distance?: Maybe<number>;
+
+  EndDate?: Maybe<LocalDate>;
+
+  EndTime?: Maybe<LocalTime>;
+
+  EntryType?: Maybe<string>;
+
+  Job?: Maybe<Jobs>;
+
+  JobId?: Maybe<string>;
+
+  LastModifiedBy: Users;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Shift?: Maybe<Shifts>;
+
+  ShiftId?: Maybe<string>;
+
+  StartDate?: Maybe<LocalDate>;
+
+  StartTime?: Maybe<LocalTime>;
+
+  Timesheet?: Maybe<Timesheet>;
+
+  TimesheetId?: Maybe<string>;
+
+  UID: string;
+
+  Unavailability?: Maybe<Availabilities>;
+
+  UnavailabilityId?: Maybe<string>;
+}
+
+export interface TimesheetEntryConnection {
+  edges: TimesheetEntryEdge[];
+
+  pageInfo: PageInfo;
+
+  totalCount: number;
+}
+
+export interface TimesheetEntryEdge {
+  cursor: string;
+
+  node: TimesheetEntry;
+
+  offset: number;
+}
+
+export interface TimesheetRestrictionConfigsConnection {
+  edges: TimesheetRestrictionConfigsEdge[];
+
+  pageInfo: PageInfo;
+
+  totalCount: number;
+}
+
+export interface TimesheetRestrictionConfigsEdge {
+  cursor: string;
+
+  node: TimesheetRestrictionConfigs;
+
+  offset: number;
+}
+
+export interface TimesheetRestrictionConfigs {
+  CreatedBy: Users;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  JobTypesRestrictions?: Maybe<string>;
+
+  LastModifiedBy: Users;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  UID: string;
+
+  UserRestrictions?: Maybe<string>;
+}
+
 export interface UsersConnection {
   edges: UsersEdge[];
 
@@ -7466,6 +9392,26 @@ export interface SchemaMutation {
 
   deleteAvailabilityTemplates?: Maybe<string>;
 
+  deleteBusinessRegion?: Maybe<string>;
+
+  deleteBusinessUnit?: Maybe<string>;
+
+  deleteClass?: Maybe<string>;
+
+  deleteClassHireRequestResource?: Maybe<string>;
+
+  deleteClassOffer?: Maybe<string>;
+
+  deleteClassOfferSession?: Maybe<string>;
+
+  deleteClassRole?: Maybe<string>;
+
+  deleteClassRoleAllocation?: Maybe<string>;
+
+  deleteClassRoleHireRequest?: Maybe<string>;
+
+  deleteClassRoleTag?: Maybe<string>;
+
   deleteClientAvailabilities?: Maybe<string>;
 
   deleteContactTags?: Maybe<string>;
@@ -7475,6 +9421,8 @@ export interface SchemaMutation {
   deleteHolidayRegions?: Maybe<string>;
 
   deleteHolidays?: Maybe<string>;
+
+  deleteJobAllocationRateCard?: Maybe<string>;
 
   deleteJobAllocations?: Maybe<string>;
 
@@ -7498,9 +9446,15 @@ export interface SchemaMutation {
 
   deleteProducts?: Maybe<string>;
 
+  deleteRateCard?: Maybe<string>;
+
   deleteRecurringSchedules?: Maybe<string>;
 
   deleteRegions?: Maybe<string>;
+
+  deleteResourceClassOffer?: Maybe<string>;
+
+  deleteResourceClassOfferSession?: Maybe<string>;
 
   deleteResourceJobOffers?: Maybe<string>;
 
@@ -7566,6 +9520,16 @@ export interface SchemaMutation {
 
   deleteTemplatedShifts?: Maybe<string>;
 
+  deleteTimesheet?: Maybe<string>;
+
+  deleteTimesheetEntry?: Maybe<string>;
+
+  deleteTimesheetRestrictionConfigs?: Maybe<string>;
+
+  deletesked_BroadcastRecipients?: Maybe<string>;
+
+  deletesked_Broadcasts?: Maybe<string>;
+
   getAccountResourceScores: SimpleAccountResourceScores;
 
   getAccountTags: SimpleAccountTags;
@@ -7590,6 +9554,26 @@ export interface SchemaMutation {
 
   getAvailabilityTemplates: SimpleAvailabilityTemplates;
 
+  getBusinessRegion: SimpleBusinessRegion;
+
+  getBusinessUnit: SimpleBusinessUnit;
+
+  getClass: SimpleClass;
+
+  getClassHireRequestResource: SimpleClassHireRequestResource;
+
+  getClassOffer: SimpleClassOffer;
+
+  getClassOfferSession: SimpleClassOfferSession;
+
+  getClassRole: SimpleClassRole;
+
+  getClassRoleAllocation: SimpleClassRoleAllocation;
+
+  getClassRoleHireRequest: SimpleClassRoleHireRequest;
+
+  getClassRoleTag: SimpleClassRoleTag;
+
   getClientAvailabilities: SimpleClientAvailabilities;
 
   getContactTags: SimpleContactTags;
@@ -7599,6 +9583,8 @@ export interface SchemaMutation {
   getHolidayRegions: SimpleHolidayRegions;
 
   getHolidays: SimpleHolidays;
+
+  getJobAllocationRateCard: SimpleJobAllocationRateCard;
 
   getJobAllocations: SimpleJobAllocations;
 
@@ -7622,9 +9608,15 @@ export interface SchemaMutation {
 
   getProducts: SimpleProducts;
 
+  getRateCard: SimpleRateCard;
+
   getRecurringSchedules: SimpleRecurringSchedules;
 
   getRegions: SimpleRegions;
+
+  getResourceClassOffer: SimpleResourceClassOffer;
+
+  getResourceClassOfferSession: SimpleResourceClassOfferSession;
 
   getResourceJobOffers: SimpleResourceJobOffers;
 
@@ -7690,6 +9682,16 @@ export interface SchemaMutation {
 
   getTemplatedShifts: SimpleTemplatedShifts;
 
+  getTimesheet: SimpleTimesheet;
+
+  getTimesheetEntry: SimpleTimesheetEntry;
+
+  getTimesheetRestrictionConfigs: SimpleTimesheetRestrictionConfigs;
+
+  getsked_BroadcastRecipients: SimpleskedBroadcastRecipients;
+
+  getsked_Broadcasts: SimpleskedBroadcasts;
+
   insertAccountResourceScores: string;
 
   insertAccountTags: string;
@@ -7714,6 +9716,26 @@ export interface SchemaMutation {
 
   insertAvailabilityTemplates: string;
 
+  insertBusinessRegion: string;
+
+  insertBusinessUnit: string;
+
+  insertClass: string;
+
+  insertClassHireRequestResource: string;
+
+  insertClassOffer: string;
+
+  insertClassOfferSession: string;
+
+  insertClassRole: string;
+
+  insertClassRoleAllocation: string;
+
+  insertClassRoleHireRequest: string;
+
+  insertClassRoleTag: string;
+
   insertClientAvailabilities: string;
 
   insertContactTags: string;
@@ -7723,6 +9745,8 @@ export interface SchemaMutation {
   insertHolidayRegions: string;
 
   insertHolidays: string;
+
+  insertJobAllocationRateCard: string;
 
   insertJobAllocations: string;
 
@@ -7746,9 +9770,15 @@ export interface SchemaMutation {
 
   insertProducts: string;
 
+  insertRateCard: string;
+
   insertRecurringSchedules: string;
 
   insertRegions: string;
+
+  insertResourceClassOffer: string;
+
+  insertResourceClassOfferSession: string;
 
   insertResourceJobOffers: string;
 
@@ -7814,6 +9844,16 @@ export interface SchemaMutation {
 
   insertTemplatedShifts: string;
 
+  insertTimesheet: string;
+
+  insertTimesheetEntry: string;
+
+  insertTimesheetRestrictionConfigs: string;
+
+  insertsked_BroadcastRecipients: string;
+
+  insertsked_Broadcasts: string;
+
   updateAccountResourceScores: string;
 
   updateAccountTags: string;
@@ -7838,6 +9878,26 @@ export interface SchemaMutation {
 
   updateAvailabilityTemplates: string;
 
+  updateBusinessRegion: string;
+
+  updateBusinessUnit: string;
+
+  updateClass: string;
+
+  updateClassHireRequestResource: string;
+
+  updateClassOffer: string;
+
+  updateClassOfferSession: string;
+
+  updateClassRole: string;
+
+  updateClassRoleAllocation: string;
+
+  updateClassRoleHireRequest: string;
+
+  updateClassRoleTag: string;
+
   updateClientAvailabilities: string;
 
   updateContactTags: string;
@@ -7847,6 +9907,8 @@ export interface SchemaMutation {
   updateHolidayRegions: string;
 
   updateHolidays: string;
+
+  updateJobAllocationRateCard: string;
 
   updateJobAllocations: string;
 
@@ -7870,9 +9932,15 @@ export interface SchemaMutation {
 
   updateProducts: string;
 
+  updateRateCard: string;
+
   updateRecurringSchedules: string;
 
   updateRegions: string;
+
+  updateResourceClassOffer: string;
+
+  updateResourceClassOfferSession: string;
 
   updateResourceJobOffers: string;
 
@@ -7938,6 +10006,16 @@ export interface SchemaMutation {
 
   updateTemplatedShifts: string;
 
+  updateTimesheet: string;
+
+  updateTimesheetEntry: string;
+
+  updateTimesheetRestrictionConfigs: string;
+
+  updatesked_BroadcastRecipients: string;
+
+  updatesked_Broadcasts: string;
+
   upsertAccountResourceScores: string;
 
   upsertAccountTags: string;
@@ -7962,6 +10040,26 @@ export interface SchemaMutation {
 
   upsertAvailabilityTemplates: string;
 
+  upsertBusinessRegion: string;
+
+  upsertBusinessUnit: string;
+
+  upsertClass: string;
+
+  upsertClassHireRequestResource: string;
+
+  upsertClassOffer: string;
+
+  upsertClassOfferSession: string;
+
+  upsertClassRole: string;
+
+  upsertClassRoleAllocation: string;
+
+  upsertClassRoleHireRequest: string;
+
+  upsertClassRoleTag: string;
+
   upsertClientAvailabilities: string;
 
   upsertContactTags: string;
@@ -7971,6 +10069,8 @@ export interface SchemaMutation {
   upsertHolidayRegions: string;
 
   upsertHolidays: string;
+
+  upsertJobAllocationRateCard: string;
 
   upsertJobAllocations: string;
 
@@ -7994,9 +10094,15 @@ export interface SchemaMutation {
 
   upsertProducts: string;
 
+  upsertRateCard: string;
+
   upsertRecurringSchedules: string;
 
   upsertRegions: string;
+
+  upsertResourceClassOffer: string;
+
+  upsertResourceClassOfferSession: string;
 
   upsertResourceJobOffers: string;
 
@@ -8061,6 +10167,16 @@ export interface SchemaMutation {
   upsertTemplatedShiftTags: string;
 
   upsertTemplatedShifts: string;
+
+  upsertTimesheet: string;
+
+  upsertTimesheetEntry: string;
+
+  upsertTimesheetRestrictionConfigs: string;
+
+  upsertsked_BroadcastRecipients: string;
+
+  upsertsked_Broadcasts: string;
 }
 
 export interface SimpleAccountResourceScores {
@@ -8351,6 +10467,200 @@ export interface SimpleAvailabilityTemplates {
   UID: string;
 }
 
+export interface SimpleBusinessRegion {
+  BusinessUnitId?: Maybe<string>;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Name?: Maybe<string>;
+
+  UID: string;
+}
+
+export interface SimpleBusinessUnit {
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Name?: Maybe<string>;
+
+  UID: string;
+}
+
+export interface SimpleClass {
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  DeliveryModel?: Maybe<string>;
+
+  EndDate?: Maybe<LocalDate>;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Name?: Maybe<string>;
+
+  RegionsId?: Maybe<string>;
+
+  SalesforceClassID?: Maybe<string>;
+
+  StartDate?: Maybe<LocalDate>;
+
+  StudentSuccessManager?: Maybe<string>;
+
+  TotalCompletedSessions?: Maybe<number>;
+
+  TotalSessions?: Maybe<number>;
+
+  UID: string;
+
+  UniversityId?: Maybe<string>;
+}
+
+export interface SimpleClassHireRequestResource {
+  ClassRoleHireRequestId?: Maybe<string>;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  ResourceId?: Maybe<string>;
+
+  UID: string;
+}
+
+export interface SimpleClassOffer {
+  ClassId?: Maybe<string>;
+
+  ClassRoleId?: Maybe<string>;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Name?: Maybe<string>;
+
+  Status?: Maybe<string>;
+
+  UID: string;
+}
+
+export interface SimpleClassOfferSession {
+  ClassOfferId?: Maybe<string>;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Name?: Maybe<string>;
+
+  SessionId?: Maybe<string>;
+
+  UID: string;
+}
+
+export interface SimpleClassRole {
+  ClassId?: Maybe<string>;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  HireResources: boolean;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Name?: Maybe<string>;
+
+  Quantity?: Maybe<number>;
+
+  RoleAllocationCount?: Maybe<number>;
+
+  UID: string;
+}
+
+export interface SimpleClassRoleAllocation {
+  ClassRoleId?: Maybe<string>;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Name?: Maybe<string>;
+
+  ResourceId?: Maybe<string>;
+
+  Status?: Maybe<string>;
+
+  UID: string;
+}
+
+export interface SimpleClassRoleHireRequest {
+  ClassRoleId?: Maybe<string>;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  ResourceId?: Maybe<string>;
+
+  UID: string;
+}
+
+export interface SimpleClassRoleTag {
+  ClassRoleId?: Maybe<string>;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Required: boolean;
+
+  TagId?: Maybe<string>;
+
+  UID: string;
+
+  Weighting?: Maybe<number>;
+}
+
 export interface SimpleClientAvailabilities {
   AccountId?: Maybe<string>;
 
@@ -8481,7 +10791,27 @@ export interface SimpleHolidays {
   UID: string;
 }
 
+export interface SimpleJobAllocationRateCard {
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  JobAllocationId?: Maybe<string>;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  RateCardId?: Maybe<string>;
+
+  UID: string;
+}
+
 export interface SimpleJobAllocations {
+  AllocationType?: Maybe<string>;
+
+  ClassRoleId?: Maybe<string>;
+
   CreatedById: string;
 
   CreatedDate: string;
@@ -8553,6 +10883,8 @@ export interface SimpleJobAllocations {
   TravelTime?: Maybe<number>;
 
   UID: string;
+
+  UnavailabilityCancellation: boolean;
 }
 
 export interface SimpleJobDependencies {
@@ -8702,6 +11034,8 @@ export interface SimpleJobs {
 
   CanBeDeclined: boolean;
 
+  ClassId?: Maybe<string>;
+
   CompletionNotes?: Maybe<string>;
 
   ContactId?: Maybe<string>;
@@ -8771,6 +11105,8 @@ export interface SimpleJobs {
   Start?: Maybe<string>;
 
   TemplatedJobId?: Maybe<string>;
+
+  TimesheetRestriction?: Maybe<string>;
 
   Timezone: string;
 
@@ -8857,6 +11193,34 @@ export interface SimpleProducts {
   UID: string;
 }
 
+export interface SimpleRateCard {
+  BusinessUnitId?: Maybe<string>;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  EndDate?: Maybe<string>;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Name?: Maybe<string>;
+
+  Rate?: Maybe<number>;
+
+  ResourceId?: Maybe<string>;
+
+  RoleTagId?: Maybe<string>;
+
+  StartDate?: Maybe<string>;
+
+  Type?: Maybe<string>;
+
+  UID: string;
+}
+
 export interface SimpleRecurringSchedules {
   AckAllJobs: boolean;
 
@@ -8880,6 +11244,10 @@ export interface SimpleRecurringSchedules {
 }
 
 export interface SimpleRegions {
+  BusinessRegionId?: Maybe<string>;
+
+  BusinessUnitId?: Maybe<string>;
+
   CountryCode?: Maybe<string>;
 
   CreatedById: string;
@@ -8901,6 +11269,56 @@ export interface SimpleRegions {
   Radius?: Maybe<number>;
 
   Timezone: string;
+
+  UID: string;
+}
+
+export interface SimpleResourceClassOffer {
+  ClassOfferId?: Maybe<string>;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Name?: Maybe<string>;
+
+  OfferType?: Maybe<string>;
+
+  ResourceId?: Maybe<string>;
+
+  Response?: Maybe<string>;
+
+  Status?: Maybe<string>;
+
+  TimeNotified?: Maybe<string>;
+
+  TimeResponse?: Maybe<string>;
+
+  UID: string;
+}
+
+export interface SimpleResourceClassOfferSession {
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Name?: Maybe<string>;
+
+  OfferType?: Maybe<string>;
+
+  ResourceClassOfferId?: Maybe<string>;
+
+  SessionId?: Maybe<string>;
+
+  Status?: Maybe<string>;
 
   UID: string;
 }
@@ -9142,8 +11560,6 @@ export interface SimpleResources {
 
   EmploymentType?: Maybe<string>;
 
-  FSM?: Maybe<string>;
-
   GeoLatitude?: Maybe<number>;
 
   GeoLongitude?: Maybe<number>;
@@ -9170,9 +11586,9 @@ export interface SimpleResources {
 
   Rating?: Maybe<number>;
 
-  RequestedWorkingHoursPerWeek?: Maybe<number>;
-
   ResourceType?: Maybe<string>;
+
+  TimesheetRestriction?: Maybe<string>;
 
   UID: string;
 
@@ -9697,10 +12113,152 @@ export interface SimpleTemplatedShifts {
   UID: string;
 }
 
+export interface SimpleTimesheet {
+  ApprovedById?: Maybe<string>;
+
+  ApprovedDate?: Maybe<LocalDate>;
+
+  ApproverComments?: Maybe<string>;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  EndDate?: Maybe<LocalDate>;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  ResourceId?: Maybe<string>;
+
+  StartDate?: Maybe<LocalDate>;
+
+  Status?: Maybe<string>;
+
+  SubmitterComments?: Maybe<string>;
+
+  UID: string;
+}
+
+export interface SimpleTimesheetEntry {
+  ActivityId?: Maybe<string>;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  Description?: Maybe<string>;
+
+  Distance?: Maybe<number>;
+
+  EndDate?: Maybe<LocalDate>;
+
+  EndTime?: Maybe<LocalTime>;
+
+  EntryType?: Maybe<string>;
+
+  JobId?: Maybe<string>;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  ShiftId?: Maybe<string>;
+
+  StartDate?: Maybe<LocalDate>;
+
+  StartTime?: Maybe<LocalTime>;
+
+  TimesheetId?: Maybe<string>;
+
+  UID: string;
+
+  UnavailabilityId?: Maybe<string>;
+}
+
+export interface SimpleTimesheetRestrictionConfigs {
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  JobTypesRestrictions?: Maybe<string>;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  UID: string;
+
+  UserRestrictions?: Maybe<string>;
+}
+
+export interface SimpleskedBroadcastRecipients {
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  UID: string;
+
+  sked_BroadcastId: string;
+
+  sked_ContactId?: Maybe<string>;
+
+  sked_Date?: Maybe<LocalDate>;
+
+  sked_ErrorInformation?: Maybe<string>;
+
+  sked_NotificationMethod?: Maybe<string>;
+
+  sked_Phone?: Maybe<string>;
+
+  sked_ResourceId?: Maybe<string>;
+
+  sked_Status?: Maybe<string>;
+
+  sked_Timestamp?: Maybe<string>;
+}
+
+export interface SimpleskedBroadcasts {
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  UID: string;
+
+  sked_Broadcast?: Maybe<string>;
+
+  sked_Date?: Maybe<LocalDate>;
+
+  sked_NotSent?: Maybe<number>;
+
+  sked_NotificationMethod?: Maybe<string>;
+
+  sked_RecipientType?: Maybe<string>;
+
+  sked_Sent?: Maybe<number>;
+
+  sked_Timestamp?: Maybe<string>;
+
+  sked_TotalRecipients?: Maybe<number>;
+}
+
 export interface Subscription {
   schemaActivities: SchemaSubscriptionNotificationActivities;
 
+  schemaTimesheet: SchemaSubscriptionNotificationTimesheet;
+
   schemaJobAllocations: SchemaSubscriptionNotificationJobAllocations;
+
+  schemaTimesheetEntry: SchemaSubscriptionNotificationTimesheetEntry;
 
   schemaJobs: SchemaSubscriptionNotificationJobs;
 
@@ -9766,6 +12324,45 @@ export interface SchemaSubscriptionActivities {
   UID: string;
 }
 
+export interface SchemaSubscriptionNotificationTimesheet
+  extends SchemaSubscriptionNotification {
+  operation: SchemaSubscriptionOp;
+
+  timestamp: string;
+
+  data: SchemaSubscriptionTimesheet;
+
+  previous: SchemaSubscriptionTimesheet;
+}
+
+export interface SchemaSubscriptionTimesheet {
+  ApprovedById?: Maybe<string>;
+
+  ApprovedDate?: Maybe<LocalDate>;
+
+  ApproverComments?: Maybe<string>;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  EndDate?: Maybe<LocalDate>;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  ResourceId?: Maybe<string>;
+
+  StartDate?: Maybe<LocalDate>;
+
+  Status?: Maybe<string>;
+
+  SubmitterComments?: Maybe<string>;
+
+  UID: string;
+}
+
 export interface SchemaSubscriptionNotificationJobAllocations
   extends SchemaSubscriptionNotification {
   operation: SchemaSubscriptionOp;
@@ -9778,6 +12375,10 @@ export interface SchemaSubscriptionNotificationJobAllocations
 }
 
 export interface SchemaSubscriptionJobAllocations {
+  AllocationType?: Maybe<string>;
+
+  ClassRoleId?: Maybe<string>;
+
   CreatedById: string;
 
   CreatedDate: string;
@@ -9849,6 +12450,55 @@ export interface SchemaSubscriptionJobAllocations {
   TravelTime?: Maybe<number>;
 
   UID: string;
+
+  UnavailabilityCancellation: boolean;
+}
+
+export interface SchemaSubscriptionNotificationTimesheetEntry
+  extends SchemaSubscriptionNotification {
+  operation: SchemaSubscriptionOp;
+
+  timestamp: string;
+
+  data: SchemaSubscriptionTimesheetEntry;
+
+  previous: SchemaSubscriptionTimesheetEntry;
+}
+
+export interface SchemaSubscriptionTimesheetEntry {
+  ActivityId?: Maybe<string>;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  Description?: Maybe<string>;
+
+  Distance?: Maybe<number>;
+
+  EndDate?: Maybe<LocalDate>;
+
+  EndTime?: Maybe<LocalTime>;
+
+  EntryType?: Maybe<string>;
+
+  JobId?: Maybe<string>;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  ShiftId?: Maybe<string>;
+
+  StartDate?: Maybe<LocalDate>;
+
+  StartTime?: Maybe<LocalTime>;
+
+  TimesheetId?: Maybe<string>;
+
+  UID: string;
+
+  UnavailabilityId?: Maybe<string>;
 }
 
 export interface SchemaSubscriptionNotificationJobs
@@ -9876,6 +12526,8 @@ export interface SchemaSubscriptionJobs {
   AutoSchedule: boolean;
 
   CanBeDeclined: boolean;
+
+  ClassId?: Maybe<string>;
 
   CompletionNotes?: Maybe<string>;
 
@@ -9946,6 +12598,8 @@ export interface SchemaSubscriptionJobs {
   Start?: Maybe<string>;
 
   TemplatedJobId?: Maybe<string>;
+
+  TimesheetRestriction?: Maybe<string>;
 
   Timezone: string;
 
@@ -10322,6 +12976,146 @@ export interface AvailabilityTemplatesQueryArgs {
 export interface AvailabilityTemplatesByIdQueryArgs {
   UID: string;
 }
+export interface BusinessRegionQueryArgs {
+  after?: Maybe<string>;
+
+  filter?: Maybe<EqlQueryFilterBusinessRegion>;
+
+  first?: Maybe<number>;
+
+  offset?: Maybe<number>;
+
+  orderBy?: Maybe<EqlOrderByClauseBusinessRegion>;
+}
+export interface BusinessRegionByIdQueryArgs {
+  UID: string;
+}
+export interface BusinessUnitQueryArgs {
+  after?: Maybe<string>;
+
+  filter?: Maybe<EqlQueryFilterBusinessUnit>;
+
+  first?: Maybe<number>;
+
+  offset?: Maybe<number>;
+
+  orderBy?: Maybe<EqlOrderByClauseBusinessUnit>;
+}
+export interface BusinessUnitByIdQueryArgs {
+  UID: string;
+}
+export interface ClassQueryArgs {
+  after?: Maybe<string>;
+
+  filter?: Maybe<EqlQueryFilterClass>;
+
+  first?: Maybe<number>;
+
+  offset?: Maybe<number>;
+
+  orderBy?: Maybe<EqlOrderByClauseClass>;
+}
+export interface ClassByIdQueryArgs {
+  UID: string;
+}
+export interface ClassHireRequestResourceQueryArgs {
+  after?: Maybe<string>;
+
+  filter?: Maybe<EqlQueryFilterClassHireRequestResource>;
+
+  first?: Maybe<number>;
+
+  offset?: Maybe<number>;
+
+  orderBy?: Maybe<EqlOrderByClauseClassHireRequestResource>;
+}
+export interface ClassHireRequestResourceByIdQueryArgs {
+  UID: string;
+}
+export interface ClassOfferQueryArgs {
+  after?: Maybe<string>;
+
+  filter?: Maybe<EqlQueryFilterClassOffer>;
+
+  first?: Maybe<number>;
+
+  offset?: Maybe<number>;
+
+  orderBy?: Maybe<EqlOrderByClauseClassOffer>;
+}
+export interface ClassOfferByIdQueryArgs {
+  UID: string;
+}
+export interface ClassOfferSessionQueryArgs {
+  after?: Maybe<string>;
+
+  filter?: Maybe<EqlQueryFilterClassOfferSession>;
+
+  first?: Maybe<number>;
+
+  offset?: Maybe<number>;
+
+  orderBy?: Maybe<EqlOrderByClauseClassOfferSession>;
+}
+export interface ClassOfferSessionByIdQueryArgs {
+  UID: string;
+}
+export interface ClassRoleQueryArgs {
+  after?: Maybe<string>;
+
+  filter?: Maybe<EqlQueryFilterClassRole>;
+
+  first?: Maybe<number>;
+
+  offset?: Maybe<number>;
+
+  orderBy?: Maybe<EqlOrderByClauseClassRole>;
+}
+export interface ClassRoleAllocationQueryArgs {
+  after?: Maybe<string>;
+
+  filter?: Maybe<EqlQueryFilterClassRoleAllocation>;
+
+  first?: Maybe<number>;
+
+  offset?: Maybe<number>;
+
+  orderBy?: Maybe<EqlOrderByClauseClassRoleAllocation>;
+}
+export interface ClassRoleAllocationByIdQueryArgs {
+  UID: string;
+}
+export interface ClassRoleByIdQueryArgs {
+  UID: string;
+}
+export interface ClassRoleHireRequestQueryArgs {
+  after?: Maybe<string>;
+
+  filter?: Maybe<EqlQueryFilterClassRoleHireRequest>;
+
+  first?: Maybe<number>;
+
+  offset?: Maybe<number>;
+
+  orderBy?: Maybe<EqlOrderByClauseClassRoleHireRequest>;
+}
+export interface ClassRoleHireRequestByIdQueryArgs {
+  UID: string;
+}
+export interface ClassRoleTagQueryArgs {
+  after?: Maybe<string>;
+
+  filter?: Maybe<EqlQueryFilterClassRoleTag>;
+
+  first?: Maybe<number>;
+
+  offset?: Maybe<number>;
+
+  orderBy?: Maybe<EqlOrderByClauseClassRoleTag>;
+}
+export interface ClassRoleTagByIdQueryArgs {
+  UID: string;
+}
 export interface ClientAvailabilitiesQueryArgs {
   after?: Maybe<string>;
 
@@ -10390,6 +13184,20 @@ export interface HolidaysQueryArgs {
   orderBy?: Maybe<EqlOrderByClauseHolidays>;
 }
 export interface HolidaysByIdQueryArgs {
+  UID: string;
+}
+export interface JobAllocationRateCardQueryArgs {
+  after?: Maybe<string>;
+
+  filter?: Maybe<EqlQueryFilterJobAllocationRateCard>;
+
+  first?: Maybe<number>;
+
+  offset?: Maybe<number>;
+
+  orderBy?: Maybe<EqlOrderByClauseJobAllocationRateCard>;
+}
+export interface JobAllocationRateCardByIdQueryArgs {
   UID: string;
 }
 export interface JobAllocationsQueryArgs {
@@ -10546,6 +13354,20 @@ export interface ProductsQueryArgs {
 export interface ProductsByIdQueryArgs {
   UID: string;
 }
+export interface RateCardQueryArgs {
+  after?: Maybe<string>;
+
+  filter?: Maybe<EqlQueryFilterRateCard>;
+
+  first?: Maybe<number>;
+
+  offset?: Maybe<number>;
+
+  orderBy?: Maybe<EqlOrderByClauseRateCard>;
+}
+export interface RateCardByIdQueryArgs {
+  UID: string;
+}
 export interface RecurringSchedulesQueryArgs {
   after?: Maybe<string>;
 
@@ -10572,6 +13394,34 @@ export interface RegionsQueryArgs {
   orderBy?: Maybe<EqlOrderByClauseRegions>;
 }
 export interface RegionsByIdQueryArgs {
+  UID: string;
+}
+export interface ResourceClassOfferQueryArgs {
+  after?: Maybe<string>;
+
+  filter?: Maybe<EqlQueryFilterResourceClassOffer>;
+
+  first?: Maybe<number>;
+
+  offset?: Maybe<number>;
+
+  orderBy?: Maybe<EqlOrderByClauseResourceClassOffer>;
+}
+export interface ResourceClassOfferByIdQueryArgs {
+  UID: string;
+}
+export interface ResourceClassOfferSessionQueryArgs {
+  after?: Maybe<string>;
+
+  filter?: Maybe<EqlQueryFilterResourceClassOfferSession>;
+
+  first?: Maybe<number>;
+
+  offset?: Maybe<number>;
+
+  orderBy?: Maybe<EqlOrderByClauseResourceClassOfferSession>;
+}
+export interface ResourceClassOfferSessionByIdQueryArgs {
   UID: string;
 }
 export interface ResourceJobOffersQueryArgs {
@@ -10805,6 +13655,34 @@ export interface ShiftsQueryArgs {
 export interface ShiftsByIdQueryArgs {
   UID: string;
 }
+export interface SkedBroadcastRecipientsQueryArgs {
+  after?: Maybe<string>;
+
+  filter?: Maybe<EqlQueryFilterskedBroadcastRecipients>;
+
+  first?: Maybe<number>;
+
+  offset?: Maybe<number>;
+
+  orderBy?: Maybe<EqlOrderByClauseskedBroadcastRecipients>;
+}
+export interface SkedBroadcastRecipientsByIdQueryArgs {
+  UID: string;
+}
+export interface SkedBroadcastsQueryArgs {
+  after?: Maybe<string>;
+
+  filter?: Maybe<EqlQueryFilterskedBroadcasts>;
+
+  first?: Maybe<number>;
+
+  offset?: Maybe<number>;
+
+  orderBy?: Maybe<EqlOrderByClauseskedBroadcasts>;
+}
+export interface SkedBroadcastsByIdQueryArgs {
+  UID: string;
+}
 export interface TagsQueryArgs {
   after?: Maybe<string>;
 
@@ -11029,6 +13907,48 @@ export interface TemplatedShiftsQueryArgs {
 export interface TemplatedShiftsByIdQueryArgs {
   UID: string;
 }
+export interface TimesheetQueryArgs {
+  after?: Maybe<string>;
+
+  filter?: Maybe<EqlQueryFilterTimesheet>;
+
+  first?: Maybe<number>;
+
+  offset?: Maybe<number>;
+
+  orderBy?: Maybe<EqlOrderByClauseTimesheet>;
+}
+export interface TimesheetByIdQueryArgs {
+  UID: string;
+}
+export interface TimesheetEntryQueryArgs {
+  after?: Maybe<string>;
+
+  filter?: Maybe<EqlQueryFilterTimesheetEntry>;
+
+  first?: Maybe<number>;
+
+  offset?: Maybe<number>;
+
+  orderBy?: Maybe<EqlOrderByClauseTimesheetEntry>;
+}
+export interface TimesheetEntryByIdQueryArgs {
+  UID: string;
+}
+export interface TimesheetRestrictionConfigsQueryArgs {
+  after?: Maybe<string>;
+
+  filter?: Maybe<EqlQueryFilterTimesheetRestrictionConfigs>;
+
+  first?: Maybe<number>;
+
+  offset?: Maybe<number>;
+
+  orderBy?: Maybe<EqlOrderByClauseTimesheetRestrictionConfigs>;
+}
+export interface TimesheetRestrictionConfigsByIdQueryArgs {
+  UID: string;
+}
 export interface UsersQueryArgs {
   after?: Maybe<string>;
 
@@ -11121,10 +14041,25 @@ export interface LocationScoresResourcesArgs {
 
   orderBy?: Maybe<EqlOrderByClauseLocationResourceScores>;
 }
+export interface RateCardsResourcesArgs {
+  filter?: Maybe<EqlQueryFilterRateCard>;
+
+  orderBy?: Maybe<EqlOrderByClauseRateCard>;
+}
 export interface ResourceActivitiesResourcesArgs {
   filter?: Maybe<EqlQueryFilterActivityResources>;
 
   orderBy?: Maybe<EqlOrderByClauseActivityResources>;
+}
+export interface ResourceClassOffersResourcesArgs {
+  filter?: Maybe<EqlQueryFilterResourceClassOffer>;
+
+  orderBy?: Maybe<EqlOrderByClauseResourceClassOffer>;
+}
+export interface ResourceJobOffersResourcesArgs {
+  filter?: Maybe<EqlQueryFilterResourceJobOffers>;
+
+  orderBy?: Maybe<EqlOrderByClauseResourceJobOffers>;
 }
 export interface ResourceOverridesResourcesArgs {
   filter?: Maybe<EqlQueryFilterResourceOverrides>;
@@ -11246,6 +14181,36 @@ export interface ResourceRequirementsJobsArgs {
 
   orderBy?: Maybe<EqlOrderByClauseResourceRequirements>;
 }
+export interface ClassRolesClassArgs {
+  filter?: Maybe<EqlQueryFilterClassRole>;
+
+  orderBy?: Maybe<EqlOrderByClauseClassRole>;
+}
+export interface ClassSessionsClassArgs {
+  filter?: Maybe<EqlQueryFilterJobs>;
+
+  orderBy?: Maybe<EqlOrderByClauseJobs>;
+}
+export interface ClassRoleAllocationsClassRoleArgs {
+  filter?: Maybe<EqlQueryFilterClassRoleAllocation>;
+
+  orderBy?: Maybe<EqlOrderByClauseClassRoleAllocation>;
+}
+export interface ClassRoleTagsClassRoleArgs {
+  filter?: Maybe<EqlQueryFilterClassRoleTag>;
+
+  orderBy?: Maybe<EqlOrderByClauseClassRoleTag>;
+}
+export interface ResourcesRegionsArgs {
+  filter?: Maybe<EqlQueryFilterResources>;
+
+  orderBy?: Maybe<EqlOrderByClauseResources>;
+}
+export interface JobAllocationRateCardsJobAllocationsArgs {
+  filter?: Maybe<EqlQueryFilterJobAllocationRateCard>;
+
+  orderBy?: Maybe<EqlOrderByClauseJobAllocationRateCard>;
+}
 export interface JobAllocationsResourceRequirementsArgs {
   filter?: Maybe<EqlQueryFilterJobAllocations>;
 
@@ -11270,11 +14235,6 @@ export interface JobsRecurringSchedulesArgs {
   filter?: Maybe<EqlQueryFilterJobs>;
 
   orderBy?: Maybe<EqlOrderByClauseJobs>;
-}
-export interface ResourcesRegionsArgs {
-  filter?: Maybe<EqlQueryFilterResources>;
-
-  orderBy?: Maybe<EqlOrderByClauseResources>;
 }
 export interface ActivitiesScheduleTemplatesArgs {
   filter?: Maybe<EqlQueryFilterActivities>;
@@ -11426,6 +14386,16 @@ export interface ResourcesAvailabilityPatternsArgs {
 
   orderBy?: Maybe<EqlOrderByClauseAvailabilityPatternResources>;
 }
+export interface ResourceClassOfferSessionsResourceClassOfferArgs {
+  filter?: Maybe<EqlQueryFilterResourceClassOfferSession>;
+
+  orderBy?: Maybe<EqlOrderByClauseResourceClassOfferSession>;
+}
+export interface ResourceClassOffersClassOfferArgs {
+  filter?: Maybe<EqlQueryFilterResourceClassOffer>;
+
+  orderBy?: Maybe<EqlOrderByClauseResourceClassOffer>;
+}
 export interface ResourceOverrideRegionsResourceOverridesArgs {
   filter?: Maybe<EqlQueryFilterResourceOverrideRegions>;
 
@@ -11445,6 +14415,11 @@ export interface HolidayRegionsHolidaysArgs {
   filter?: Maybe<EqlQueryFilterHolidayRegions>;
 
   orderBy?: Maybe<EqlOrderByClauseHolidayRegions>;
+}
+export interface TimesheetTimesheetArgs {
+  filter?: Maybe<EqlQueryFilterTimesheetEntry>;
+
+  orderBy?: Maybe<EqlOrderByClauseTimesheetEntry>;
 }
 export interface DeleteAccountResourceScoresSchemaMutationArgs {
   UID: string;
@@ -11482,6 +14457,36 @@ export interface DeleteAvailabilityTemplateResourcesSchemaMutationArgs {
 export interface DeleteAvailabilityTemplatesSchemaMutationArgs {
   UID: string;
 }
+export interface DeleteBusinessRegionSchemaMutationArgs {
+  UID: string;
+}
+export interface DeleteBusinessUnitSchemaMutationArgs {
+  UID: string;
+}
+export interface DeleteClassSchemaMutationArgs {
+  UID: string;
+}
+export interface DeleteClassHireRequestResourceSchemaMutationArgs {
+  UID: string;
+}
+export interface DeleteClassOfferSchemaMutationArgs {
+  UID: string;
+}
+export interface DeleteClassOfferSessionSchemaMutationArgs {
+  UID: string;
+}
+export interface DeleteClassRoleSchemaMutationArgs {
+  UID: string;
+}
+export interface DeleteClassRoleAllocationSchemaMutationArgs {
+  UID: string;
+}
+export interface DeleteClassRoleHireRequestSchemaMutationArgs {
+  UID: string;
+}
+export interface DeleteClassRoleTagSchemaMutationArgs {
+  UID: string;
+}
 export interface DeleteClientAvailabilitiesSchemaMutationArgs {
   UID: string;
 }
@@ -11495,6 +14500,9 @@ export interface DeleteHolidayRegionsSchemaMutationArgs {
   UID: string;
 }
 export interface DeleteHolidaysSchemaMutationArgs {
+  UID: string;
+}
+export interface DeleteJobAllocationRateCardSchemaMutationArgs {
   UID: string;
 }
 export interface DeleteJobAllocationsSchemaMutationArgs {
@@ -11530,10 +14538,19 @@ export interface DeleteLocationsSchemaMutationArgs {
 export interface DeleteProductsSchemaMutationArgs {
   UID: string;
 }
+export interface DeleteRateCardSchemaMutationArgs {
+  UID: string;
+}
 export interface DeleteRecurringSchedulesSchemaMutationArgs {
   UID: string;
 }
 export interface DeleteRegionsSchemaMutationArgs {
+  UID: string;
+}
+export interface DeleteResourceClassOfferSchemaMutationArgs {
+  UID: string;
+}
+export interface DeleteResourceClassOfferSessionSchemaMutationArgs {
   UID: string;
 }
 export interface DeleteResourceJobOffersSchemaMutationArgs {
@@ -11632,6 +14649,21 @@ export interface DeleteTemplatedShiftTagsSchemaMutationArgs {
 export interface DeleteTemplatedShiftsSchemaMutationArgs {
   UID: string;
 }
+export interface DeleteTimesheetSchemaMutationArgs {
+  UID: string;
+}
+export interface DeleteTimesheetEntrySchemaMutationArgs {
+  UID: string;
+}
+export interface DeleteTimesheetRestrictionConfigsSchemaMutationArgs {
+  UID: string;
+}
+export interface DeleteskedBroadcastRecipientsSchemaMutationArgs {
+  UID: string;
+}
+export interface DeleteskedBroadcastsSchemaMutationArgs {
+  UID: string;
+}
 export interface GetAccountResourceScoresSchemaMutationArgs {
   id: string;
 }
@@ -11668,6 +14700,36 @@ export interface GetAvailabilityTemplateResourcesSchemaMutationArgs {
 export interface GetAvailabilityTemplatesSchemaMutationArgs {
   id: string;
 }
+export interface GetBusinessRegionSchemaMutationArgs {
+  id: string;
+}
+export interface GetBusinessUnitSchemaMutationArgs {
+  id: string;
+}
+export interface GetClassSchemaMutationArgs {
+  id: string;
+}
+export interface GetClassHireRequestResourceSchemaMutationArgs {
+  id: string;
+}
+export interface GetClassOfferSchemaMutationArgs {
+  id: string;
+}
+export interface GetClassOfferSessionSchemaMutationArgs {
+  id: string;
+}
+export interface GetClassRoleSchemaMutationArgs {
+  id: string;
+}
+export interface GetClassRoleAllocationSchemaMutationArgs {
+  id: string;
+}
+export interface GetClassRoleHireRequestSchemaMutationArgs {
+  id: string;
+}
+export interface GetClassRoleTagSchemaMutationArgs {
+  id: string;
+}
 export interface GetClientAvailabilitiesSchemaMutationArgs {
   id: string;
 }
@@ -11681,6 +14743,9 @@ export interface GetHolidayRegionsSchemaMutationArgs {
   id: string;
 }
 export interface GetHolidaysSchemaMutationArgs {
+  id: string;
+}
+export interface GetJobAllocationRateCardSchemaMutationArgs {
   id: string;
 }
 export interface GetJobAllocationsSchemaMutationArgs {
@@ -11716,10 +14781,19 @@ export interface GetLocationsSchemaMutationArgs {
 export interface GetProductsSchemaMutationArgs {
   id: string;
 }
+export interface GetRateCardSchemaMutationArgs {
+  id: string;
+}
 export interface GetRecurringSchedulesSchemaMutationArgs {
   id: string;
 }
 export interface GetRegionsSchemaMutationArgs {
+  id: string;
+}
+export interface GetResourceClassOfferSchemaMutationArgs {
+  id: string;
+}
+export interface GetResourceClassOfferSessionSchemaMutationArgs {
   id: string;
 }
 export interface GetResourceJobOffersSchemaMutationArgs {
@@ -11818,6 +14892,21 @@ export interface GetTemplatedShiftTagsSchemaMutationArgs {
 export interface GetTemplatedShiftsSchemaMutationArgs {
   id: string;
 }
+export interface GetTimesheetSchemaMutationArgs {
+  id: string;
+}
+export interface GetTimesheetEntrySchemaMutationArgs {
+  id: string;
+}
+export interface GetTimesheetRestrictionConfigsSchemaMutationArgs {
+  id: string;
+}
+export interface GetskedBroadcastRecipientsSchemaMutationArgs {
+  id: string;
+}
+export interface GetskedBroadcastsSchemaMutationArgs {
+  id: string;
+}
 export interface InsertAccountResourceScoresSchemaMutationArgs {
   idAlias?: Maybe<string>;
 
@@ -11878,6 +14967,56 @@ export interface InsertAvailabilityTemplatesSchemaMutationArgs {
 
   input: NewAvailabilityTemplates;
 }
+export interface InsertBusinessRegionSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: NewBusinessRegion;
+}
+export interface InsertBusinessUnitSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: NewBusinessUnit;
+}
+export interface InsertClassSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: NewClass;
+}
+export interface InsertClassHireRequestResourceSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: NewClassHireRequestResource;
+}
+export interface InsertClassOfferSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: NewClassOffer;
+}
+export interface InsertClassOfferSessionSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: NewClassOfferSession;
+}
+export interface InsertClassRoleSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: NewClassRole;
+}
+export interface InsertClassRoleAllocationSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: NewClassRoleAllocation;
+}
+export interface InsertClassRoleHireRequestSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: NewClassRoleHireRequest;
+}
+export interface InsertClassRoleTagSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: NewClassRoleTag;
+}
 export interface InsertClientAvailabilitiesSchemaMutationArgs {
   idAlias?: Maybe<string>;
 
@@ -11902,6 +15041,11 @@ export interface InsertHolidaysSchemaMutationArgs {
   idAlias?: Maybe<string>;
 
   input: NewHolidays;
+}
+export interface InsertJobAllocationRateCardSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: NewJobAllocationRateCard;
 }
 export interface InsertJobAllocationsSchemaMutationArgs {
   idAlias?: Maybe<string>;
@@ -11958,6 +15102,11 @@ export interface InsertProductsSchemaMutationArgs {
 
   input: NewProducts;
 }
+export interface InsertRateCardSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: NewRateCard;
+}
 export interface InsertRecurringSchedulesSchemaMutationArgs {
   idAlias?: Maybe<string>;
 
@@ -11967,6 +15116,16 @@ export interface InsertRegionsSchemaMutationArgs {
   idAlias?: Maybe<string>;
 
   input: NewRegions;
+}
+export interface InsertResourceClassOfferSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: NewResourceClassOffer;
+}
+export interface InsertResourceClassOfferSessionSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: NewResourceClassOfferSession;
 }
 export interface InsertResourceJobOffersSchemaMutationArgs {
   idAlias?: Maybe<string>;
@@ -12128,6 +15287,31 @@ export interface InsertTemplatedShiftsSchemaMutationArgs {
 
   input: NewTemplatedShifts;
 }
+export interface InsertTimesheetSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: NewTimesheet;
+}
+export interface InsertTimesheetEntrySchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: NewTimesheetEntry;
+}
+export interface InsertTimesheetRestrictionConfigsSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: NewTimesheetRestrictionConfigs;
+}
+export interface InsertskedBroadcastRecipientsSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: NewskedBroadcastRecipients;
+}
+export interface InsertskedBroadcastsSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: NewskedBroadcasts;
+}
 export interface UpdateAccountResourceScoresSchemaMutationArgs {
   input: UpdateAccountResourceScores;
 }
@@ -12164,6 +15348,36 @@ export interface UpdateAvailabilityTemplateResourcesSchemaMutationArgs {
 export interface UpdateAvailabilityTemplatesSchemaMutationArgs {
   input: UpdateAvailabilityTemplates;
 }
+export interface UpdateBusinessRegionSchemaMutationArgs {
+  input: UpdateBusinessRegion;
+}
+export interface UpdateBusinessUnitSchemaMutationArgs {
+  input: UpdateBusinessUnit;
+}
+export interface UpdateClassSchemaMutationArgs {
+  input: UpdateClass;
+}
+export interface UpdateClassHireRequestResourceSchemaMutationArgs {
+  input: UpdateClassHireRequestResource;
+}
+export interface UpdateClassOfferSchemaMutationArgs {
+  input: UpdateClassOffer;
+}
+export interface UpdateClassOfferSessionSchemaMutationArgs {
+  input: UpdateClassOfferSession;
+}
+export interface UpdateClassRoleSchemaMutationArgs {
+  input: UpdateClassRole;
+}
+export interface UpdateClassRoleAllocationSchemaMutationArgs {
+  input: UpdateClassRoleAllocation;
+}
+export interface UpdateClassRoleHireRequestSchemaMutationArgs {
+  input: UpdateClassRoleHireRequest;
+}
+export interface UpdateClassRoleTagSchemaMutationArgs {
+  input: UpdateClassRoleTag;
+}
 export interface UpdateClientAvailabilitiesSchemaMutationArgs {
   input: UpdateClientAvailabilities;
 }
@@ -12178,6 +15392,9 @@ export interface UpdateHolidayRegionsSchemaMutationArgs {
 }
 export interface UpdateHolidaysSchemaMutationArgs {
   input: UpdateHolidays;
+}
+export interface UpdateJobAllocationRateCardSchemaMutationArgs {
+  input: UpdateJobAllocationRateCard;
 }
 export interface UpdateJobAllocationsSchemaMutationArgs {
   input: UpdateJobAllocations;
@@ -12212,11 +15429,20 @@ export interface UpdateLocationsSchemaMutationArgs {
 export interface UpdateProductsSchemaMutationArgs {
   input: UpdateProducts;
 }
+export interface UpdateRateCardSchemaMutationArgs {
+  input: UpdateRateCard;
+}
 export interface UpdateRecurringSchedulesSchemaMutationArgs {
   input: UpdateRecurringSchedules;
 }
 export interface UpdateRegionsSchemaMutationArgs {
   input: UpdateRegions;
+}
+export interface UpdateResourceClassOfferSchemaMutationArgs {
+  input: UpdateResourceClassOffer;
+}
+export interface UpdateResourceClassOfferSessionSchemaMutationArgs {
+  input: UpdateResourceClassOfferSession;
 }
 export interface UpdateResourceJobOffersSchemaMutationArgs {
   input: UpdateResourceJobOffers;
@@ -12314,6 +15540,21 @@ export interface UpdateTemplatedShiftTagsSchemaMutationArgs {
 export interface UpdateTemplatedShiftsSchemaMutationArgs {
   input: UpdateTemplatedShifts;
 }
+export interface UpdateTimesheetSchemaMutationArgs {
+  input: UpdateTimesheet;
+}
+export interface UpdateTimesheetEntrySchemaMutationArgs {
+  input: UpdateTimesheetEntry;
+}
+export interface UpdateTimesheetRestrictionConfigsSchemaMutationArgs {
+  input: UpdateTimesheetRestrictionConfigs;
+}
+export interface UpdateskedBroadcastRecipientsSchemaMutationArgs {
+  input: UpdateskedBroadcastRecipients;
+}
+export interface UpdateskedBroadcastsSchemaMutationArgs {
+  input: UpdateskedBroadcasts;
+}
 export interface UpsertAccountResourceScoresSchemaMutationArgs {
   idAlias?: Maybe<string>;
 
@@ -12398,6 +15639,76 @@ export interface UpsertAvailabilityTemplatesSchemaMutationArgs {
 
   keyField: string;
 }
+export interface UpsertBusinessRegionSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: UpsertBusinessRegion;
+
+  keyField: string;
+}
+export interface UpsertBusinessUnitSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: UpsertBusinessUnit;
+
+  keyField: string;
+}
+export interface UpsertClassSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: UpsertClass;
+
+  keyField: string;
+}
+export interface UpsertClassHireRequestResourceSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: UpsertClassHireRequestResource;
+
+  keyField: string;
+}
+export interface UpsertClassOfferSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: UpsertClassOffer;
+
+  keyField: string;
+}
+export interface UpsertClassOfferSessionSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: UpsertClassOfferSession;
+
+  keyField: string;
+}
+export interface UpsertClassRoleSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: UpsertClassRole;
+
+  keyField: string;
+}
+export interface UpsertClassRoleAllocationSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: UpsertClassRoleAllocation;
+
+  keyField: string;
+}
+export interface UpsertClassRoleHireRequestSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: UpsertClassRoleHireRequest;
+
+  keyField: string;
+}
+export interface UpsertClassRoleTagSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: UpsertClassRoleTag;
+
+  keyField: string;
+}
 export interface UpsertClientAvailabilitiesSchemaMutationArgs {
   idAlias?: Maybe<string>;
 
@@ -12430,6 +15741,13 @@ export interface UpsertHolidaysSchemaMutationArgs {
   idAlias?: Maybe<string>;
 
   input: UpsertHolidays;
+
+  keyField: string;
+}
+export interface UpsertJobAllocationRateCardSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: UpsertJobAllocationRateCard;
 
   keyField: string;
 }
@@ -12510,6 +15828,13 @@ export interface UpsertProductsSchemaMutationArgs {
 
   keyField: string;
 }
+export interface UpsertRateCardSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: UpsertRateCard;
+
+  keyField: string;
+}
 export interface UpsertRecurringSchedulesSchemaMutationArgs {
   idAlias?: Maybe<string>;
 
@@ -12521,6 +15846,20 @@ export interface UpsertRegionsSchemaMutationArgs {
   idAlias?: Maybe<string>;
 
   input: UpsertRegions;
+
+  keyField: string;
+}
+export interface UpsertResourceClassOfferSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: UpsertResourceClassOffer;
+
+  keyField: string;
+}
+export interface UpsertResourceClassOfferSessionSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: UpsertResourceClassOfferSession;
 
   keyField: string;
 }
@@ -12748,6 +16087,41 @@ export interface UpsertTemplatedShiftsSchemaMutationArgs {
 
   keyField: string;
 }
+export interface UpsertTimesheetSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: UpsertTimesheet;
+
+  keyField: string;
+}
+export interface UpsertTimesheetEntrySchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: UpsertTimesheetEntry;
+
+  keyField: string;
+}
+export interface UpsertTimesheetRestrictionConfigsSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: UpsertTimesheetRestrictionConfigs;
+
+  keyField: string;
+}
+export interface UpsertskedBroadcastRecipientsSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: UpsertskedBroadcastRecipients;
+
+  keyField: string;
+}
+export interface UpsertskedBroadcastsSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: UpsertskedBroadcasts;
+
+  keyField: string;
+}
 export interface SchemaActivitiesSubscriptionArgs {
   operation?: Maybe<SchemaSubscriptionOp[]>;
 
@@ -12755,12 +16129,26 @@ export interface SchemaActivitiesSubscriptionArgs {
 
   extendedFilter?: Maybe<EqlRecordChangeFilterActivities>;
 }
+export interface SchemaTimesheetSubscriptionArgs {
+  operation?: Maybe<SchemaSubscriptionOp[]>;
+
+  filter?: Maybe<EqlRecordFilterTimesheet>;
+
+  extendedFilter?: Maybe<EqlRecordChangeFilterTimesheet>;
+}
 export interface SchemaJobAllocationsSubscriptionArgs {
   operation?: Maybe<SchemaSubscriptionOp[]>;
 
   filter?: Maybe<EqlRecordFilterJobAllocations>;
 
   extendedFilter?: Maybe<EqlRecordChangeFilterJobAllocations>;
+}
+export interface SchemaTimesheetEntrySubscriptionArgs {
+  operation?: Maybe<SchemaSubscriptionOp[]>;
+
+  filter?: Maybe<EqlRecordFilterTimesheetEntry>;
+
+  extendedFilter?: Maybe<EqlRecordChangeFilterTimesheetEntry>;
 }
 export interface SchemaJobsSubscriptionArgs {
   operation?: Maybe<SchemaSubscriptionOp[]>;

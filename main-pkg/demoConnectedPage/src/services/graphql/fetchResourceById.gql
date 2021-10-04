@@ -3,7 +3,5 @@ query fetchResourceById($UID: ID!) {
     UID
     Name
     ResourceType
-    FSM
-    RequestedWorkingHoursPerWeek
   }
 }
