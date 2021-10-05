@@ -1,8 +1,8 @@
 import { printTable } from 'console-table-printer'
-import * as readline from 'readline'
 
 import { CustomFieldsDefinition } from '../core/addNewCustomsFields'
 import { resourceNewCustomFields } from '../starterMigration/exampleResources'
+import questionAsync, { rl } from './question'
 
 export function printFields(fields: Array<CustomFieldsDefinition>) {
   const tableFields = fields.map((field) => {
@@ -14,13 +14,6 @@ export function printFields(fields: Array<CustomFieldsDefinition>) {
   })
 
   printTable(tableFields)
-}
-
-const rl = readline.createInterface(process.stdin, process.stdout)
-const questionAsync = async (question: string): Promise<string> => {
-  return new Promise((resolve) => {
-    rl.question(question, resolve)
-  })
 }
 
 const main = async () => {
