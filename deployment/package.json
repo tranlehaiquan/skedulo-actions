@@ -9,13 +9,15 @@
     "@types/lodash": "^4.14.149",
     "@types/node": "^13.7.1",
     "axios": "^0.19.2",
+    "console-table-printer": "^2.10.0",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
     "typescript": "3.9.x"
   },
   "scripts": {
     "compile": "tsc",
-    "migrate": "yarn run compile && node dist/index.js"
+    "migrate": "yarn run compile && node dist/index.js",
+    "printTable": "yarn run compile && node dist/utils/printTable.js"
   },
   "dependencies": {
     "date-fns": "^2.14.0",
