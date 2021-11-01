@@ -1,19 +1,19 @@
-declare module "*/getListRegions.graphql" {
+declare module "*/fetchResourceById.graphql" {
   import { DocumentNode } from "graphql";
   const defaultDocument: DocumentNode;
-  const getListRegions: DocumentNode;
+  const fetchResourceById: DocumentNode;
 
-  export { getListRegions };
+  export { fetchResourceById };
 
   export default defaultDocument;
 }
 
-declare module "*/getListResources.graphql" {
+declare module "*/fetchResources.graphql" {
   import { DocumentNode } from "graphql";
   const defaultDocument: DocumentNode;
-  const getListResources: DocumentNode;
+  const fetchResources: DocumentNode;
 
-  export { getListResources };
+  export { fetchResources };
 
   export default defaultDocument;
 }

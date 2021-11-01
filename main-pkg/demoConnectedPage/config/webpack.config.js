@@ -58,9 +58,10 @@ module.exports = function (env) {
       extensions: [
         '.ts',
         '.tsx',
+        '.json',
+        '.mjs',
         '.js',
-        '.jsx',
-        '.json'
+        '.graphql'
       ],
       plugins: [
       ],
@@ -123,7 +124,7 @@ module.exports = function (env) {
               ],
             },
             {
-              test: /\.(graphql|gql)$/,
+              test: /\.gql$/,
               loader: 'raw-loader'
             },
             // "file" loader makes sure those assets get served by WebpackDevServer.
@@ -132,12 +133,12 @@ module.exports = function (env) {
             // This loader don't uses a "test" so it will catch all modules
             // that fall through the other loaders.
             {
-              exclude: [/\.js$/, /\.html$/, /\.json$/],
+              exclude: [/\.js$/, /\.graphql$/, /\.mjs$/, /\.html$/, /\.json$/],
               loader: require.resolve('file-loader'),
               options: {
-                name: 'static/media/[name].[hash:8].[ext]',
+                name: 'static/[name].[hash:8].[ext]',
               },
-            },
+            }
           ],
         },
         // ** STOP ** Are you adding a new loader?

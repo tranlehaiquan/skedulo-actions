@@ -1,9 +1,9 @@
-import { UpdateResources } from 'shared/dist/__graphql/graphql'
+import { shareServices } from 'shared'
 
-import { fetchResource, fetchResourceById, getMaxRequestedWorkingHoursPerWeek } from './resourceServices'
 import { context, Services } from './Services'
 import axiosInstance from './httpClient'
-import updateResourceQuery from './graphql/updateResource.gql'
+import * as resourceServices from './resourceServices'
+
 import { END_POINTS } from './constants'
 
 interface IGraphQLRequest {
@@ -37,25 +37,13 @@ const getReferenceUIDFromContext = (): string | undefined => {
   return skedContext?.referenceUID
 }
 
-const updateResource = async (id: string, payload: Partial<UpdateResources>): Promise<any> => {
-  const res = await fetchGraphQl({
-    query: updateResourceQuery,
-    variables: {
-      inputUpdateResource: {
-        UID: id,
-        ...payload,
-      },
-    },
-  })
-
-  return res
+const searchObject = (objectName: string, searchTerm: string, nameField?: string) => {
+  return shareServices.searchObject(objectName, searchTerm, nameField)
 }
 
 export default {
   pushOneOffNotification,
-  fetchResource,
   getReferenceUIDFromContext,
-  fetchResourceById,
-  updateResource,
-  getMaxRequestedWorkingHoursPerWeek,
+  searchObject,
+  ...resourceServices,
 }

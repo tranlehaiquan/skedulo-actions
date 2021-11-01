@@ -1,9 +1,9 @@
-import { Resources } from 'shared/dist/__graphql/graphql'
+import { Type, queries } from 'shared'
+import { UpdateResources } from 'shared/dist/__graphql/graphql'
 
-import { getStartEndInCurrentWeek, getTotalHours } from '../utils/dateTimeUtils'
+import { getStartEndInCurrentWeek } from '../utils/dateTimeUtils'
 
-import fetchResourceQuery from './graphql/fetchResources.gql'
-import fetchResourceByIdQuery from './graphql/fetchResourceById.gql'
+import updateResourceMutation from './graphql/updateResource.gql'
 
 import { fetchGraphQl } from './appServices'
 import axiosInstance from './httpClient'
@@ -18,7 +18,7 @@ const fetchAvailabilitySimple = async (params: IAvailabilitySimpleParams) => {
   return res.data
 }
 
-const fetchResourceAvailabilitiesInCurrentWeek = async (resourceId: string) => {
+export const fetchResourceAvailabilitiesInCurrentWeek = async (resourceId: string) => {
   const { start, end } = getStartEndInCurrentWeek(new Date())
   const res = await fetchAvailabilitySimple({
     start: start.toISOString(),
@@ -36,9 +36,9 @@ const fetchResourceAvailabilitiesInCurrentWeek = async (resourceId: string) => {
   }, [])
 }
 
-export const fetchResourceById = async (id: string): Promise<Resources> => {
-  const res = await fetchGraphQl<{ resourcesById: Resources }>({
-    query: fetchResourceByIdQuery,
+export const fetchResourceById = async (id: string): Promise<Type.ResourceById> => {
+  const res = await fetchGraphQl<{ resourcesById: Type.ResourceById }>({
+    query: queries.fetchResourceById,
     variables: {
       UID: id,
     },
@@ -47,19 +47,31 @@ export const fetchResourceById = async (id: string): Promise<Resources> => {
   return res.resourcesById
 }
 
-export const fetchResource = async (filter = `Name LIKE '%%'`) => {
-  const res = await fetchGraphQl<{ resources: Resources[] }>({
-    query: fetchResourceQuery,
+export const fetchResource = async (variables: Type.GraphqlVariables) => {
+  const res = await fetchGraphQl<{ resources: Type.Resources[] }>({
+    query: queries.fetchResources,
     variables: {
-      filterResource: filter,
+      ...variables,
+      filter: variables.filter || `Name LIKE '%%'`,
     },
   })
 
-  return res.resources
+  return {
+    data: res.resources,
+    totalCount: res.resources.length,
+  }
 }
 
-export const getMaxRequestedWorkingHoursPerWeek = async (resourceId: string): Promise<number> => {
-  const entries = await fetchResourceAvailabilitiesInCurrentWeek(resourceId)
-  const max = getTotalHours(entries)
-  return max
+export const updateResource = async (id: string, payload: Partial<UpdateResources>): Promise<any> => {
+  const res = await fetchGraphQl({
+    query: updateResourceMutation,
+    variables: {
+      inputUpdateResource: {
+        UID: id,
+        ...payload,
+      },
+    },
+  })
+
+  return res
 }

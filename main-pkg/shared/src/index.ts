@@ -8,18 +8,18 @@
 // export { JobProduct, Product, JobProductsManagedData, JobProductsCommonData } from './custom-types'
 
 // Documents for execution
-import { DocumentNode } from "graphql"
+import { DocumentNode } from 'graphql'
 
-import { getListResources } from "./queries/getListResources.graphql"
-import { getListRegions } from "./queries/getListRegions.graphql"
+import { fetchResources } from './queries/fetchResources.graphql'
+import { fetchResourceById } from './queries/fetchResourceById.graphql'
 
 export { shareServices } from './services/ShareServices'
 
-const getQueryBody = (query: DocumentNode) => query?.loc?.source.body
+const getQueryBody = (query: DocumentNode) => query?.loc?.source.body || ''
 
 export const queries = {
-  getListResources: getQueryBody(getListResources),
-  getListRegions: getQueryBody(getListRegions)
+  fetchResources: getQueryBody(fetchResources),
+  fetchResourceById: getQueryBody(fetchResourceById)
 };
 
 export * as Component from './components'

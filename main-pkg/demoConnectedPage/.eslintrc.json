@@ -34,13 +34,6 @@
     "@typescript-eslint/promise-function-async": "off",
     "@typescript-eslint/array-type": "off",
     "@typescript-eslint/no-explicit-any": "off",
-    "comma-dangle": [
-      "error",
-      {
-        "arrays": "always-multiline",
-        "objects": "always-multiline"
-      }
-    ],
     "semi": "off",
     "jsx-quotes": ["error", "prefer-double"],
     "newline-after-var": "off",
@@ -52,7 +45,8 @@
       {
         "newlines-between": "always-and-inside-groups"
       }
-    ]
+    ],
+    "react-hooks/exhaustive-deps": "off"
   },
   "settings": {
     "react": {

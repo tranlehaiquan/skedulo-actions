@@ -1,3 +1,3 @@
-import ResourceDetailsPage from './ResourceDetailsPage'
+import ResourcesPage from './ResourcesPage'
 
-export { ResourceDetailsPage as MainPage }
+export { ResourcesPage as MainPage }
