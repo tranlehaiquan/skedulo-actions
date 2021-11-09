@@ -50,11 +50,19 @@ export interface GraphqlListResponse<T> {
 
 export interface TransformedListResponse<T> {
   data: T[]
-  hasNextPage: boolean
+  hasNextPage?: boolean
   totalCount: number
 }
 
 export interface OrderParams {
   orderBy: string
   orderType: 'DESC' | 'ASC'
+}
+
+export interface GraphqlVariables {
+  filter: string
+  orderBy?: string
+  offset?: number
+  first?: number
+  rawParams?: Record<string, any>
 }

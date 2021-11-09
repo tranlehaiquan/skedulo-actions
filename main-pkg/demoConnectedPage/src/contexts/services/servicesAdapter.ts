@@ -1,19 +1,18 @@
 import AppServices from '../../services/appServices'
 
 import IServiceAdapter from './IServicesContextApdapter'
+import resourceAdapter from './resourceAdapter'
 
-const makeServicesAdapter = (appServices: typeof AppServices) => (): IServiceAdapter => ({
-  getReferenceUIDFromContext: () => {
-    return appServices.getReferenceUIDFromContext()
-  },
-  fetchResourceById: async (id: string) => {
-    const res = await appServices.fetchResourceById(id)
-    return {
-      name: res.Name || '',
-      phone: res.PrimaryPhone || res.MobilePhone || '',
-      email: res.Email || '',
-    }
-  },
-})
+const makeServicesAdapter = (appServices: typeof AppServices) => (): IServiceAdapter => {
+  return {
+    getReferenceUIDFromContext: () => {
+      return appServices.getReferenceUIDFromContext()
+    },
+    searchObject: (objectName: string, searchTerm: string, nameField?: string) => {
+      return appServices.searchObject(objectName, searchTerm, nameField)
+    },
+    ...resourceAdapter(appServices),
+  }
+}
 
 export default makeServicesAdapter

@@ -3,6 +3,7 @@ let colors = {
   black: '#0C131E',
   transparent: 'transparent',
   inherit: 'inherit',
+  primary: '#008CFF',
   white: '#FFFFFF',
   neutral: {
     '900': '#1B263A',
@@ -372,11 +373,14 @@ module.exports = {
     },
     minHeight: {
       '0': '0',
+      '200px': '200px',
       full: '100%',
       screen: '100vh'
     },
     minWidth: {
       '0': '0',
+      '420px': '420px',
+      '640px': '640px',
       full: '100%'
     },
     objectPosition: {
@@ -466,6 +470,10 @@ module.exports = {
       '40': '40',
       '50': '50',
       '99999': '99999'
+    },
+    gridTemplateColumns: {
+      'filter': '180px 180px auto 40px',
+      'sort': 'repeat(2, minmax(0, 1fr)) 40px'
     }
   },
   variants: {

@@ -1,4 +1,4 @@
-query getListResources(
+query fetchResources(
   $filter: EQLQueryFilterResources
   $first: PositiveIntMax200
   $offset: NonNegativeInt
@@ -16,9 +16,24 @@ query getListResources(
     }
     edges {
       node {
+        Category
         UID
         Name
-        Category
+        Email
+        EmploymentType
+        IsActive
+        ResourceType
+        PrimaryRegion {
+          UID
+          Name
+        }
+        ResourceTags {
+          UID
+          Tag {
+            Type
+            Name
+          }
+        }
       }
     }
   }

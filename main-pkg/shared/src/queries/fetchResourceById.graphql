@@ -1,0 +1,24 @@
+query fetchResourceById($UID: ID!) {
+  resourcesById(UID: $UID) {
+    UID
+    Name
+    ResourceType
+    PrimaryPhone
+    Email
+    MobilePhone
+    Category
+    IsActive
+    EmploymentType
+    PrimaryRegion {
+      UID
+      Name
+    }
+    ResourceTags {
+      UID
+      Tag {
+        Type
+        Name
+      }
+    }
+  }
+}
