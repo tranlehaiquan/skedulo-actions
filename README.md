@@ -1,5 +1,8 @@
 # Boilerplate codebase for platform development
 
+## TODO
+- [ ] Create generated script CI for generating the complete connected page & connected fn, etc
+
 ## Folder Structure
 
 [TBU]
