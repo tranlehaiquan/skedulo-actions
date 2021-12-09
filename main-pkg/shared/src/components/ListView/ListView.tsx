@@ -143,7 +143,7 @@ const ListView = <T extends object>(props: ListViewProps<T>): JSX.Element => {
       )
       setColumns(
         tableConfig.columns.filter((item) =>
-          shownColumns.includes(item.accessor as string)
+          shownColumns.includes(item.accessor as string) || !item.Header
         )
       )
     },
@@ -214,7 +214,7 @@ const ListView = <T extends object>(props: ListViewProps<T>): JSX.Element => {
   }, [forceUpdate, setForceUpdate])
 
   return (
-    <div className="cx-bg-white cx-p-4">
+    <div className="cx-bg-white">
       <div className="cx-flex cx-items-center cx-justify-between cx-pb-4">
         <div className="cx-flex cx-items-center">
           <h6 className="cx-text-neutral-600">{listData.totalCount} item/s</h6>

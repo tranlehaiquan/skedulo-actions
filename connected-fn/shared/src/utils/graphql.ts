@@ -14,7 +14,7 @@ interface SingleMutationParams<T> {
   alias?: string
 }
 
-export const generateMutipleMutation = <T = any>({
+export const generateMultipleMutation = <T = any>({
   schemaName,
   mutationType,
   data,

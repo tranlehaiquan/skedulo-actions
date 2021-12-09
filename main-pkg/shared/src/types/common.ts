@@ -48,6 +48,27 @@ export interface GraphqlListResponse<T> {
   }
 }
 
+export interface OrderParams {
+  orderBy: string
+  orderType: 'DESC' | 'ASC'
+}
+
+export interface Vocabulary {
+  [schema: string]: {
+    [field: string]: VocabularyField[]
+  }
+}
+
+export interface VocabularyField {
+  controllingField: string
+  label: string
+  controller: string
+  defaultValue: boolean
+  value: string
+  validFor: string[]
+  active: boolean
+}
+
 export interface TransformedListResponse<T> {
   data: T[]
   hasNextPage?: boolean

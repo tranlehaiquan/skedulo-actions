@@ -1,19 +1,9 @@
-declare module "*/fetchResourceById.graphql" {
+declare module "*/fetchPatientPreferences.graphql" {
   import { DocumentNode } from "graphql";
   const defaultDocument: DocumentNode;
-  const fetchResourceById: DocumentNode;
+  const fetchPatientPreferences: DocumentNode;
 
-  export { fetchResourceById };
-
-  export default defaultDocument;
-}
-
-declare module "*/fetchResources.graphql" {
-  import { DocumentNode } from "graphql";
-  const defaultDocument: DocumentNode;
-  const fetchResources: DocumentNode;
-
-  export { fetchResources };
+  export { fetchPatientPreferences };
 
   export default defaultDocument;
 }

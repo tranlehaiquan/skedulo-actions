@@ -1,19 +1,9 @@
-declare module "*/getListRegions.graphql" {
+declare module "*/fetchPatientPreferences.graphql" {
   import { DocumentNode } from "graphql";
   const defaultDocument: DocumentNode;
-  const getListRegions: DocumentNode;
+  const fetchPatientPreferences: DocumentNode;
 
-  export { getListRegions };
-
-  export default defaultDocument;
-}
-
-declare module "*/getListResources.graphql" {
-  import { DocumentNode } from "graphql";
-  const defaultDocument: DocumentNode;
-  const getListResources: DocumentNode;
-
-  export { getListResources };
+  export { fetchPatientPreferences };
 
   export default defaultDocument;
 }

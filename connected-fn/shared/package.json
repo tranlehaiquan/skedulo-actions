@@ -38,6 +38,7 @@
     "@skedulo/sdk-utilities": "^0.0.4",
     "@types/classnames": "^2.2.10",
     "date-fns": "^2.15.0",
-    "moment-timezone": "^0.5.33"
+    "moment-timezone": "^0.5.33",
+    "uuid-random": "^1.3.2"
   }
 }

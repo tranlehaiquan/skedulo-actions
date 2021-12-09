@@ -8,18 +8,16 @@
 // export { JobProduct, Product, JobProductsManagedData, JobProductsCommonData } from './custom-types'
 
 // Documents for execution
-import { DocumentNode } from 'graphql'
+import { DocumentNode } from "graphql"
 
-import { fetchResources } from './queries/fetchResources.graphql'
-import { fetchResourceById } from './queries/fetchResourceById.graphql'
+import { fetchPatientPreferences } from "./queries/fetchPatientPreferences.graphql"
 
 export { shareServices } from './services/ShareServices'
 
 const getQueryBody = (query: DocumentNode) => query?.loc?.source.body || ''
 
-export const queries = {
-  fetchResources: getQueryBody(fetchResources),
-  fetchResourceById: getQueryBody(fetchResourceById)
+export const Queries = {
+  fetchPatientPreferences: getQueryBody(fetchPatientPreferences)
 };
 
 export * as Component from './components'
@@ -27,3 +25,5 @@ export * as Component from './components'
 export * as Type from './types'
 
 export * as Constants from './constants'
+
+export * as Utils from './utils'

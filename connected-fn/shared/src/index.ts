@@ -10,20 +10,18 @@
 // Documents for execution
 import { DocumentNode } from "graphql"
 
-import { getListResources } from "./queries/getListResources.graphql"
-import { getListRegions } from "./queries/getListRegions.graphql"
+import { fetchPatientPreferences } from "./queries/fetchPatientPreferences.graphql"
 
-export { shareServices } from './services/ShareServices'
+export { ShareServices } from './services/ShareServices'
 
-const getQueryBody = (query: DocumentNode) => query?.loc?.source.body
+const getQueryBody = (query: DocumentNode) => query?.loc?.source.body || ''
 
-export const queries = {
-  getListResources: getQueryBody(getListResources),
-  getListRegions: getQueryBody(getListRegions)
+export const Queries = {
+  fetchPatientPreferences: getQueryBody(fetchPatientPreferences)
 };
-
-export * as Component from './components'
 
 export * as Type from './types'
 
 export * as Constants from './constants'
+
+export * as Utils from './utils'
