@@ -49,7 +49,7 @@
     "shared": "link:../shared",
     "source-map-loader": "^0.2.3",
     "style-loader": "^0.21.0",
-    "tailwindcss": "^1.2.0",
+    "tailwindcss": "^1.9.6",
     "ts-jest": "^24.3.0",
     "ts-loader": "^4.3.0",
     "typescript": "3.9.x",

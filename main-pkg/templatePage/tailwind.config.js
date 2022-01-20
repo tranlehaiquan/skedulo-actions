@@ -471,9 +471,11 @@ module.exports = {
       '50': '50',
       '99999': '99999'
     },
-    gridTemplateColumns: {
-      'filter': '180px 180px auto 40px',
-      'sort': 'repeat(2, minmax(0, 1fr)) 40px'
+    extends: {
+      gridTemplateColumns: {
+        'filter': '180px 180px auto 40px',
+        'sort': 'repeat(2, minmax(0, 1fr)) 40px'
+      }
     }
   },
   variants: {
