@@ -1,5 +1,5 @@
 import * as readline from 'readline'
-import { decode, DEFAULT_API_ENDPOINT } from './core/jwt'
+import { decode } from './core/jwt'
 import { createAxiosFromAccessToken } from './core/createAxiosInstance'
 
 import starterMigration from './starterMigration'
@@ -14,8 +14,11 @@ const questionAsync = async (question: string): Promise<string> => {
 
 const main = async () => {
   try {
-    let API_ENDPOINT = (await questionAsync(`API_ENDPOINT (${DEFAULT_API_ENDPOINT}):`)) || DEFAULT_API_ENDPOINT
     let API_TOKEN = await questionAsync(`API_TOKEN:`)
+    const { iss } = decode(API_TOKEN).payload;
+    const DEFAULT_API_ENDPOINT = iss.slice(0, iss.indexOf('/auth'));
+    let API_ENDPOINT = (await questionAsync(`API_ENDPOINT (${DEFAULT_API_ENDPOINT}):`)) || DEFAULT_API_ENDPOINT
+
     if (!API_TOKEN) {
       throw new Error('Missing API_ENDPOINT')
     }

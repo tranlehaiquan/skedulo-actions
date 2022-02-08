@@ -5,7 +5,9 @@
   "scripts": {
     "bootstrap": "yarn install --frozen-lockfile --audit --ignore-scripts",
     "dev": "webpack --watch --mode=development",
-    "compile": "webpack --mode=production"
+    "compile": "webpack --mode=production",
+    "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
+    "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix"
   },
   "devDependencies": {
     "@types/node": "8",
