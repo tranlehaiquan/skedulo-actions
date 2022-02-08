@@ -1,5 +1,6 @@
-import fetch from './shared/fetch'
 import { Resources } from 'shared/dist/__graphql/graphql'
+
+import fetch from './shared/fetch'
 
 import { fetchResources as fetchFilteredResources } from './queries/commonQueries'
 
@@ -13,6 +14,7 @@ class SkeduloService {
           filter,
         },
       })
+
       return res.data?.resources.edges.length ? res.data.resources.edges.map((item) => item.node) : []
     } catch (error) {
       return []
