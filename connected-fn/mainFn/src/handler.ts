@@ -3,6 +3,12 @@
  * This usually does not need to be changed. Start writing your function
  * by defining a route in the `routes.ts` file.
  */
+/* eslint-disable import/first */
+
+import * as dotenv from 'dotenv'
+
+dotenv.config()
+
 import { FunctionPayload, FunctionResponse, Function } from '@skedulo/sdk-utilities'
 
 import { getCompiledRoutes } from './routes'
