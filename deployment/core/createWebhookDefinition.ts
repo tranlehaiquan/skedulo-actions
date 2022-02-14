@@ -5,7 +5,8 @@ import {AxiosInstance} from 'axios'
 export enum WebhookType {
   graphql_deferred= "graphql_deferred",
   graphql = "graphql",
-  inbound_sms= "inbound_sms"
+  inbound_sms= "inbound_sms",
+  scheduled = "scheduled"
 }
 
 interface BaseWebhook {
@@ -32,14 +33,17 @@ interface GraphQLDefferedWebhook extends BaseWebhook{
   offset: number | { field: string, default?: number } 
   filter: string
   customFields?: any
-
+}
+interface ScheduledWebhook extends BaseWebhook {
+  type: WebhookType.scheduled,
+  cron: string
 }
 
 interface ViewWebhook extends BaseWebhook {
     id: string
 }
 
-type CreateWebhook = InboundSMSWebhook | GraphQLWebhook | GraphQLDefferedWebhook
+type CreateWebhook = InboundSMSWebhook | GraphQLWebhook | GraphQLDefferedWebhook | ScheduledWebhook
 
 export interface CreateWebhookMap {
     [key: string]: CreateWebhook
