@@ -37,7 +37,7 @@ const WEBHOOK_CONFIGS: IWebhookConfigs = {
   WEBHOOK_NAME: 'starter_Webhook__Test',
   WEBHOOK_QUERY: `
     subscription {
-      schemaJobs(operation: UPDATE) {
+      schemaJobs(operation: UPDATE, extendedFilter: "Previous.JobStatus != Current.JobStatus") {
         data {
           UID
           Address
