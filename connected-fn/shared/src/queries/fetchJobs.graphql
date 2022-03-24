@@ -1,0 +1,12 @@
+query jobs($after: Base64, $filter: EQLQueryFilterJobs, $first: PositiveIntMax200, $offset: NonNegativeInt, $orderBy: EQLOrderByClauseJobs) {
+  jobs(after: $after, filter: $filter, first: $first, offset: $offset, orderBy: $orderBy) {
+    edges {
+      node {
+        UID
+        Name
+        Start
+        End
+      }
+    }
+  }
+}

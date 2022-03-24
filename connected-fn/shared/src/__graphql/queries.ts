@@ -1,9 +1,9 @@
-declare module "*/fetchPatientPreferences.graphql" {
+declare module "*/fetchJobs.graphql" {
   import { DocumentNode } from "graphql";
   const defaultDocument: DocumentNode;
-  const fetchPatientPreferences: DocumentNode;
+  const fetchJobs: DocumentNode;
 
-  export { fetchPatientPreferences };
+  export { fetchJobs };
 
   export default defaultDocument;
 }

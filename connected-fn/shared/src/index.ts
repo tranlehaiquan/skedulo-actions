@@ -10,14 +10,14 @@
 // Documents for execution
 import { DocumentNode } from "graphql"
 
-import { fetchPatientPreferences } from "./queries/fetchPatientPreferences.graphql"
+import { fetchJobs } from "./queries/fetchJobs.graphql"
 
 export { ShareServices } from './services/ShareServices'
 
 const getQueryBody = (query: DocumentNode) => query?.loc?.source.body || ''
 
 export const Queries = {
-  fetchPatientPreferences: getQueryBody(fetchPatientPreferences)
+  fetchJobs: getQueryBody(fetchJobs)
 };
 
 export * as Type from './types'
