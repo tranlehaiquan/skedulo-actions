@@ -37,11 +37,10 @@ const WEBHOOK_CONFIGS: IWebhookConfigs = {
   WEBHOOK_NAME: 'starter_Webhook__Test',
   WEBHOOK_QUERY: `
     subscription {
-      schemaJobs(operation: UPDATE, extendedFilter: "Previous.JobStatus != Current.JobStatus") {
+      schemaJobs(operation: UPDATE) {
         data {
           UID
-          Name
-          JobStatus
+          Address
         }
       }
     }
@@ -54,7 +53,7 @@ const WEBHOOK_CONFIGS: IWebhookConfigs = {
 export default async (apiServer: AxiosInstance, apiEndpoint: string, apiToken: string, devEndpoint: string) => {
   const { WEBHOOK_NAME, WEBHOOK_QUERY, FUNCTION_NAME, PACKAGE_NAME_ENDPOINT, ROUTE_NAME } = WEBHOOK_CONFIGS
 
-  const devUrl = `${devEndpoint}/${FUNCTION_NAME}`
+  const devUrl = `${devEndpoint}/${ROUTE_NAME}`
   const apiUrl = `${apiEndpoint}/function/${PACKAGE_NAME_ENDPOINT}/${FUNCTION_NAME}/${ROUTE_NAME}`
   const url = devEndpoint ? devUrl : apiUrl
 
