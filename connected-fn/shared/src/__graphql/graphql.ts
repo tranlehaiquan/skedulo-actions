@@ -2609,7 +2609,7 @@ export type EqlRecordChangeFilterShifts = any;
 // Documents
 // ====================================================
 
-export namespace Jobs {
+export namespace FetchJobs {
   export type Variables = {
     after?: Maybe<string>;
     filter?: Maybe<EqlQueryFilterJobs>;

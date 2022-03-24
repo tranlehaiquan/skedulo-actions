@@ -8,6 +8,7 @@ import * as pathToRegExp from 'path-to-regexp'
 import { FunctionRoute } from '@skedulo/sdk-utilities'
 
 import testHandler from './handlers/testHandler'
+import { getAttachmentRedirectUrl } from './handlers/getAttachmentRedirectUrl'
 
 export function getCompiledRoutes() {
   return getRoutes().map((route) => {
@@ -28,5 +29,10 @@ function getRoutes(): FunctionRoute[] {
       path: '/testHandler',
       handler: testHandler,
     },
+    {
+      method: 'post',
+      path: '/getAttachmentRedirectUrl',
+      handler: getAttachmentRedirectUrl
+    }
   ]
 }

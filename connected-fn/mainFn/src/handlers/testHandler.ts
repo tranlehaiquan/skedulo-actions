@@ -14,6 +14,7 @@ function produceSuccessResponse(data: any) {
 }
 
 export default async (body: FunctionPayload['body'], headers: FunctionPayload['headers']) => {
+  console.log(JSON.stringify(body))
   // const rrAccessTokenInfo = await skedService.fetchReadyRespondersAccessToken()
   // let res
 
