@@ -29,13 +29,7 @@ export interface NewAccounts {
 
   BillingStreet?: Maybe<string>;
 
-  ClientType?: Maybe<string>;
-
   Fax?: Maybe<string>;
-
-  GenderPreference?: Maybe<string>;
-
-  LanguagePreference?: Maybe<string>;
 
   Name: string;
 
@@ -234,14 +228,6 @@ export interface NewContacts {
   Title?: Maybe<string>;
 }
 
-export interface NewDefaultAutomaticDispatch {
-  AutomaticDispatch?: Maybe<string>;
-
-  AutomaticDispatchOffset?: Maybe<number>;
-
-  AutomaticDispatchOnUnavailability?: Maybe<boolean>;
-}
-
 export interface NewHolidayRegions {
   HolidayId: string;
 
@@ -374,38 +360,6 @@ export interface NewJobTasks {
   Seq: number;
 }
 
-export interface NewJobTemplates {
-  ClientType: string;
-
-  DurationInHour?: Maybe<number>;
-
-  DurationInMinute?: Maybe<number>;
-
-  JobTasks?: Maybe<string>;
-
-  JobTimeConstraintsEndBefore?: Maybe<string>;
-
-  JobTimeConstraintsEndOption?: Maybe<string>;
-
-  JobTimeConstraintsStartAfter?: Maybe<string>;
-
-  JobTimeConstraintsStartBefore?: Maybe<string>;
-
-  JobTimeConstraintsStartOption?: Maybe<string>;
-
-  JobTimeConstraintsType?: Maybe<string>;
-
-  JobType: string;
-
-  RecurrencePatternDaysOfWeek?: Maybe<string>;
-
-  RecurrencePatternDaysPerWeek?: Maybe<number>;
-
-  RecurrencePatternOption?: Maybe<string>;
-
-  Urgency?: Maybe<string>;
-}
-
 export interface NewJobTimeConstraints {
   EndBefore?: Maybe<string>;
 
@@ -431,15 +385,13 @@ export interface NewJobs {
 
   Address?: Maybe<string>;
 
+  Advertise?: Maybe<boolean>;
+
+  AdvertiseEnd?: Maybe<string>;
+
+  AdvertiseStart?: Maybe<string>;
+
   AutoSchedule?: Maybe<boolean>;
-
-  AutomaticDispatch?: Maybe<string>;
-
-  AutomaticDispatchDate?: Maybe<string>;
-
-  AutomaticDispatchOffset?: Maybe<number>;
-
-  AutomaticDispatchOnUnavailability?: Maybe<boolean>;
 
   CanBeDeclined?: Maybe<boolean>;
 
@@ -471,6 +423,8 @@ export interface NewJobs {
 
   JobAllocationTimeSource?: Maybe<boolean>;
 
+  JobClaimApprovalRequired?: Maybe<boolean>;
+
   JobStatus?: Maybe<JobStatus>;
 
   LocationId?: Maybe<string>;
@@ -491,15 +445,23 @@ export interface NewJobs {
 
   ParentId?: Maybe<string>;
 
+  PublishStatus?: Maybe<string>;
+
+  PublishedDate?: Maybe<LocalDate>;
+
   Quantity?: Maybe<number>;
 
   RecurringScheduleId?: Maybe<string>;
 
   RegionId: string;
 
+  RespectSchedule?: Maybe<boolean>;
+
   ScheduleTemplateId?: Maybe<string>;
 
   Start?: Maybe<string>;
+
+  Suburb?: Maybe<string>;
 
   TemplatedJobId?: Maybe<string>;
 
@@ -542,20 +504,6 @@ export interface NewLocations {
   Type?: Maybe<string>;
 }
 
-export interface NewPatientPreferenceTags {
-  PatientPreferenceId?: Maybe<string>;
-
-  TagId?: Maybe<string>;
-}
-
-export interface NewPatientPreferences {
-  GenderPreference?: Maybe<string>;
-
-  JobType?: Maybe<string>;
-
-  LanguagePreference?: Maybe<string>;
-}
-
 export interface NewProducts {
   Description?: Maybe<string>;
 
@@ -572,8 +520,6 @@ export interface NewRecurringSchedules {
   AckAllJobs?: Maybe<boolean>;
 
   Description?: Maybe<string>;
-
-  Pattern?: Maybe<string>;
 
   Summary?: Maybe<string>;
 }
@@ -711,8 +657,6 @@ export interface NewResourceTags {
 }
 
 export interface NewResources {
-  ADP_ID?: Maybe<string>;
-
   Alias?: Maybe<string>;
 
   AutoSchedule?: Maybe<boolean>;
@@ -1091,13 +1035,7 @@ export interface UpdateAccounts {
 
   BillingStreet?: Maybe<string>;
 
-  ClientType?: Maybe<string>;
-
   Fax?: Maybe<string>;
-
-  GenderPreference?: Maybe<string>;
-
-  LanguagePreference?: Maybe<string>;
 
   Name?: Maybe<string>;
 
@@ -1322,16 +1260,6 @@ export interface UpdateContacts {
   UID: string;
 }
 
-export interface UpdateDefaultAutomaticDispatch {
-  AutomaticDispatch?: Maybe<string>;
-
-  AutomaticDispatchOffset?: Maybe<number>;
-
-  AutomaticDispatchOnUnavailability?: Maybe<boolean>;
-
-  UID: string;
-}
-
 export interface UpdateHolidayRegions {
   HolidayId?: Maybe<string>;
 
@@ -1480,40 +1408,6 @@ export interface UpdateJobTasks {
   UID: string;
 }
 
-export interface UpdateJobTemplates {
-  ClientType?: Maybe<string>;
-
-  DurationInHour?: Maybe<number>;
-
-  DurationInMinute?: Maybe<number>;
-
-  JobTasks?: Maybe<string>;
-
-  JobTimeConstraintsEndBefore?: Maybe<string>;
-
-  JobTimeConstraintsEndOption?: Maybe<string>;
-
-  JobTimeConstraintsStartAfter?: Maybe<string>;
-
-  JobTimeConstraintsStartBefore?: Maybe<string>;
-
-  JobTimeConstraintsStartOption?: Maybe<string>;
-
-  JobTimeConstraintsType?: Maybe<string>;
-
-  JobType?: Maybe<string>;
-
-  RecurrencePatternDaysOfWeek?: Maybe<string>;
-
-  RecurrencePatternDaysPerWeek?: Maybe<number>;
-
-  RecurrencePatternOption?: Maybe<string>;
-
-  UID: string;
-
-  Urgency?: Maybe<string>;
-}
-
 export interface UpdateJobTimeConstraints {
   EndBefore?: Maybe<string>;
 
@@ -1541,15 +1435,13 @@ export interface UpdateJobs {
 
   Address?: Maybe<string>;
 
+  Advertise?: Maybe<boolean>;
+
+  AdvertiseEnd?: Maybe<string>;
+
+  AdvertiseStart?: Maybe<string>;
+
   AutoSchedule?: Maybe<boolean>;
-
-  AutomaticDispatch?: Maybe<string>;
-
-  AutomaticDispatchDate?: Maybe<string>;
-
-  AutomaticDispatchOffset?: Maybe<number>;
-
-  AutomaticDispatchOnUnavailability?: Maybe<boolean>;
 
   CanBeDeclined?: Maybe<boolean>;
 
@@ -1581,6 +1473,8 @@ export interface UpdateJobs {
 
   JobAllocationTimeSource?: Maybe<boolean>;
 
+  JobClaimApprovalRequired?: Maybe<boolean>;
+
   JobStatus?: Maybe<JobStatus>;
 
   LocationId?: Maybe<string>;
@@ -1601,15 +1495,23 @@ export interface UpdateJobs {
 
   ParentId?: Maybe<string>;
 
+  PublishStatus?: Maybe<string>;
+
+  PublishedDate?: Maybe<LocalDate>;
+
   Quantity?: Maybe<number>;
 
   RecurringScheduleId?: Maybe<string>;
 
   RegionId?: Maybe<string>;
 
+  RespectSchedule?: Maybe<boolean>;
+
   ScheduleTemplateId?: Maybe<string>;
 
   Start?: Maybe<string>;
+
+  Suburb?: Maybe<string>;
 
   TemplatedJobId?: Maybe<string>;
 
@@ -1658,24 +1560,6 @@ export interface UpdateLocations {
   UID: string;
 }
 
-export interface UpdatePatientPreferenceTags {
-  PatientPreferenceId?: Maybe<string>;
-
-  TagId?: Maybe<string>;
-
-  UID: string;
-}
-
-export interface UpdatePatientPreferences {
-  GenderPreference?: Maybe<string>;
-
-  JobType?: Maybe<string>;
-
-  LanguagePreference?: Maybe<string>;
-
-  UID: string;
-}
-
 export interface UpdateProducts {
   Description?: Maybe<string>;
 
@@ -1694,8 +1578,6 @@ export interface UpdateRecurringSchedules {
   AckAllJobs?: Maybe<boolean>;
 
   Description?: Maybe<string>;
-
-  Pattern?: Maybe<string>;
 
   Summary?: Maybe<string>;
 
@@ -1857,8 +1739,6 @@ export interface UpdateResourceTags {
 }
 
 export interface UpdateResources {
-  ADP_ID?: Maybe<string>;
-
   Alias?: Maybe<string>;
 
   AutoSchedule?: Maybe<boolean>;
@@ -2248,1196 +2128,6 @@ export interface UpdateTemplatedShifts {
   UID: string;
 }
 
-export interface UpsertAccountResourceScores {
-  AccountId: string;
-
-  Blacklisted?: Maybe<boolean>;
-
-  ResourceId: string;
-
-  UID?: Maybe<string>;
-
-  Whitelisted?: Maybe<boolean>;
-}
-
-export interface UpsertAccountTags {
-  AccountId: string;
-
-  Required?: Maybe<boolean>;
-
-  TagId: string;
-
-  UID?: Maybe<string>;
-
-  Weighting?: Maybe<number>;
-}
-
-export interface UpsertAccounts {
-  BillingCity?: Maybe<string>;
-
-  BillingPostalCode?: Maybe<string>;
-
-  BillingState?: Maybe<string>;
-
-  BillingStreet?: Maybe<string>;
-
-  ClientType?: Maybe<string>;
-
-  Fax?: Maybe<string>;
-
-  GenderPreference?: Maybe<string>;
-
-  LanguagePreference?: Maybe<string>;
-
-  Name: string;
-
-  Phone?: Maybe<string>;
-
-  Rank?: Maybe<number>;
-
-  RequiresWhitelist?: Maybe<boolean>;
-
-  ShippingCity?: Maybe<string>;
-
-  ShippingPostalCode?: Maybe<string>;
-
-  ShippingState?: Maybe<string>;
-
-  ShippingStreet?: Maybe<string>;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertActivities {
-  Address?: Maybe<string>;
-
-  CopiedFromId?: Maybe<string>;
-
-  End: string;
-
-  GeoLatitude?: Maybe<number>;
-
-  GeoLongitude?: Maybe<number>;
-
-  LocationId?: Maybe<string>;
-
-  Notes?: Maybe<string>;
-
-  Quantity?: Maybe<number>;
-
-  ResourceId?: Maybe<string>;
-
-  ScheduleTemplateId?: Maybe<string>;
-
-  Start: string;
-
-  TemplatedActivityId?: Maybe<string>;
-
-  Timezone?: Maybe<string>;
-
-  Type?: Maybe<string>;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertActivityResources {
-  ActivityId: string;
-
-  ResourceId: string;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertAttendees {
-  CancelReason?: Maybe<string>;
-
-  ContactId: string;
-
-  JobId: string;
-
-  Status?: Maybe<AttendeeStatus>;
-
-  TimeCancelled?: Maybe<string>;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertAvailabilities {
-  Finish: string;
-
-  IsAvailable?: Maybe<boolean>;
-
-  Notes?: Maybe<string>;
-
-  ResourceId: string;
-
-  Start: string;
-
-  Status?: Maybe<AvailabilityStatus>;
-
-  Type?: Maybe<string>;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertAvailabilityPatternResources {
-  AvailabilityPatternId: string;
-
-  End?: Maybe<string>;
-
-  ResourceId: string;
-
-  Start: string;
-
-  Status?: Maybe<AvailabilityStatus>;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertAvailabilityPatterns {
-  Description?: Maybe<string>;
-
-  Hash: string;
-
-  Name: string;
-
-  Pattern: string;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertAvailabilityTemplateEntries {
-  AvailabilityTemplateId: string;
-
-  FinishTime: number;
-
-  IsAvailable?: Maybe<boolean>;
-
-  StartTime: number;
-
-  UID?: Maybe<string>;
-
-  Weekday: Weekday;
-}
-
-export interface UpsertAvailabilityTemplateResources {
-  AvailabilityTemplateId: string;
-
-  Migrated?: Maybe<boolean>;
-
-  ResourceId: string;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertAvailabilityTemplates {
-  AvailabilityPatternId?: Maybe<string>;
-
-  Finish?: Maybe<LocalDate>;
-
-  Global?: Maybe<boolean>;
-
-  Name?: Maybe<string>;
-
-  Start?: Maybe<LocalDate>;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertClientAvailabilities {
-  AccountId?: Maybe<string>;
-
-  ContactId?: Maybe<string>;
-
-  End: string;
-
-  IsAvailable?: Maybe<boolean>;
-
-  PreferredEnd?: Maybe<string>;
-
-  PreferredStart?: Maybe<string>;
-
-  RecurringScheduleId?: Maybe<string>;
-
-  Start: string;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertContactTags {
-  ContactId: string;
-
-  Required?: Maybe<boolean>;
-
-  TagId: string;
-
-  UID?: Maybe<string>;
-
-  Weighting?: Maybe<number>;
-}
-
-export interface UpsertContacts {
-  AccountId?: Maybe<string>;
-
-  Email?: Maybe<string>;
-
-  FirstName?: Maybe<string>;
-
-  LastName: string;
-
-  MailingCity?: Maybe<string>;
-
-  MailingPostalCode?: Maybe<string>;
-
-  MailingState?: Maybe<string>;
-
-  MailingStreet?: Maybe<string>;
-
-  MobilePhone?: Maybe<string>;
-
-  OtherCity?: Maybe<string>;
-
-  OtherPostalCode?: Maybe<string>;
-
-  OtherState?: Maybe<string>;
-
-  OtherStreet?: Maybe<string>;
-
-  Phone?: Maybe<string>;
-
-  RegionId?: Maybe<string>;
-
-  Title?: Maybe<string>;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertDefaultAutomaticDispatch {
-  AutomaticDispatch?: Maybe<string>;
-
-  AutomaticDispatchOffset?: Maybe<number>;
-
-  AutomaticDispatchOnUnavailability?: Maybe<boolean>;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertHolidayRegions {
-  HolidayId: string;
-
-  RegionId: string;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertHolidays {
-  EndDate: LocalDate;
-
-  Global?: Maybe<boolean>;
-
-  Name: string;
-
-  StartDate: LocalDate;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertJobAllocations {
-  DeclineDescription?: Maybe<string>;
-
-  DeclineReason?: Maybe<string>;
-
-  Duration?: Maybe<number>;
-
-  End?: Maybe<string>;
-
-  EstimatedTravelDistance?: Maybe<number>;
-
-  EstimatedTravelTime?: Maybe<number>;
-
-  GeoCheckedInLatitude?: Maybe<number>;
-
-  GeoCheckedInLongitude?: Maybe<number>;
-
-  GeoCompletedLatitude?: Maybe<number>;
-
-  GeoCompletedLongitude?: Maybe<number>;
-
-  GeoInProgressLatitude?: Maybe<number>;
-
-  GeoInProgressLongitude?: Maybe<number>;
-
-  GeoStartTravelLatitude?: Maybe<number>;
-
-  GeoStartTravelLongitude?: Maybe<number>;
-
-  JobId: string;
-
-  NotificationType?: Maybe<string>;
-
-  PhoneResponse?: Maybe<string>;
-
-  ResourceId: string;
-
-  ResourceRequirementId?: Maybe<string>;
-
-  Start?: Maybe<string>;
-
-  Status?: Maybe<JobAllocationStatus>;
-
-  TeamLeader?: Maybe<boolean>;
-
-  TimeCheckedIn?: Maybe<string>;
-
-  TimeCompleted?: Maybe<string>;
-
-  TimeInProgress?: Maybe<string>;
-
-  TimePublished?: Maybe<string>;
-
-  TimeResponded?: Maybe<string>;
-
-  TimeStartTravel?: Maybe<string>;
-
-  TravelDistance?: Maybe<number>;
-
-  TravelTime?: Maybe<number>;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertJobDependencies {
-  FromAnchor?: Maybe<JobDependencyAnchor>;
-
-  FromJobId: string;
-
-  ToAnchor?: Maybe<JobDependencyAnchor>;
-
-  ToAnchorMaxOffsetMinutes?: Maybe<number>;
-
-  ToAnchorMinOffsetMinutes?: Maybe<number>;
-
-  ToJobId: string;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertJobOffers {
-  CreatedByResource?: Maybe<boolean>;
-
-  JobId: string;
-
-  ResourceRequirementId?: Maybe<string>;
-
-  Status?: Maybe<OfferStatus>;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertJobProducts {
-  JobId: string;
-
-  ProductId?: Maybe<string>;
-
-  Qty: number;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertJobTags {
-  JobId: string;
-
-  Required?: Maybe<boolean>;
-
-  TagId: string;
-
-  UID?: Maybe<string>;
-
-  Weighting?: Maybe<number>;
-}
-
-export interface UpsertJobTasks {
-  Completed?: Maybe<boolean>;
-
-  Description?: Maybe<string>;
-
-  JobId: string;
-
-  Name: string;
-
-  Seq: number;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertJobTemplates {
-  ClientType: string;
-
-  DurationInHour?: Maybe<number>;
-
-  DurationInMinute?: Maybe<number>;
-
-  JobTasks?: Maybe<string>;
-
-  JobTimeConstraintsEndBefore?: Maybe<string>;
-
-  JobTimeConstraintsEndOption?: Maybe<string>;
-
-  JobTimeConstraintsStartAfter?: Maybe<string>;
-
-  JobTimeConstraintsStartBefore?: Maybe<string>;
-
-  JobTimeConstraintsStartOption?: Maybe<string>;
-
-  JobTimeConstraintsType?: Maybe<string>;
-
-  JobType: string;
-
-  RecurrencePatternDaysOfWeek?: Maybe<string>;
-
-  RecurrencePatternDaysPerWeek?: Maybe<number>;
-
-  RecurrencePatternOption?: Maybe<string>;
-
-  UID?: Maybe<string>;
-
-  Urgency?: Maybe<string>;
-}
-
-export interface UpsertJobTimeConstraints {
-  EndBefore?: Maybe<string>;
-
-  JobId: string;
-
-  Required?: Maybe<boolean>;
-
-  StartAfter?: Maybe<string>;
-
-  StartBefore?: Maybe<string>;
-
-  Type?: Maybe<JobTimeConstraintType>;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertJobs {
-  AbortReason?: Maybe<string>;
-
-  AccountId?: Maybe<string>;
-
-  ActualEnd?: Maybe<string>;
-
-  ActualStart?: Maybe<string>;
-
-  Address?: Maybe<string>;
-
-  AutoSchedule?: Maybe<boolean>;
-
-  AutomaticDispatch?: Maybe<string>;
-
-  AutomaticDispatchDate?: Maybe<string>;
-
-  AutomaticDispatchOffset?: Maybe<number>;
-
-  AutomaticDispatchOnUnavailability?: Maybe<boolean>;
-
-  CanBeDeclined?: Maybe<boolean>;
-
-  CompletionNotes?: Maybe<string>;
-
-  ContactId?: Maybe<string>;
-
-  CopiedFromId?: Maybe<string>;
-
-  CustomerConfirmationStatus?: Maybe<CustomerConfirmationStatus>;
-
-  Description?: Maybe<string>;
-
-  Duration: number;
-
-  End?: Maybe<string>;
-
-  EstimatedEnd?: Maybe<string>;
-
-  EstimatedStart?: Maybe<string>;
-
-  FollowupReason?: Maybe<string>;
-
-  GeoLatitude?: Maybe<number>;
-
-  GeoLongitude?: Maybe<number>;
-
-  IsGroupEvent?: Maybe<boolean>;
-
-  JobAllocationTimeSource?: Maybe<boolean>;
-
-  JobStatus?: Maybe<JobStatus>;
-
-  LocationId?: Maybe<string>;
-
-  Locked?: Maybe<boolean>;
-
-  MaxAttendees?: Maybe<number>;
-
-  MinAttendees?: Maybe<number>;
-
-  Name?: Maybe<string>;
-
-  NotesComments?: Maybe<string>;
-
-  NotifyBy?: Maybe<string>;
-
-  NotifyPeriod?: Maybe<number>;
-
-  ParentId?: Maybe<string>;
-
-  Quantity?: Maybe<number>;
-
-  RecurringScheduleId?: Maybe<string>;
-
-  RegionId: string;
-
-  ScheduleTemplateId?: Maybe<string>;
-
-  Start?: Maybe<string>;
-
-  TemplatedJobId?: Maybe<string>;
-
-  Type?: Maybe<string>;
-
-  UID?: Maybe<string>;
-
-  Urgency?: Maybe<string>;
-
-  VirtualMeetingId?: Maybe<string>;
-
-  VirtualMeetingInfo?: Maybe<string>;
-
-  VirtualMeetingURL?: Maybe<string>;
-}
-
-export interface UpsertLocationResourceScores {
-  Blacklisted?: Maybe<boolean>;
-
-  LocationId: string;
-
-  ResourceId: string;
-
-  UID?: Maybe<string>;
-
-  Whitelisted?: Maybe<boolean>;
-}
-
-export interface UpsertLocations {
-  AccountId?: Maybe<string>;
-
-  Address?: Maybe<string>;
-
-  GeoLatitude?: Maybe<number>;
-
-  GeoLongitude?: Maybe<number>;
-
-  Name: string;
-
-  RegionId?: Maybe<string>;
-
-  RequiresWhitelist?: Maybe<boolean>;
-
-  Type?: Maybe<string>;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertPatientPreferenceTags {
-  PatientPreferenceId?: Maybe<string>;
-
-  TagId?: Maybe<string>;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertPatientPreferences {
-  GenderPreference?: Maybe<string>;
-
-  JobType?: Maybe<string>;
-
-  LanguagePreference?: Maybe<string>;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertProducts {
-  Description?: Maybe<string>;
-
-  Family?: Maybe<string>;
-
-  IsActive?: Maybe<boolean>;
-
-  Name: string;
-
-  ProductCode?: Maybe<string>;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertRecurringSchedules {
-  AckAllJobs?: Maybe<boolean>;
-
-  Description?: Maybe<string>;
-
-  Pattern?: Maybe<string>;
-
-  Summary?: Maybe<string>;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertRegions {
-  CountryCode?: Maybe<string>;
-
-  Description?: Maybe<string>;
-
-  GeoLatitude?: Maybe<number>;
-
-  GeoLongitude?: Maybe<number>;
-
-  Name: string;
-
-  Radius?: Maybe<number>;
-
-  Timezone: string;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertResourceJobOffers {
-  JobOfferId: string;
-
-  ResourceId: string;
-
-  Response?: Maybe<OfferResponse>;
-
-  Status?: Maybe<ResourceOfferStatus>;
-
-  TimeNotified?: Maybe<string>;
-
-  TimeResponded?: Maybe<string>;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertResourceOverrideRegions {
-  RegionId: string;
-
-  ResourceOverrideId: string;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertResourceOverrides {
-  Description?: Maybe<string>;
-
-  End: string;
-
-  GeoLatitude?: Maybe<number>;
-
-  GeoLongitude?: Maybe<number>;
-
-  HomeAddress?: Maybe<string>;
-
-  ResourceId: string;
-
-  Start: string;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertResourceRegions {
-  End?: Maybe<string>;
-
-  RegionId: string;
-
-  ResourceId: string;
-
-  Start?: Maybe<string>;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertResourceRequirementTags {
-  Required?: Maybe<boolean>;
-
-  ResourceRequirementId: string;
-
-  TagId: string;
-
-  UID?: Maybe<string>;
-
-  Weighting?: Maybe<number>;
-}
-
-export interface UpsertResourceRequirements {
-  Description?: Maybe<string>;
-
-  Duration?: Maybe<number>;
-
-  JobAllocationTimeSource?: Maybe<boolean>;
-
-  JobId: string;
-
-  Quantity: number;
-
-  RelativeStart?: Maybe<number>;
-
-  ScheduledEnd?: Maybe<string>;
-
-  ScheduledStart?: Maybe<string>;
-
-  Status?: Maybe<JobStatus>;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertResourceShiftBreaks {
-  End?: Maybe<string>;
-
-  ResourceShiftId: string;
-
-  Start: string;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertResourceShiftOffers {
-  ResourceId: string;
-
-  Response?: Maybe<OfferResponse>;
-
-  ShiftOfferId: string;
-
-  Status?: Maybe<ResourceOfferStatus>;
-
-  TimeNotified?: Maybe<string>;
-
-  TimeResponded?: Maybe<string>;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertResourceShifts {
-  ActualEnd?: Maybe<string>;
-
-  ActualStart?: Maybe<string>;
-
-  ResourceId: string;
-
-  ShiftId: string;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertResourceTags {
-  ExpiryDate?: Maybe<string>;
-
-  ResourceId: string;
-
-  TagId: string;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertResources {
-  ADP_ID?: Maybe<string>;
-
-  Alias?: Maybe<string>;
-
-  AutoSchedule?: Maybe<boolean>;
-
-  Category?: Maybe<string>;
-
-  CountryCode?: Maybe<string>;
-
-  Email?: Maybe<string>;
-
-  EmploymentType?: Maybe<string>;
-
-  GeoLatitude?: Maybe<number>;
-
-  GeoLongitude?: Maybe<number>;
-
-  HomeAddress?: Maybe<string>;
-
-  IsActive?: Maybe<boolean>;
-
-  MobilePhone?: Maybe<string>;
-
-  Name: string;
-
-  Notes?: Maybe<string>;
-
-  NotificationType?: Maybe<string>;
-
-  PrimaryPhone?: Maybe<string>;
-
-  PrimaryRegionId: string;
-
-  Rating?: Maybe<number>;
-
-  ResourceType?: Maybe<string>;
-
-  UID?: Maybe<string>;
-
-  UserId?: Maybe<string>;
-
-  WeeklyHours?: Maybe<number>;
-
-  WorkingHourType?: Maybe<WorkingHourType>;
-}
-
-export interface UpsertScheduleTemplates {
-  DeletedById?: Maybe<string>;
-
-  DeletedDate?: Maybe<string>;
-
-  Description?: Maybe<string>;
-
-  IsDeleted?: Maybe<boolean>;
-
-  Name: string;
-
-  PeriodDays?: Maybe<number>;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertShiftOfferShifts {
-  ShiftId: string;
-
-  ShiftOfferId: string;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertShiftOffers {
-  Status?: Maybe<OfferStatus>;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertShiftTags {
-  Required?: Maybe<boolean>;
-
-  ShiftId: string;
-
-  TagId: string;
-
-  UID?: Maybe<string>;
-
-  Weighting?: Maybe<number>;
-}
-
-export interface UpsertShifts {
-  CopiedFromId?: Maybe<string>;
-
-  DisplayName?: Maybe<string>;
-
-  Duration?: Maybe<number>;
-
-  End?: Maybe<string>;
-
-  IsDraft?: Maybe<boolean>;
-
-  LocationId?: Maybe<string>;
-
-  RegionId?: Maybe<string>;
-
-  ScheduleTemplateId?: Maybe<string>;
-
-  Start?: Maybe<string>;
-
-  TemplatedShiftId?: Maybe<string>;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertTags {
-  Classification?: Maybe<TagClassification>;
-
-  Name: string;
-
-  Type?: Maybe<string>;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertTemplatedActivities {
-  Address?: Maybe<string>;
-
-  Duration: number;
-
-  GeoLatitude?: Maybe<number>;
-
-  GeoLongitude?: Maybe<number>;
-
-  LocationId?: Maybe<string>;
-
-  Notes?: Maybe<string>;
-
-  Quantity?: Maybe<number>;
-
-  ResourceId?: Maybe<string>;
-
-  ScheduleTemplateId: string;
-
-  StartOffsetDays: number;
-
-  StartTimeOfDay: LocalTime;
-
-  Timezone: string;
-
-  Type?: Maybe<string>;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertTemplatedActivityResources {
-  ResourceId: string;
-
-  TemplatedActivityId: string;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertTemplatedAttendees {
-  ContactId: string;
-
-  TemplatedJobId: string;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertTemplatedJobAllocations {
-  Duration?: Maybe<number>;
-
-  NotificationType?: Maybe<string>;
-
-  ResourceId: string;
-
-  StartOffsetDays?: Maybe<number>;
-
-  StartTimeOfDay?: Maybe<LocalTime>;
-
-  Status?: Maybe<JobAllocationStatus>;
-
-  TeamLeader?: Maybe<boolean>;
-
-  TemplatedJobId: string;
-
-  TemplatedResourceRequirementId?: Maybe<string>;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertTemplatedJobDependencies {
-  FromAnchor?: Maybe<JobDependencyAnchor>;
-
-  FromTemplatedJobId: string;
-
-  ToAnchor?: Maybe<JobDependencyAnchor>;
-
-  ToAnchorMaxOffsetMinutes?: Maybe<number>;
-
-  ToAnchorMinOffsetMinutes?: Maybe<number>;
-
-  ToTemplatedJobId: string;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertTemplatedJobProducts {
-  ProductId?: Maybe<string>;
-
-  Qty: number;
-
-  TemplatedJobId: string;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertTemplatedJobTags {
-  Required?: Maybe<boolean>;
-
-  TagId: string;
-
-  TemplatedJobId: string;
-
-  UID?: Maybe<string>;
-
-  Weighting?: Maybe<number>;
-}
-
-export interface UpsertTemplatedJobTasks {
-  Completed?: Maybe<boolean>;
-
-  Description?: Maybe<string>;
-
-  Name: string;
-
-  Seq: number;
-
-  TemplatedJobId: string;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertTemplatedJobTimeConstraints {
-  EndBeforeOffsetDays?: Maybe<number>;
-
-  EndBeforeTimeOfDay?: Maybe<LocalTime>;
-
-  Required?: Maybe<boolean>;
-
-  StartAfterOffsetDays?: Maybe<number>;
-
-  StartAfterTimeOfDay?: Maybe<LocalTime>;
-
-  StartBeforeOffsetDays?: Maybe<number>;
-
-  StartBeforeTimeOfDay?: Maybe<LocalTime>;
-
-  TemplatedJobId: string;
-
-  Type: JobTimeConstraintType;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertTemplatedJobs {
-  AccountId?: Maybe<string>;
-
-  Address?: Maybe<string>;
-
-  AutoSchedule?: Maybe<boolean>;
-
-  CanBeDeclined?: Maybe<boolean>;
-
-  ContactId?: Maybe<string>;
-
-  CustomerConfirmationStatus?: Maybe<CustomerConfirmationStatus>;
-
-  Description?: Maybe<string>;
-
-  Duration: number;
-
-  GeoLatitude?: Maybe<number>;
-
-  GeoLongitude?: Maybe<number>;
-
-  IsGroupEvent?: Maybe<boolean>;
-
-  JobAllocationTimeSource?: Maybe<boolean>;
-
-  LocationId?: Maybe<string>;
-
-  Locked?: Maybe<boolean>;
-
-  MaxAttendees?: Maybe<number>;
-
-  MinAttendees?: Maybe<number>;
-
-  NotesComments?: Maybe<string>;
-
-  NotifyPeriod?: Maybe<number>;
-
-  Quantity?: Maybe<number>;
-
-  RegionId: string;
-
-  ScheduleTemplateId: string;
-
-  StartOffsetDays: number;
-
-  StartTimeOfDay: LocalTime;
-
-  Type?: Maybe<string>;
-
-  UID?: Maybe<string>;
-
-  Urgency?: Maybe<string>;
-
-  VirtualMeetingId?: Maybe<string>;
-
-  VirtualMeetingInfo?: Maybe<string>;
-
-  VirtualMeetingURL?: Maybe<string>;
-}
-
-export interface UpsertTemplatedResourceRequirementTags {
-  Required?: Maybe<boolean>;
-
-  TagId: string;
-
-  TemplatedResourceRequirementId: string;
-
-  UID?: Maybe<string>;
-
-  Weighting?: Maybe<number>;
-}
-
-export interface UpsertTemplatedResourceRequirements {
-  Description?: Maybe<string>;
-
-  JobAllocationTimeSource?: Maybe<boolean>;
-
-  Quantity: number;
-
-  RelativeStart?: Maybe<number>;
-
-  TemplatedJobId: string;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertTemplatedResourceShifts {
-  ResourceId: string;
-
-  TemplatedShiftId: string;
-
-  UID?: Maybe<string>;
-}
-
-export interface UpsertTemplatedShiftTags {
-  Required?: Maybe<boolean>;
-
-  TagId: string;
-
-  TemplatedShiftId: string;
-
-  UID?: Maybe<string>;
-
-  Weighting?: Maybe<number>;
-}
-
-export interface UpsertTemplatedShifts {
-  DisplayName?: Maybe<string>;
-
-  Duration: number;
-
-  IsDraft?: Maybe<boolean>;
-
-  LocationId?: Maybe<string>;
-
-  RegionId: string;
-
-  ScheduleTemplateId: string;
-
-  StartOffsetDays: number;
-
-  StartTimeOfDay: LocalTime;
-
-  UID?: Maybe<string>;
-}
-
 export enum SchemaSubscriptionOp {
   Insert = "INSERT",
   Update = "UPDATE",
@@ -3587,6 +2277,9 @@ export type EqlOrderByClauseJobTimeConstraints = any;
 
 /** Valid values are (SLA, Timeslot) */
 export type JobTimeConstraintType = any;
+
+/** A date without a time-zone in the ISO-8601 calendar system */
+export type LocalDate = any;
 
 /** EQL query filter for object type ResourceRequirements */
 export type EqlQueryFilterResourceRequirements = any;
@@ -3813,9 +2506,6 @@ export type EqlQueryFilterAvailabilityTemplateEntries = any;
 /** EQL order by clause for object type AvailabilityTemplateEntries */
 export type EqlOrderByClauseAvailabilityTemplateEntries = any;
 
-/** A date without a time-zone in the ISO-8601 calendar system */
-export type LocalDate = any;
-
 /** EQL query filter for object type AvailabilityTemplateResources */
 export type EqlQueryFilterAvailabilityTemplateResources = any;
 
@@ -3831,12 +2521,6 @@ export type EqlQueryFilterAvailabilityTemplates = any;
 /** EQL order by clause for object type AvailabilityTemplates */
 export type EqlOrderByClauseAvailabilityTemplates = any;
 
-/** EQL query filter for object type DefaultAutomaticDispatch */
-export type EqlQueryFilterDefaultAutomaticDispatch = any;
-
-/** EQL order by clause for object type DefaultAutomaticDispatch */
-export type EqlOrderByClauseDefaultAutomaticDispatch = any;
-
 /** EQL query filter for object type HolidayRegions */
 export type EqlQueryFilterHolidayRegions = any;
 
@@ -3848,24 +2532,6 @@ export type EqlQueryFilterHolidays = any;
 
 /** EQL order by clause for object type Holidays */
 export type EqlOrderByClauseHolidays = any;
-
-/** EQL query filter for object type JobTemplates */
-export type EqlQueryFilterJobTemplates = any;
-
-/** EQL order by clause for object type JobTemplates */
-export type EqlOrderByClauseJobTemplates = any;
-
-/** EQL query filter for object type PatientPreferenceTags */
-export type EqlQueryFilterPatientPreferenceTags = any;
-
-/** EQL order by clause for object type PatientPreferenceTags */
-export type EqlOrderByClausePatientPreferenceTags = any;
-
-/** EQL query filter for object type PatientPreferences */
-export type EqlQueryFilterPatientPreferences = any;
-
-/** EQL order by clause for object type PatientPreferences */
-export type EqlOrderByClausePatientPreferences = any;
 
 /** EQL query filter for object type Products */
 export type EqlQueryFilterProducts = any;
@@ -3909,35 +2575,11 @@ export type EqlQueryFilterUsers = any;
 /** EQL order by clause for object type Users */
 export type EqlOrderByClauseUsers = any;
 
-/** EQL record filter for object type JobProducts */
-export type EqlRecordFilterJobProducts = any;
+/** EQL record filter for object type Activities */
+export type EqlRecordFilterActivities = any;
 
-/** An EQL filter string, which can access the Current and Previous values of the JobProducts object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterJobProducts = any;
-
-/** EQL record filter for object type TemplatedJobs */
-export type EqlRecordFilterTemplatedJobs = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the TemplatedJobs object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterTemplatedJobs = any;
-
-/** EQL record filter for object type Tags */
-export type EqlRecordFilterTags = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the Tags object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterTags = any;
-
-/** EQL record filter for object type ResourceShifts */
-export type EqlRecordFilterResourceShifts = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the ResourceShifts object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterResourceShifts = any;
-
-/** EQL record filter for object type TemplatedShifts */
-export type EqlRecordFilterTemplatedShifts = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the TemplatedShifts object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterTemplatedShifts = any;
+/** An EQL filter string, which can access the Current and Previous values of the Activities object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
+export type EqlRecordChangeFilterActivities = any;
 
 /** EQL record filter for object type JobAllocations */
 export type EqlRecordFilterJobAllocations = any;
@@ -3945,113 +2587,11 @@ export type EqlRecordFilterJobAllocations = any;
 /** An EQL filter string, which can access the Current and Previous values of the JobAllocations object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
 export type EqlRecordChangeFilterJobAllocations = any;
 
-/** EQL record filter for object type ResourceOverrides */
-export type EqlRecordFilterResourceOverrides = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the ResourceOverrides object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterResourceOverrides = any;
-
-/** EQL record filter for object type ShiftOffers */
-export type EqlRecordFilterShiftOffers = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the ShiftOffers object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterShiftOffers = any;
-
-/** EQL record filter for object type RecurringSchedules */
-export type EqlRecordFilterRecurringSchedules = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the RecurringSchedules object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterRecurringSchedules = any;
-
-/** EQL record filter for object type JobTags */
-export type EqlRecordFilterJobTags = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the JobTags object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterJobTags = any;
-
-/** EQL record filter for object type TemplatedResourceRequirements */
-export type EqlRecordFilterTemplatedResourceRequirements = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the TemplatedResourceRequirements object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterTemplatedResourceRequirements = any;
-
-/** EQL record filter for object type TemplatedResourceRequirementTags */
-export type EqlRecordFilterTemplatedResourceRequirementTags = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the TemplatedResourceRequirementTags object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterTemplatedResourceRequirementTags = any;
-
-/** EQL record filter for object type Activities */
-export type EqlRecordFilterActivities = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the Activities object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterActivities = any;
-
-/** EQL record filter for object type DefaultAutomaticDispatch */
-export type EqlRecordFilterDefaultAutomaticDispatch = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the DefaultAutomaticDispatch object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterDefaultAutomaticDispatch = any;
-
-/** EQL record filter for object type AvailabilityTemplateResources */
-export type EqlRecordFilterAvailabilityTemplateResources = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the AvailabilityTemplateResources object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterAvailabilityTemplateResources = any;
-
-/** EQL record filter for object type ActivityResources */
-export type EqlRecordFilterActivityResources = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the ActivityResources object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterActivityResources = any;
-
-/** EQL record filter for object type ResourceTags */
-export type EqlRecordFilterResourceTags = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the ResourceTags object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterResourceTags = any;
-
-/** EQL record filter for object type TemplatedActivities */
-export type EqlRecordFilterTemplatedActivities = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the TemplatedActivities object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterTemplatedActivities = any;
-
-/** EQL record filter for object type JobTimeConstraints */
-export type EqlRecordFilterJobTimeConstraints = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the JobTimeConstraints object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterJobTimeConstraints = any;
-
-/** EQL record filter for object type JobOffers */
-export type EqlRecordFilterJobOffers = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the JobOffers object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterJobOffers = any;
-
-/** EQL record filter for object type PatientPreferences */
-export type EqlRecordFilterPatientPreferences = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the PatientPreferences object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterPatientPreferences = any;
-
-/** EQL record filter for object type ResourceOverrideRegions */
-export type EqlRecordFilterResourceOverrideRegions = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the ResourceOverrideRegions object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterResourceOverrideRegions = any;
-
 /** EQL record filter for object type Jobs */
 export type EqlRecordFilterJobs = any;
 
 /** An EQL filter string, which can access the Current and Previous values of the Jobs object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
 export type EqlRecordChangeFilterJobs = any;
-
-/** EQL record filter for object type PatientPreferenceTags */
-export type EqlRecordFilterPatientPreferenceTags = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the PatientPreferenceTags object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterPatientPreferenceTags = any;
 
 /** EQL record filter for object type Availabilities */
 export type EqlRecordFilterAvailabilities = any;
@@ -4059,330 +2599,53 @@ export type EqlRecordFilterAvailabilities = any;
 /** An EQL filter string, which can access the Current and Previous values of the Availabilities object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
 export type EqlRecordChangeFilterAvailabilities = any;
 
-/** EQL record filter for object type ContactTags */
-export type EqlRecordFilterContactTags = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the ContactTags object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterContactTags = any;
-
-/** EQL record filter for object type ClientAvailabilities */
-export type EqlRecordFilterClientAvailabilities = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the ClientAvailabilities object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterClientAvailabilities = any;
-
-/** EQL record filter for object type TemplatedJobAllocations */
-export type EqlRecordFilterTemplatedJobAllocations = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the TemplatedJobAllocations object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterTemplatedJobAllocations = any;
-
-/** EQL record filter for object type Attendees */
-export type EqlRecordFilterAttendees = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the Attendees object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterAttendees = any;
-
-/** EQL record filter for object type ResourceRequirementTags */
-export type EqlRecordFilterResourceRequirementTags = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the ResourceRequirementTags object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterResourceRequirementTags = any;
-
 /** EQL record filter for object type Shifts */
 export type EqlRecordFilterShifts = any;
 
 /** An EQL filter string, which can access the Current and Previous values of the Shifts object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
 export type EqlRecordChangeFilterShifts = any;
 
-/** EQL record filter for object type TemplatedActivityResources */
-export type EqlRecordFilterTemplatedActivityResources = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the TemplatedActivityResources object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterTemplatedActivityResources = any;
-
-/** EQL record filter for object type TemplatedJobDependencies */
-export type EqlRecordFilterTemplatedJobDependencies = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the TemplatedJobDependencies object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterTemplatedJobDependencies = any;
-
-/** EQL record filter for object type TemplatedJobProducts */
-export type EqlRecordFilterTemplatedJobProducts = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the TemplatedJobProducts object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterTemplatedJobProducts = any;
-
-/** EQL record filter for object type ShiftOfferShifts */
-export type EqlRecordFilterShiftOfferShifts = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the ShiftOfferShifts object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterShiftOfferShifts = any;
-
-/** EQL record filter for object type TemplatedJobTasks */
-export type EqlRecordFilterTemplatedJobTasks = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the TemplatedJobTasks object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterTemplatedJobTasks = any;
-
-/** EQL record filter for object type TemplatedJobTags */
-export type EqlRecordFilterTemplatedJobTags = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the TemplatedJobTags object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterTemplatedJobTags = any;
-
-/** EQL record filter for object type ResourceShiftOffers */
-export type EqlRecordFilterResourceShiftOffers = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the ResourceShiftOffers object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterResourceShiftOffers = any;
-
-/** EQL record filter for object type ShiftTags */
-export type EqlRecordFilterShiftTags = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the ShiftTags object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterShiftTags = any;
-
-/** EQL record filter for object type Locations */
-export type EqlRecordFilterLocations = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the Locations object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterLocations = any;
-
-/** EQL record filter for object type TemplatedShiftTags */
-export type EqlRecordFilterTemplatedShiftTags = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the TemplatedShiftTags object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterTemplatedShiftTags = any;
-
-/** EQL record filter for object type TemplatedJobTimeConstraints */
-export type EqlRecordFilterTemplatedJobTimeConstraints = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the TemplatedJobTimeConstraints object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterTemplatedJobTimeConstraints = any;
-
-/** EQL record filter for object type ResourceShiftBreaks */
-export type EqlRecordFilterResourceShiftBreaks = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the ResourceShiftBreaks object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterResourceShiftBreaks = any;
-
-/** EQL record filter for object type TemplatedAttendees */
-export type EqlRecordFilterTemplatedAttendees = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the TemplatedAttendees object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterTemplatedAttendees = any;
-
-/** EQL record filter for object type AccountTags */
-export type EqlRecordFilterAccountTags = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the AccountTags object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterAccountTags = any;
-
-/** EQL record filter for object type Regions */
-export type EqlRecordFilterRegions = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the Regions object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterRegions = any;
-
-/** EQL record filter for object type JobDependencies */
-export type EqlRecordFilterJobDependencies = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the JobDependencies object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterJobDependencies = any;
-
-/** EQL record filter for object type ScheduleTemplates */
-export type EqlRecordFilterScheduleTemplates = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the ScheduleTemplates object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterScheduleTemplates = any;
-
-/** EQL record filter for object type Users */
-export type EqlRecordFilterUsers = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the Users object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterUsers = any;
-
-/** EQL record filter for object type Resources */
-export type EqlRecordFilterResources = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the Resources object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterResources = any;
-
-/** EQL record filter for object type HolidayRegions */
-export type EqlRecordFilterHolidayRegions = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the HolidayRegions object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterHolidayRegions = any;
-
-/** EQL record filter for object type AvailabilityTemplates */
-export type EqlRecordFilterAvailabilityTemplates = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the AvailabilityTemplates object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterAvailabilityTemplates = any;
-
-/** EQL record filter for object type ResourceJobOffers */
-export type EqlRecordFilterResourceJobOffers = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the ResourceJobOffers object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterResourceJobOffers = any;
-
-/** EQL record filter for object type Accounts */
-export type EqlRecordFilterAccounts = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the Accounts object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterAccounts = any;
-
-/** EQL record filter for object type TemplatedResourceShifts */
-export type EqlRecordFilterTemplatedResourceShifts = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the TemplatedResourceShifts object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterTemplatedResourceShifts = any;
-
-/** EQL record filter for object type AvailabilityPatterns */
-export type EqlRecordFilterAvailabilityPatterns = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the AvailabilityPatterns object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterAvailabilityPatterns = any;
-
-/** EQL record filter for object type AvailabilityPatternResources */
-export type EqlRecordFilterAvailabilityPatternResources = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the AvailabilityPatternResources object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterAvailabilityPatternResources = any;
-
-/** EQL record filter for object type AvailabilityTemplateEntries */
-export type EqlRecordFilterAvailabilityTemplateEntries = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the AvailabilityTemplateEntries object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterAvailabilityTemplateEntries = any;
-
-/** EQL record filter for object type AccountResourceScores */
-export type EqlRecordFilterAccountResourceScores = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the AccountResourceScores object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterAccountResourceScores = any;
-
-/** EQL record filter for object type Contacts */
-export type EqlRecordFilterContacts = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the Contacts object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterContacts = any;
-
-/** EQL record filter for object type Products */
-export type EqlRecordFilterProducts = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the Products object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterProducts = any;
-
-/** EQL record filter for object type JobTasks */
-export type EqlRecordFilterJobTasks = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the JobTasks object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterJobTasks = any;
-
-/** EQL record filter for object type Holidays */
-export type EqlRecordFilterHolidays = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the Holidays object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterHolidays = any;
-
-/** EQL record filter for object type ResourceRequirements */
-export type EqlRecordFilterResourceRequirements = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the ResourceRequirements object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterResourceRequirements = any;
-
-/** EQL record filter for object type JobTemplates */
-export type EqlRecordFilterJobTemplates = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the JobTemplates object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterJobTemplates = any;
-
-/** EQL record filter for object type LocationResourceScores */
-export type EqlRecordFilterLocationResourceScores = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the LocationResourceScores object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterLocationResourceScores = any;
-
-/** EQL record filter for object type ResourceRegions */
-export type EqlRecordFilterResourceRegions = any;
-
-/** An EQL filter string, which can access the Current and Previous values of the ResourceRegions object and the Operation that was performed. This allows events to only be emitted if a certain field has change. */
-export type EqlRecordChangeFilterResourceRegions = any;
-
 // ====================================================
 // Documents
 // ====================================================
 
-export namespace FetchPatientPreferences {
+export namespace FetchJobs {
   export type Variables = {
-    filter?: Maybe<EqlQueryFilterPatientPreferences>;
+    after?: Maybe<string>;
+    filter?: Maybe<EqlQueryFilterJobs>;
     first?: Maybe<number>;
     offset?: Maybe<number>;
-    orderBy?: Maybe<EqlOrderByClausePatientPreferences>;
+    orderBy?: Maybe<EqlOrderByClauseJobs>;
   };
 
   export type Query = {
     __typename?: "Query";
 
-    patientPreferences: PatientPreferences;
+    jobs: Jobs;
   };
 
-  export type PatientPreferences = {
-    __typename?: "PatientPreferencesConnection";
-
-    totalCount: number;
-
-    pageInfo: PageInfo;
+  export type Jobs = {
+    __typename?: "JobsConnection";
 
     edges: Edges[];
   };
 
-  export type PageInfo = {
-    __typename?: "PageInfo";
-
-    hasNextPage: boolean;
-  };
-
   export type Edges = {
-    __typename?: "PatientPreferencesEdge";
+    __typename?: "JobsEdge";
 
     node: Node;
   };
 
   export type Node = {
-    __typename?: "PatientPreferences";
-
-    UID: string;
-
-    GenderPreference: Maybe<string>;
-
-    LanguagePreference: Maybe<string>;
-
-    JobType: Maybe<string>;
-
-    PatientPreferenceTags: PatientPreferenceTags[];
-  };
-
-  export type PatientPreferenceTags = {
-    __typename?: "PatientPreferenceTags";
-
-    UID: string;
-
-    PatientPreferenceId: Maybe<string>;
-
-    TagId: Maybe<string>;
-
-    Tag: Maybe<Tag>;
-  };
-
-  export type Tag = {
-    __typename?: "Tags";
+    __typename?: "Jobs";
 
     UID: string;
 
     Name: string;
+
+    Start: Maybe<string>;
+
+    End: Maybe<string>;
   };
 }
 
@@ -4465,10 +2728,6 @@ export interface Query {
 
   contactsById?: Maybe<Contacts>;
 
-  defaultAutomaticDispatch: DefaultAutomaticDispatchConnection;
-
-  defaultAutomaticDispatchById?: Maybe<DefaultAutomaticDispatch>;
-
   holidayRegions: HolidayRegionsConnection;
 
   holidayRegionsById?: Maybe<HolidayRegions>;
@@ -4501,10 +2760,6 @@ export interface Query {
 
   jobTasksById?: Maybe<JobTasks>;
 
-  jobTemplates: JobTemplatesConnection;
-
-  jobTemplatesById?: Maybe<JobTemplates>;
-
   jobTimeConstraints: JobTimeConstraintsConnection;
 
   jobTimeConstraintsById?: Maybe<JobTimeConstraints>;
@@ -4520,14 +2775,6 @@ export interface Query {
   locations: LocationsConnection;
 
   locationsById?: Maybe<Locations>;
-
-  patientPreferenceTags: PatientPreferenceTagsConnection;
-
-  patientPreferenceTagsById?: Maybe<PatientPreferenceTags>;
-
-  patientPreferences: PatientPreferencesConnection;
-
-  patientPreferencesById?: Maybe<PatientPreferences>;
 
   products: ProductsConnection;
 
@@ -4735,8 +2982,6 @@ export interface Accounts {
 
   BillingStreet?: Maybe<string>;
 
-  ClientType?: Maybe<string>;
-
   Contacts: Contacts[];
 
   CreatedBy: Users;
@@ -4747,11 +2992,7 @@ export interface Accounts {
 
   Fax?: Maybe<string>;
 
-  GenderPreference?: Maybe<string>;
-
   Jobs: Jobs[];
-
-  LanguagePreference?: Maybe<string>;
 
   LastModifiedBy: Users;
 
@@ -4927,8 +3168,6 @@ export interface Users {
 }
 
 export interface Resources {
-  ADP_ID?: Maybe<string>;
-
   AccountScores: AccountResourceScores[];
 
   Activities: Activities[];
@@ -5159,17 +3398,15 @@ export interface Jobs {
 
   Address?: Maybe<string>;
 
+  Advertise: boolean;
+
+  AdvertiseEnd?: Maybe<string>;
+
+  AdvertiseStart?: Maybe<string>;
+
   Attendees: Attendees[];
 
   AutoSchedule: boolean;
-
-  AutomaticDispatch?: Maybe<string>;
-
-  AutomaticDispatchDate?: Maybe<string>;
-
-  AutomaticDispatchOffset?: Maybe<number>;
-
-  AutomaticDispatchOnUnavailability: boolean;
 
   CanBeDeclined: boolean;
 
@@ -5217,6 +3454,8 @@ export interface Jobs {
 
   JobAllocations: JobAllocations[];
 
+  JobClaimApprovalRequired: boolean;
+
   JobDependenciesFrom: JobDependencies[];
 
   JobDependenciesTo: JobDependencies[];
@@ -5261,6 +3500,10 @@ export interface Jobs {
 
   ParentId?: Maybe<string>;
 
+  PublishStatus?: Maybe<string>;
+
+  PublishedDate?: Maybe<LocalDate>;
+
   Quantity?: Maybe<number>;
 
   RecurringSchedule?: Maybe<RecurringSchedules>;
@@ -5271,13 +3514,19 @@ export interface Jobs {
 
   RegionId: string;
 
+  ResourceRequirementCount?: Maybe<number>;
+
   ResourceRequirements: ResourceRequirements[];
+
+  RespectSchedule: boolean;
 
   ScheduleTemplate?: Maybe<ScheduleTemplates>;
 
   ScheduleTemplateId?: Maybe<string>;
 
   Start?: Maybe<string>;
+
+  Suburb?: Maybe<string>;
 
   TemplatedJob?: Maybe<TemplatedJobs>;
 
@@ -5764,8 +4013,6 @@ export interface RecurringSchedules {
   LastModifiedDate: string;
 
   Name: string;
-
-  Pattern?: Maybe<string>;
 
   Summary?: Maybe<string>;
 
@@ -7214,44 +5461,6 @@ export interface ContactsEdge {
   offset: number;
 }
 
-export interface DefaultAutomaticDispatchConnection {
-  edges: DefaultAutomaticDispatchEdge[];
-
-  pageInfo: PageInfo;
-
-  totalCount: number;
-}
-
-export interface DefaultAutomaticDispatchEdge {
-  cursor: string;
-
-  node: DefaultAutomaticDispatch;
-
-  offset: number;
-}
-
-export interface DefaultAutomaticDispatch {
-  AutomaticDispatch?: Maybe<string>;
-
-  AutomaticDispatchOffset?: Maybe<number>;
-
-  AutomaticDispatchOnUnavailability: boolean;
-
-  CreatedBy: Users;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  LastModifiedBy: Users;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  UID: string;
-}
-
 export interface HolidayRegionsConnection {
   edges: HolidayRegionsEdge[];
 
@@ -7430,68 +5639,6 @@ export interface JobTasksEdge {
   offset: number;
 }
 
-export interface JobTemplatesConnection {
-  edges: JobTemplatesEdge[];
-
-  pageInfo: PageInfo;
-
-  totalCount: number;
-}
-
-export interface JobTemplatesEdge {
-  cursor: string;
-
-  node: JobTemplates;
-
-  offset: number;
-}
-
-export interface JobTemplates {
-  ClientType: string;
-
-  CreatedBy: Users;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  DurationInHour?: Maybe<number>;
-
-  DurationInMinute?: Maybe<number>;
-
-  JobTasks?: Maybe<string>;
-
-  JobTimeConstraintsEndBefore?: Maybe<string>;
-
-  JobTimeConstraintsEndOption?: Maybe<string>;
-
-  JobTimeConstraintsStartAfter?: Maybe<string>;
-
-  JobTimeConstraintsStartBefore?: Maybe<string>;
-
-  JobTimeConstraintsStartOption?: Maybe<string>;
-
-  JobTimeConstraintsType?: Maybe<string>;
-
-  JobType: string;
-
-  LastModifiedBy: Users;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  RecurrencePatternDaysOfWeek?: Maybe<string>;
-
-  RecurrencePatternDaysPerWeek?: Maybe<number>;
-
-  RecurrencePatternOption?: Maybe<string>;
-
-  UID: string;
-
-  Urgency?: Maybe<string>;
-}
-
 export interface JobTimeConstraintsConnection {
   edges: JobTimeConstraintsEdge[];
 
@@ -7552,86 +5699,6 @@ export interface LocationsEdge {
   cursor: string;
 
   node: Locations;
-
-  offset: number;
-}
-
-export interface PatientPreferenceTagsConnection {
-  edges: PatientPreferenceTagsEdge[];
-
-  pageInfo: PageInfo;
-
-  totalCount: number;
-}
-
-export interface PatientPreferenceTagsEdge {
-  cursor: string;
-
-  node: PatientPreferenceTags;
-
-  offset: number;
-}
-
-export interface PatientPreferenceTags {
-  CreatedBy: Users;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  LastModifiedBy: Users;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  PatientPreference?: Maybe<PatientPreferences>;
-
-  PatientPreferenceId?: Maybe<string>;
-
-  Tag?: Maybe<Tags>;
-
-  TagId?: Maybe<string>;
-
-  UID: string;
-}
-
-export interface PatientPreferences {
-  CreatedBy: Users;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  GenderPreference?: Maybe<string>;
-
-  JobType?: Maybe<string>;
-
-  LanguagePreference?: Maybe<string>;
-
-  LastModifiedBy: Users;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  PatientPreferenceTags: PatientPreferenceTags[];
-
-  UID: string;
-}
-
-export interface PatientPreferencesConnection {
-  edges: PatientPreferencesEdge[];
-
-  pageInfo: PageInfo;
-
-  totalCount: number;
-}
-
-export interface PatientPreferencesEdge {
-  cursor: string;
-
-  node: PatientPreferences;
 
   offset: number;
 }
@@ -8257,8 +6324,6 @@ export interface SchemaMutation {
 
   deleteContacts?: Maybe<string>;
 
-  deleteDefaultAutomaticDispatch?: Maybe<string>;
-
   deleteHolidayRegions?: Maybe<string>;
 
   deleteHolidays?: Maybe<string>;
@@ -8275,8 +6340,6 @@ export interface SchemaMutation {
 
   deleteJobTasks?: Maybe<string>;
 
-  deleteJobTemplates?: Maybe<string>;
-
   deleteJobTimeConstraints?: Maybe<string>;
 
   deleteJobs?: Maybe<string>;
@@ -8284,10 +6347,6 @@ export interface SchemaMutation {
   deleteLocationResourceScores?: Maybe<string>;
 
   deleteLocations?: Maybe<string>;
-
-  deletePatientPreferenceTags?: Maybe<string>;
-
-  deletePatientPreferences?: Maybe<string>;
 
   deleteProducts?: Maybe<string>;
 
@@ -8389,8 +6448,6 @@ export interface SchemaMutation {
 
   getContacts: SimpleContacts;
 
-  getDefaultAutomaticDispatch: SimpleDefaultAutomaticDispatch;
-
   getHolidayRegions: SimpleHolidayRegions;
 
   getHolidays: SimpleHolidays;
@@ -8407,8 +6464,6 @@ export interface SchemaMutation {
 
   getJobTasks: SimpleJobTasks;
 
-  getJobTemplates: SimpleJobTemplates;
-
   getJobTimeConstraints: SimpleJobTimeConstraints;
 
   getJobs: SimpleJobs;
@@ -8416,10 +6471,6 @@ export interface SchemaMutation {
   getLocationResourceScores: SimpleLocationResourceScores;
 
   getLocations: SimpleLocations;
-
-  getPatientPreferenceTags: SimplePatientPreferenceTags;
-
-  getPatientPreferences: SimplePatientPreferences;
 
   getProducts: SimpleProducts;
 
@@ -8521,8 +6572,6 @@ export interface SchemaMutation {
 
   insertContacts: string;
 
-  insertDefaultAutomaticDispatch: string;
-
   insertHolidayRegions: string;
 
   insertHolidays: string;
@@ -8539,8 +6588,6 @@ export interface SchemaMutation {
 
   insertJobTasks: string;
 
-  insertJobTemplates: string;
-
   insertJobTimeConstraints: string;
 
   insertJobs: string;
@@ -8548,10 +6595,6 @@ export interface SchemaMutation {
   insertLocationResourceScores: string;
 
   insertLocations: string;
-
-  insertPatientPreferenceTags: string;
-
-  insertPatientPreferences: string;
 
   insertProducts: string;
 
@@ -8653,8 +6696,6 @@ export interface SchemaMutation {
 
   updateContacts: string;
 
-  updateDefaultAutomaticDispatch: string;
-
   updateHolidayRegions: string;
 
   updateHolidays: string;
@@ -8671,8 +6712,6 @@ export interface SchemaMutation {
 
   updateJobTasks: string;
 
-  updateJobTemplates: string;
-
   updateJobTimeConstraints: string;
 
   updateJobs: string;
@@ -8680,10 +6719,6 @@ export interface SchemaMutation {
   updateLocationResourceScores: string;
 
   updateLocations: string;
-
-  updatePatientPreferenceTags: string;
-
-  updatePatientPreferences: string;
 
   updateProducts: string;
 
@@ -8754,138 +6789,6 @@ export interface SchemaMutation {
   updateTemplatedShiftTags: string;
 
   updateTemplatedShifts: string;
-
-  upsertAccountResourceScores: string;
-
-  upsertAccountTags: string;
-
-  upsertAccounts: string;
-
-  upsertActivities: string;
-
-  upsertActivityResources: string;
-
-  upsertAttendees: string;
-
-  upsertAvailabilities: string;
-
-  upsertAvailabilityPatternResources: string;
-
-  upsertAvailabilityPatterns: string;
-
-  upsertAvailabilityTemplateEntries: string;
-
-  upsertAvailabilityTemplateResources: string;
-
-  upsertAvailabilityTemplates: string;
-
-  upsertClientAvailabilities: string;
-
-  upsertContactTags: string;
-
-  upsertContacts: string;
-
-  upsertDefaultAutomaticDispatch: string;
-
-  upsertHolidayRegions: string;
-
-  upsertHolidays: string;
-
-  upsertJobAllocations: string;
-
-  upsertJobDependencies: string;
-
-  upsertJobOffers: string;
-
-  upsertJobProducts: string;
-
-  upsertJobTags: string;
-
-  upsertJobTasks: string;
-
-  upsertJobTemplates: string;
-
-  upsertJobTimeConstraints: string;
-
-  upsertJobs: string;
-
-  upsertLocationResourceScores: string;
-
-  upsertLocations: string;
-
-  upsertPatientPreferenceTags: string;
-
-  upsertPatientPreferences: string;
-
-  upsertProducts: string;
-
-  upsertRecurringSchedules: string;
-
-  upsertRegions: string;
-
-  upsertResourceJobOffers: string;
-
-  upsertResourceOverrideRegions: string;
-
-  upsertResourceOverrides: string;
-
-  upsertResourceRegions: string;
-
-  upsertResourceRequirementTags: string;
-
-  upsertResourceRequirements: string;
-
-  upsertResourceShiftBreaks: string;
-
-  upsertResourceShiftOffers: string;
-
-  upsertResourceShifts: string;
-
-  upsertResourceTags: string;
-
-  upsertResources: string;
-
-  upsertScheduleTemplates: string;
-
-  upsertShiftOfferShifts: string;
-
-  upsertShiftOffers: string;
-
-  upsertShiftTags: string;
-
-  upsertShifts: string;
-
-  upsertTags: string;
-
-  upsertTemplatedActivities: string;
-
-  upsertTemplatedActivityResources: string;
-
-  upsertTemplatedAttendees: string;
-
-  upsertTemplatedJobAllocations: string;
-
-  upsertTemplatedJobDependencies: string;
-
-  upsertTemplatedJobProducts: string;
-
-  upsertTemplatedJobTags: string;
-
-  upsertTemplatedJobTasks: string;
-
-  upsertTemplatedJobTimeConstraints: string;
-
-  upsertTemplatedJobs: string;
-
-  upsertTemplatedResourceRequirementTags: string;
-
-  upsertTemplatedResourceRequirements: string;
-
-  upsertTemplatedResourceShifts: string;
-
-  upsertTemplatedShiftTags: string;
-
-  upsertTemplatedShifts: string;
 }
 
 export interface SimpleAccountResourceScores {
@@ -8937,17 +6840,11 @@ export interface SimpleAccounts {
 
   BillingStreet?: Maybe<string>;
 
-  ClientType?: Maybe<string>;
-
   CreatedById: string;
 
   CreatedDate: string;
 
   Fax?: Maybe<string>;
-
-  GenderPreference?: Maybe<string>;
-
-  LanguagePreference?: Maybe<string>;
 
   LastModifiedById: string;
 
@@ -9276,24 +7173,6 @@ export interface SimpleContacts {
   UID: string;
 }
 
-export interface SimpleDefaultAutomaticDispatch {
-  AutomaticDispatch?: Maybe<string>;
-
-  AutomaticDispatchOffset?: Maybe<number>;
-
-  AutomaticDispatchOnUnavailability: boolean;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  UID: string;
-}
-
 export interface SimpleHolidayRegions {
   CreatedById: string;
 
@@ -9512,48 +7391,6 @@ export interface SimpleJobTasks {
   UID: string;
 }
 
-export interface SimpleJobTemplates {
-  ClientType: string;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  DurationInHour?: Maybe<number>;
-
-  DurationInMinute?: Maybe<number>;
-
-  JobTasks?: Maybe<string>;
-
-  JobTimeConstraintsEndBefore?: Maybe<string>;
-
-  JobTimeConstraintsEndOption?: Maybe<string>;
-
-  JobTimeConstraintsStartAfter?: Maybe<string>;
-
-  JobTimeConstraintsStartBefore?: Maybe<string>;
-
-  JobTimeConstraintsStartOption?: Maybe<string>;
-
-  JobTimeConstraintsType?: Maybe<string>;
-
-  JobType: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  RecurrencePatternDaysOfWeek?: Maybe<string>;
-
-  RecurrencePatternDaysPerWeek?: Maybe<number>;
-
-  RecurrencePatternOption?: Maybe<string>;
-
-  UID: string;
-
-  Urgency?: Maybe<string>;
-}
-
 export interface SimpleJobTimeConstraints {
   CreatedById: string;
 
@@ -9589,15 +7426,13 @@ export interface SimpleJobs {
 
   Address?: Maybe<string>;
 
+  Advertise: boolean;
+
+  AdvertiseEnd?: Maybe<string>;
+
+  AdvertiseStart?: Maybe<string>;
+
   AutoSchedule: boolean;
-
-  AutomaticDispatch?: Maybe<string>;
-
-  AutomaticDispatchDate?: Maybe<string>;
-
-  AutomaticDispatchOffset?: Maybe<number>;
-
-  AutomaticDispatchOnUnavailability: boolean;
 
   CanBeDeclined: boolean;
 
@@ -9635,6 +7470,8 @@ export interface SimpleJobs {
 
   JobAllocationTimeSource: boolean;
 
+  JobClaimApprovalRequired: boolean;
+
   JobStatus: JobStatus;
 
   LastModifiedById: string;
@@ -9659,15 +7496,25 @@ export interface SimpleJobs {
 
   ParentId?: Maybe<string>;
 
+  PublishStatus?: Maybe<string>;
+
+  PublishedDate?: Maybe<LocalDate>;
+
   Quantity?: Maybe<number>;
 
   RecurringScheduleId?: Maybe<string>;
 
   RegionId: string;
 
+  ResourceRequirementCount?: Maybe<number>;
+
+  RespectSchedule: boolean;
+
   ScheduleTemplateId?: Maybe<string>;
 
   Start?: Maybe<string>;
+
+  Suburb?: Maybe<string>;
 
   TemplatedJobId?: Maybe<string>;
 
@@ -9734,40 +7581,6 @@ export interface SimpleLocations {
   UID: string;
 }
 
-export interface SimplePatientPreferenceTags {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  PatientPreferenceId?: Maybe<string>;
-
-  TagId?: Maybe<string>;
-
-  UID: string;
-}
-
-export interface SimplePatientPreferences {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  GenderPreference?: Maybe<string>;
-
-  JobType?: Maybe<string>;
-
-  LanguagePreference?: Maybe<string>;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  UID: string;
-}
-
 export interface SimpleProducts {
   CreatedById: string;
 
@@ -9804,8 +7617,6 @@ export interface SimpleRecurringSchedules {
   LastModifiedDate: string;
 
   Name: string;
-
-  Pattern?: Maybe<string>;
 
   Summary?: Maybe<string>;
 
@@ -10059,8 +7870,6 @@ export interface SimpleResourceTags {
 }
 
 export interface SimpleResources {
-  ADP_ID?: Maybe<string>;
-
   Alias?: Maybe<string>;
 
   AutoSchedule: boolean;
@@ -10629,348 +8438,66 @@ export interface SimpleTemplatedShifts {
 }
 
 export interface Subscription {
-  schemaJobProducts: SchemaSubscriptionNotificationJobProducts;
-
-  schemaTemplatedJobs: SchemaSubscriptionNotificationTemplatedJobs;
-
-  schemaTags: SchemaSubscriptionNotificationTags;
-
-  schemaResourceShifts: SchemaSubscriptionNotificationResourceShifts;
-
-  schemaTemplatedShifts: SchemaSubscriptionNotificationTemplatedShifts;
+  schemaActivities: SchemaSubscriptionNotificationActivities;
 
   schemaJobAllocations: SchemaSubscriptionNotificationJobAllocations;
 
-  schemaResourceOverrides: SchemaSubscriptionNotificationResourceOverrides;
-
-  schemaShiftOffers: SchemaSubscriptionNotificationShiftOffers;
-
-  schemaRecurringSchedules: SchemaSubscriptionNotificationRecurringSchedules;
-
-  schemaJobTags: SchemaSubscriptionNotificationJobTags;
-
-  schemaTemplatedResourceRequirements: SchemaSubscriptionNotificationTemplatedResourceRequirements;
-
-  schemaTemplatedResourceRequirementTags: SchemaSubscriptionNotificationTemplatedResourceRequirementTags;
-
-  schemaActivities: SchemaSubscriptionNotificationActivities;
-
-  schemaDefaultAutomaticDispatch: SchemaSubscriptionNotificationDefaultAutomaticDispatch;
-
-  schemaAvailabilityTemplateResources: SchemaSubscriptionNotificationAvailabilityTemplateResources;
-
-  schemaActivityResources: SchemaSubscriptionNotificationActivityResources;
-
-  schemaResourceTags: SchemaSubscriptionNotificationResourceTags;
-
-  schemaTemplatedActivities: SchemaSubscriptionNotificationTemplatedActivities;
-
-  schemaJobTimeConstraints: SchemaSubscriptionNotificationJobTimeConstraints;
-
-  schemaJobOffers: SchemaSubscriptionNotificationJobOffers;
-
-  schemaPatientPreferences: SchemaSubscriptionNotificationPatientPreferences;
-
-  schemaResourceOverrideRegions: SchemaSubscriptionNotificationResourceOverrideRegions;
-
   schemaJobs: SchemaSubscriptionNotificationJobs;
-
-  schemaPatientPreferenceTags: SchemaSubscriptionNotificationPatientPreferenceTags;
 
   schemaAvailabilities: SchemaSubscriptionNotificationAvailabilities;
 
-  schemaContactTags: SchemaSubscriptionNotificationContactTags;
-
-  schemaClientAvailabilities: SchemaSubscriptionNotificationClientAvailabilities;
-
-  schemaTemplatedJobAllocations: SchemaSubscriptionNotificationTemplatedJobAllocations;
-
-  schemaAttendees: SchemaSubscriptionNotificationAttendees;
-
-  schemaResourceRequirementTags: SchemaSubscriptionNotificationResourceRequirementTags;
-
   schemaShifts: SchemaSubscriptionNotificationShifts;
-
-  schemaTemplatedActivityResources: SchemaSubscriptionNotificationTemplatedActivityResources;
-
-  schemaTemplatedJobDependencies: SchemaSubscriptionNotificationTemplatedJobDependencies;
-
-  schemaTemplatedJobProducts: SchemaSubscriptionNotificationTemplatedJobProducts;
-
-  schemaShiftOfferShifts: SchemaSubscriptionNotificationShiftOfferShifts;
-
-  schemaTemplatedJobTasks: SchemaSubscriptionNotificationTemplatedJobTasks;
-
-  schemaTemplatedJobTags: SchemaSubscriptionNotificationTemplatedJobTags;
-
-  schemaResourceShiftOffers: SchemaSubscriptionNotificationResourceShiftOffers;
-
-  schemaShiftTags: SchemaSubscriptionNotificationShiftTags;
-
-  schemaLocations: SchemaSubscriptionNotificationLocations;
-
-  schemaTemplatedShiftTags: SchemaSubscriptionNotificationTemplatedShiftTags;
-
-  schemaTemplatedJobTimeConstraints: SchemaSubscriptionNotificationTemplatedJobTimeConstraints;
-
-  schemaResourceShiftBreaks: SchemaSubscriptionNotificationResourceShiftBreaks;
-
-  schemaTemplatedAttendees: SchemaSubscriptionNotificationTemplatedAttendees;
-
-  schemaAccountTags: SchemaSubscriptionNotificationAccountTags;
-
-  schemaRegions: SchemaSubscriptionNotificationRegions;
-
-  schemaJobDependencies: SchemaSubscriptionNotificationJobDependencies;
-
-  schemaScheduleTemplates: SchemaSubscriptionNotificationScheduleTemplates;
-
-  schemaUsers: SchemaSubscriptionNotificationUsers;
-
-  schemaResources: SchemaSubscriptionNotificationResources;
-
-  schemaHolidayRegions: SchemaSubscriptionNotificationHolidayRegions;
-
-  schemaAvailabilityTemplates: SchemaSubscriptionNotificationAvailabilityTemplates;
-
-  schemaResourceJobOffers: SchemaSubscriptionNotificationResourceJobOffers;
-
-  schemaAccounts: SchemaSubscriptionNotificationAccounts;
-
-  schemaTemplatedResourceShifts: SchemaSubscriptionNotificationTemplatedResourceShifts;
-
-  schemaAvailabilityPatterns: SchemaSubscriptionNotificationAvailabilityPatterns;
-
-  schemaAvailabilityPatternResources: SchemaSubscriptionNotificationAvailabilityPatternResources;
-
-  schemaAvailabilityTemplateEntries: SchemaSubscriptionNotificationAvailabilityTemplateEntries;
-
-  schemaAccountResourceScores: SchemaSubscriptionNotificationAccountResourceScores;
-
-  schemaContacts: SchemaSubscriptionNotificationContacts;
-
-  schemaProducts: SchemaSubscriptionNotificationProducts;
-
-  schemaJobTasks: SchemaSubscriptionNotificationJobTasks;
-
-  schemaHolidays: SchemaSubscriptionNotificationHolidays;
-
-  schemaResourceRequirements: SchemaSubscriptionNotificationResourceRequirements;
-
-  schemaJobTemplates: SchemaSubscriptionNotificationJobTemplates;
-
-  schemaLocationResourceScores: SchemaSubscriptionNotificationLocationResourceScores;
-
-  schemaResourceRegions: SchemaSubscriptionNotificationResourceRegions;
 }
 
-export interface SchemaSubscriptionNotificationJobProducts
+export interface SchemaSubscriptionNotificationActivities
   extends SchemaSubscriptionNotification {
   operation: SchemaSubscriptionOp;
 
   timestamp: string;
 
-  data: SchemaSubscriptionJobProducts;
+  data: SchemaSubscriptionActivities;
 
-  previous: SchemaSubscriptionJobProducts;
+  previous: SchemaSubscriptionActivities;
 }
 
-export interface SchemaSubscriptionJobProducts {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  JobId: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  Name: string;
-
-  ProductId?: Maybe<string>;
-
-  ProductName?: Maybe<string>;
-
-  Qty: number;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationTemplatedJobs
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionTemplatedJobs;
-
-  previous: SchemaSubscriptionTemplatedJobs;
-}
-
-export interface SchemaSubscriptionTemplatedJobs {
-  AccountId?: Maybe<string>;
-
+export interface SchemaSubscriptionActivities {
   Address?: Maybe<string>;
 
-  AutoSchedule: boolean;
-
-  CanBeDeclined: boolean;
-
-  ContactId?: Maybe<string>;
+  CopiedFromId?: Maybe<string>;
 
   CreatedById: string;
 
   CreatedDate: string;
 
-  CustomerConfirmationStatus?: Maybe<string>;
-
-  Description?: Maybe<string>;
-
-  Duration: number;
+  End: string;
 
   GeoLatitude?: Maybe<number>;
 
   GeoLongitude?: Maybe<number>;
 
-  IsGroupEvent: boolean;
-
-  JobAllocationTimeSource: boolean;
-
   LastModifiedById: string;
 
   LastModifiedDate: string;
 
   LocationId?: Maybe<string>;
-
-  Locked: boolean;
-
-  MaxAttendees?: Maybe<number>;
-
-  MinAttendees?: Maybe<number>;
-
-  NotesComments?: Maybe<string>;
-
-  NotifyPeriod?: Maybe<number>;
-
-  Quantity?: Maybe<number>;
-
-  RegionId: string;
-
-  ScheduleTemplateId: string;
-
-  StartOffsetDays: number;
-
-  StartTimeOfDay: LocalTime;
-
-  Type?: Maybe<string>;
-
-  UID: string;
-
-  Urgency?: Maybe<string>;
-
-  VirtualMeetingId?: Maybe<string>;
-
-  VirtualMeetingInfo?: Maybe<string>;
-
-  VirtualMeetingURL?: Maybe<string>;
-}
-
-export interface SchemaSubscriptionNotificationTags
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionTags;
-
-  previous: SchemaSubscriptionTags;
-}
-
-export interface SchemaSubscriptionTags {
-  Classification?: Maybe<string>;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
 
   Name: string;
 
+  Notes?: Maybe<string>;
+
+  Quantity?: Maybe<number>;
+
+  ResourceId?: Maybe<string>;
+
+  ScheduleTemplateId?: Maybe<string>;
+
+  Start: string;
+
+  TemplatedActivityId?: Maybe<string>;
+
+  Timezone?: Maybe<string>;
+
   Type?: Maybe<string>;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationResourceShifts
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionResourceShifts;
-
-  previous: SchemaSubscriptionResourceShifts;
-}
-
-export interface SchemaSubscriptionResourceShifts {
-  ActualEnd?: Maybe<string>;
-
-  ActualStart?: Maybe<string>;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  ResourceId: string;
-
-  ShiftId: string;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationTemplatedShifts
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionTemplatedShifts;
-
-  previous: SchemaSubscriptionTemplatedShifts;
-}
-
-export interface SchemaSubscriptionTemplatedShifts {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  DisplayName?: Maybe<string>;
-
-  Duration: number;
-
-  IsDraft: boolean;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  LocationId?: Maybe<string>;
-
-  RegionId: string;
-
-  ScheduleTemplateId: string;
-
-  StartOffsetDays: number;
-
-  StartTimeOfDay: LocalTime;
 
   UID: string;
 }
@@ -11060,534 +8587,6 @@ export interface SchemaSubscriptionJobAllocations {
   UID: string;
 }
 
-export interface SchemaSubscriptionNotificationResourceOverrides
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionResourceOverrides;
-
-  previous: SchemaSubscriptionResourceOverrides;
-}
-
-export interface SchemaSubscriptionResourceOverrides {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  Description?: Maybe<string>;
-
-  End: string;
-
-  GeoLatitude?: Maybe<number>;
-
-  GeoLongitude?: Maybe<number>;
-
-  HomeAddress?: Maybe<string>;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  ResourceId: string;
-
-  Start: string;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationShiftOffers
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionShiftOffers;
-
-  previous: SchemaSubscriptionShiftOffers;
-}
-
-export interface SchemaSubscriptionShiftOffers {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  Status: string;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationRecurringSchedules
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionRecurringSchedules;
-
-  previous: SchemaSubscriptionRecurringSchedules;
-}
-
-export interface SchemaSubscriptionRecurringSchedules {
-  AckAllJobs: boolean;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  Description?: Maybe<string>;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  Name: string;
-
-  Pattern?: Maybe<string>;
-
-  Summary?: Maybe<string>;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationJobTags
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionJobTags;
-
-  previous: SchemaSubscriptionJobTags;
-}
-
-export interface SchemaSubscriptionJobTags {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  JobId: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  Required: boolean;
-
-  TagId: string;
-
-  UID: string;
-
-  Weighting?: Maybe<number>;
-}
-
-export interface SchemaSubscriptionNotificationTemplatedResourceRequirements
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionTemplatedResourceRequirements;
-
-  previous: SchemaSubscriptionTemplatedResourceRequirements;
-}
-
-export interface SchemaSubscriptionTemplatedResourceRequirements {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  Description?: Maybe<string>;
-
-  JobAllocationTimeSource: boolean;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  Quantity: number;
-
-  RelativeStart?: Maybe<number>;
-
-  TemplatedJobId: string;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationTemplatedResourceRequirementTags
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionTemplatedResourceRequirementTags;
-
-  previous: SchemaSubscriptionTemplatedResourceRequirementTags;
-}
-
-export interface SchemaSubscriptionTemplatedResourceRequirementTags {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  Required: boolean;
-
-  TagId: string;
-
-  TemplatedResourceRequirementId: string;
-
-  UID: string;
-
-  Weighting?: Maybe<number>;
-}
-
-export interface SchemaSubscriptionNotificationActivities
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionActivities;
-
-  previous: SchemaSubscriptionActivities;
-}
-
-export interface SchemaSubscriptionActivities {
-  Address?: Maybe<string>;
-
-  CopiedFromId?: Maybe<string>;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  End: string;
-
-  GeoLatitude?: Maybe<number>;
-
-  GeoLongitude?: Maybe<number>;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  LocationId?: Maybe<string>;
-
-  Name: string;
-
-  Notes?: Maybe<string>;
-
-  Quantity?: Maybe<number>;
-
-  ResourceId?: Maybe<string>;
-
-  ScheduleTemplateId?: Maybe<string>;
-
-  Start: string;
-
-  TemplatedActivityId?: Maybe<string>;
-
-  Timezone?: Maybe<string>;
-
-  Type?: Maybe<string>;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationDefaultAutomaticDispatch
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionDefaultAutomaticDispatch;
-
-  previous: SchemaSubscriptionDefaultAutomaticDispatch;
-}
-
-export interface SchemaSubscriptionDefaultAutomaticDispatch {
-  AutomaticDispatch?: Maybe<string>;
-
-  AutomaticDispatchOffset?: Maybe<number>;
-
-  AutomaticDispatchOnUnavailability: boolean;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationAvailabilityTemplateResources
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionAvailabilityTemplateResources;
-
-  previous: SchemaSubscriptionAvailabilityTemplateResources;
-}
-
-export interface SchemaSubscriptionAvailabilityTemplateResources {
-  AvailabilityTemplateId: string;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  Migrated: boolean;
-
-  ResourceId: string;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationActivityResources
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionActivityResources;
-
-  previous: SchemaSubscriptionActivityResources;
-}
-
-export interface SchemaSubscriptionActivityResources {
-  ActivityId: string;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  ResourceId: string;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationResourceTags
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionResourceTags;
-
-  previous: SchemaSubscriptionResourceTags;
-}
-
-export interface SchemaSubscriptionResourceTags {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  ExpiryDate?: Maybe<string>;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  ResourceId: string;
-
-  TagId: string;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationTemplatedActivities
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionTemplatedActivities;
-
-  previous: SchemaSubscriptionTemplatedActivities;
-}
-
-export interface SchemaSubscriptionTemplatedActivities {
-  Address?: Maybe<string>;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  Duration: number;
-
-  GeoLatitude?: Maybe<number>;
-
-  GeoLongitude?: Maybe<number>;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  LocationId?: Maybe<string>;
-
-  Notes?: Maybe<string>;
-
-  Quantity?: Maybe<number>;
-
-  ResourceId?: Maybe<string>;
-
-  ScheduleTemplateId: string;
-
-  StartOffsetDays: number;
-
-  StartTimeOfDay: LocalTime;
-
-  Timezone: string;
-
-  Type?: Maybe<string>;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationJobTimeConstraints
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionJobTimeConstraints;
-
-  previous: SchemaSubscriptionJobTimeConstraints;
-}
-
-export interface SchemaSubscriptionJobTimeConstraints {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  EndBefore?: Maybe<string>;
-
-  JobId: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  Required: boolean;
-
-  StartAfter?: Maybe<string>;
-
-  StartBefore?: Maybe<string>;
-
-  Type: string;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationJobOffers
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionJobOffers;
-
-  previous: SchemaSubscriptionJobOffers;
-}
-
-export interface SchemaSubscriptionJobOffers {
-  CreatedById: string;
-
-  CreatedByResource: boolean;
-
-  CreatedDate: string;
-
-  JobId: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  ResourceRequirementId?: Maybe<string>;
-
-  Status: string;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationPatientPreferences
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionPatientPreferences;
-
-  previous: SchemaSubscriptionPatientPreferences;
-}
-
-export interface SchemaSubscriptionPatientPreferences {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  GenderPreference?: Maybe<string>;
-
-  JobType?: Maybe<string>;
-
-  LanguagePreference?: Maybe<string>;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationResourceOverrideRegions
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionResourceOverrideRegions;
-
-  previous: SchemaSubscriptionResourceOverrideRegions;
-}
-
-export interface SchemaSubscriptionResourceOverrideRegions {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  RegionId: string;
-
-  ResourceOverrideId: string;
-
-  UID: string;
-}
-
 export interface SchemaSubscriptionNotificationJobs
   extends SchemaSubscriptionNotification {
   operation: SchemaSubscriptionOp;
@@ -11610,15 +8609,13 @@ export interface SchemaSubscriptionJobs {
 
   Address?: Maybe<string>;
 
+  Advertise: boolean;
+
+  AdvertiseEnd?: Maybe<string>;
+
+  AdvertiseStart?: Maybe<string>;
+
   AutoSchedule: boolean;
-
-  AutomaticDispatch?: Maybe<string>;
-
-  AutomaticDispatchDate?: Maybe<string>;
-
-  AutomaticDispatchOffset?: Maybe<number>;
-
-  AutomaticDispatchOnUnavailability: boolean;
 
   CanBeDeclined: boolean;
 
@@ -11656,6 +8653,8 @@ export interface SchemaSubscriptionJobs {
 
   JobAllocationTimeSource: boolean;
 
+  JobClaimApprovalRequired: boolean;
+
   JobStatus: string;
 
   LastModifiedById: string;
@@ -11680,15 +8679,25 @@ export interface SchemaSubscriptionJobs {
 
   ParentId?: Maybe<string>;
 
+  PublishStatus?: Maybe<string>;
+
+  PublishedDate?: Maybe<LocalDate>;
+
   Quantity?: Maybe<number>;
 
   RecurringScheduleId?: Maybe<string>;
 
   RegionId: string;
 
+  ResourceRequirementCount?: Maybe<number>;
+
+  RespectSchedule: boolean;
+
   ScheduleTemplateId?: Maybe<string>;
 
   Start?: Maybe<string>;
+
+  Suburb?: Maybe<string>;
 
   TemplatedJobId?: Maybe<string>;
 
@@ -11705,33 +8714,6 @@ export interface SchemaSubscriptionJobs {
   VirtualMeetingInfo?: Maybe<string>;
 
   VirtualMeetingURL?: Maybe<string>;
-}
-
-export interface SchemaSubscriptionNotificationPatientPreferenceTags
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionPatientPreferenceTags;
-
-  previous: SchemaSubscriptionPatientPreferenceTags;
-}
-
-export interface SchemaSubscriptionPatientPreferenceTags {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  PatientPreferenceId?: Maybe<string>;
-
-  TagId?: Maybe<string>;
-
-  UID: string;
 }
 
 export interface SchemaSubscriptionNotificationAvailabilities
@@ -11769,181 +8751,6 @@ export interface SchemaSubscriptionAvailabilities {
   Type?: Maybe<string>;
 
   UID: string;
-}
-
-export interface SchemaSubscriptionNotificationContactTags
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionContactTags;
-
-  previous: SchemaSubscriptionContactTags;
-}
-
-export interface SchemaSubscriptionContactTags {
-  ContactId: string;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  Required: boolean;
-
-  TagId: string;
-
-  UID: string;
-
-  Weighting?: Maybe<number>;
-}
-
-export interface SchemaSubscriptionNotificationClientAvailabilities
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionClientAvailabilities;
-
-  previous: SchemaSubscriptionClientAvailabilities;
-}
-
-export interface SchemaSubscriptionClientAvailabilities {
-  AccountId?: Maybe<string>;
-
-  ContactId?: Maybe<string>;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  End: string;
-
-  IsAvailable: boolean;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  PreferredEnd?: Maybe<string>;
-
-  PreferredStart?: Maybe<string>;
-
-  RecurringScheduleId?: Maybe<string>;
-
-  Start: string;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationTemplatedJobAllocations
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionTemplatedJobAllocations;
-
-  previous: SchemaSubscriptionTemplatedJobAllocations;
-}
-
-export interface SchemaSubscriptionTemplatedJobAllocations {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  Duration?: Maybe<number>;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  NotificationType?: Maybe<string>;
-
-  ResourceId: string;
-
-  StartOffsetDays?: Maybe<number>;
-
-  StartTimeOfDay?: Maybe<LocalTime>;
-
-  Status: string;
-
-  TeamLeader: boolean;
-
-  TemplatedJobId: string;
-
-  TemplatedResourceRequirementId?: Maybe<string>;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationAttendees
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionAttendees;
-
-  previous: SchemaSubscriptionAttendees;
-}
-
-export interface SchemaSubscriptionAttendees {
-  CancelReason?: Maybe<string>;
-
-  ContactId: string;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  JobId: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  Status: string;
-
-  TimeCancelled?: Maybe<string>;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationResourceRequirementTags
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionResourceRequirementTags;
-
-  previous: SchemaSubscriptionResourceRequirementTags;
-}
-
-export interface SchemaSubscriptionResourceRequirementTags {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  Required: boolean;
-
-  ResourceRequirementId: string;
-
-  TagId: string;
-
-  UID: string;
-
-  Weighting?: Maybe<number>;
 }
 
 export interface SchemaSubscriptionNotificationShifts
@@ -11987,1296 +8794,6 @@ export interface SchemaSubscriptionShifts {
   Start: string;
 
   TemplatedShiftId?: Maybe<string>;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationTemplatedActivityResources
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionTemplatedActivityResources;
-
-  previous: SchemaSubscriptionTemplatedActivityResources;
-}
-
-export interface SchemaSubscriptionTemplatedActivityResources {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  ResourceId: string;
-
-  TemplatedActivityId: string;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationTemplatedJobDependencies
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionTemplatedJobDependencies;
-
-  previous: SchemaSubscriptionTemplatedJobDependencies;
-}
-
-export interface SchemaSubscriptionTemplatedJobDependencies {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  FromAnchor: string;
-
-  FromTemplatedJobId: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  ToAnchor: string;
-
-  ToAnchorMaxOffsetMinutes?: Maybe<number>;
-
-  ToAnchorMinOffsetMinutes?: Maybe<number>;
-
-  ToTemplatedJobId: string;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationTemplatedJobProducts
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionTemplatedJobProducts;
-
-  previous: SchemaSubscriptionTemplatedJobProducts;
-}
-
-export interface SchemaSubscriptionTemplatedJobProducts {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  ProductId?: Maybe<string>;
-
-  Qty: number;
-
-  TemplatedJobId: string;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationShiftOfferShifts
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionShiftOfferShifts;
-
-  previous: SchemaSubscriptionShiftOfferShifts;
-}
-
-export interface SchemaSubscriptionShiftOfferShifts {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  ShiftId: string;
-
-  ShiftOfferId: string;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationTemplatedJobTasks
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionTemplatedJobTasks;
-
-  previous: SchemaSubscriptionTemplatedJobTasks;
-}
-
-export interface SchemaSubscriptionTemplatedJobTasks {
-  Completed: boolean;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  Description?: Maybe<string>;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  Name: string;
-
-  Seq: number;
-
-  TemplatedJobId: string;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationTemplatedJobTags
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionTemplatedJobTags;
-
-  previous: SchemaSubscriptionTemplatedJobTags;
-}
-
-export interface SchemaSubscriptionTemplatedJobTags {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  Required: boolean;
-
-  TagId: string;
-
-  TemplatedJobId: string;
-
-  UID: string;
-
-  Weighting?: Maybe<number>;
-}
-
-export interface SchemaSubscriptionNotificationResourceShiftOffers
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionResourceShiftOffers;
-
-  previous: SchemaSubscriptionResourceShiftOffers;
-}
-
-export interface SchemaSubscriptionResourceShiftOffers {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  ResourceId: string;
-
-  Response?: Maybe<string>;
-
-  ShiftOfferId: string;
-
-  Status: string;
-
-  TimeNotified?: Maybe<string>;
-
-  TimeResponded?: Maybe<string>;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationShiftTags
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionShiftTags;
-
-  previous: SchemaSubscriptionShiftTags;
-}
-
-export interface SchemaSubscriptionShiftTags {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  Required: boolean;
-
-  ShiftId: string;
-
-  TagId: string;
-
-  UID: string;
-
-  Weighting?: Maybe<number>;
-}
-
-export interface SchemaSubscriptionNotificationLocations
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionLocations;
-
-  previous: SchemaSubscriptionLocations;
-}
-
-export interface SchemaSubscriptionLocations {
-  AccountId?: Maybe<string>;
-
-  Address?: Maybe<string>;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  GeoLatitude?: Maybe<number>;
-
-  GeoLongitude?: Maybe<number>;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  Name: string;
-
-  RegionId?: Maybe<string>;
-
-  RequiresWhitelist: boolean;
-
-  Type?: Maybe<string>;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationTemplatedShiftTags
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionTemplatedShiftTags;
-
-  previous: SchemaSubscriptionTemplatedShiftTags;
-}
-
-export interface SchemaSubscriptionTemplatedShiftTags {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  Required: boolean;
-
-  TagId: string;
-
-  TemplatedShiftId: string;
-
-  UID: string;
-
-  Weighting?: Maybe<number>;
-}
-
-export interface SchemaSubscriptionNotificationTemplatedJobTimeConstraints
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionTemplatedJobTimeConstraints;
-
-  previous: SchemaSubscriptionTemplatedJobTimeConstraints;
-}
-
-export interface SchemaSubscriptionTemplatedJobTimeConstraints {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  EndBeforeOffsetDays?: Maybe<number>;
-
-  EndBeforeTimeOfDay?: Maybe<LocalTime>;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  Required: boolean;
-
-  StartAfterOffsetDays?: Maybe<number>;
-
-  StartAfterTimeOfDay?: Maybe<LocalTime>;
-
-  StartBeforeOffsetDays?: Maybe<number>;
-
-  StartBeforeTimeOfDay?: Maybe<LocalTime>;
-
-  TemplatedJobId: string;
-
-  Type: string;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationResourceShiftBreaks
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionResourceShiftBreaks;
-
-  previous: SchemaSubscriptionResourceShiftBreaks;
-}
-
-export interface SchemaSubscriptionResourceShiftBreaks {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  End?: Maybe<string>;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  ResourceShiftId: string;
-
-  Start: string;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationTemplatedAttendees
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionTemplatedAttendees;
-
-  previous: SchemaSubscriptionTemplatedAttendees;
-}
-
-export interface SchemaSubscriptionTemplatedAttendees {
-  ContactId: string;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  TemplatedJobId: string;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationAccountTags
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionAccountTags;
-
-  previous: SchemaSubscriptionAccountTags;
-}
-
-export interface SchemaSubscriptionAccountTags {
-  AccountId: string;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  Required: boolean;
-
-  TagId: string;
-
-  UID: string;
-
-  Weighting?: Maybe<number>;
-}
-
-export interface SchemaSubscriptionNotificationRegions
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionRegions;
-
-  previous: SchemaSubscriptionRegions;
-}
-
-export interface SchemaSubscriptionRegions {
-  CountryCode?: Maybe<string>;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  Description?: Maybe<string>;
-
-  GeoLatitude?: Maybe<number>;
-
-  GeoLongitude?: Maybe<number>;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  Name: string;
-
-  Radius?: Maybe<number>;
-
-  Timezone: string;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationJobDependencies
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionJobDependencies;
-
-  previous: SchemaSubscriptionJobDependencies;
-}
-
-export interface SchemaSubscriptionJobDependencies {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  FromAnchor: string;
-
-  FromJobId: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  ToAnchor: string;
-
-  ToAnchorMaxOffsetMinutes?: Maybe<number>;
-
-  ToAnchorMinOffsetMinutes?: Maybe<number>;
-
-  ToJobId: string;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationScheduleTemplates
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionScheduleTemplates;
-
-  previous: SchemaSubscriptionScheduleTemplates;
-}
-
-export interface SchemaSubscriptionScheduleTemplates {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  DeletedById?: Maybe<string>;
-
-  DeletedDate?: Maybe<string>;
-
-  Description?: Maybe<string>;
-
-  IsDeleted: boolean;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  Name: string;
-
-  PeriodDays?: Maybe<number>;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationUsers
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionUsers;
-
-  previous: SchemaSubscriptionUsers;
-}
-
-export interface SchemaSubscriptionUsers {
-  City?: Maybe<string>;
-
-  Country?: Maybe<string>;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  Email: string;
-
-  FirstName?: Maybe<string>;
-
-  FullPhotoUrl: string;
-
-  IsActive: boolean;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  LastName: string;
-
-  MobilePhone?: Maybe<string>;
-
-  Name: string;
-
-  PostalCode?: Maybe<string>;
-
-  SmallPhotoUrl: string;
-
-  State?: Maybe<string>;
-
-  Street?: Maybe<string>;
-
-  UID: string;
-
-  UserTypes?: Maybe<string[]>;
-}
-
-export interface SchemaSubscriptionNotificationResources
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionResources;
-
-  previous: SchemaSubscriptionResources;
-}
-
-export interface SchemaSubscriptionResources {
-  ADP_ID?: Maybe<string>;
-
-  Alias?: Maybe<string>;
-
-  AutoSchedule: boolean;
-
-  Category?: Maybe<string>;
-
-  CountryCode?: Maybe<string>;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  Email?: Maybe<string>;
-
-  EmploymentType?: Maybe<string>;
-
-  GeoLatitude?: Maybe<number>;
-
-  GeoLongitude?: Maybe<number>;
-
-  HomeAddress?: Maybe<string>;
-
-  IsActive: boolean;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  MobilePhone?: Maybe<string>;
-
-  Name: string;
-
-  Notes?: Maybe<string>;
-
-  NotificationType?: Maybe<string>;
-
-  PrimaryPhone?: Maybe<string>;
-
-  PrimaryRegionId: string;
-
-  Rating?: Maybe<number>;
-
-  ResourceType?: Maybe<string>;
-
-  UID: string;
-
-  UserId?: Maybe<string>;
-
-  WeeklyHours?: Maybe<number>;
-
-  WorkingHourType?: Maybe<string>;
-}
-
-export interface SchemaSubscriptionNotificationHolidayRegions
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionHolidayRegions;
-
-  previous: SchemaSubscriptionHolidayRegions;
-}
-
-export interface SchemaSubscriptionHolidayRegions {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  HolidayId: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  RegionId: string;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationAvailabilityTemplates
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionAvailabilityTemplates;
-
-  previous: SchemaSubscriptionAvailabilityTemplates;
-}
-
-export interface SchemaSubscriptionAvailabilityTemplates {
-  AvailabilityPatternId?: Maybe<string>;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  Finish?: Maybe<LocalDate>;
-
-  Global: boolean;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  Name: string;
-
-  Start?: Maybe<LocalDate>;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationResourceJobOffers
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionResourceJobOffers;
-
-  previous: SchemaSubscriptionResourceJobOffers;
-}
-
-export interface SchemaSubscriptionResourceJobOffers {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  JobOfferId: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  ResourceId: string;
-
-  Response?: Maybe<string>;
-
-  Status: string;
-
-  TimeNotified?: Maybe<string>;
-
-  TimeResponded?: Maybe<string>;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationAccounts
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionAccounts;
-
-  previous: SchemaSubscriptionAccounts;
-}
-
-export interface SchemaSubscriptionAccounts {
-  BillingCity?: Maybe<string>;
-
-  BillingPostalCode?: Maybe<string>;
-
-  BillingState?: Maybe<string>;
-
-  BillingStreet?: Maybe<string>;
-
-  ClientType?: Maybe<string>;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  Fax?: Maybe<string>;
-
-  GenderPreference?: Maybe<string>;
-
-  LanguagePreference?: Maybe<string>;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  Name: string;
-
-  Phone?: Maybe<string>;
-
-  Rank?: Maybe<number>;
-
-  RequiresWhitelist: boolean;
-
-  ShippingCity?: Maybe<string>;
-
-  ShippingPostalCode?: Maybe<string>;
-
-  ShippingState?: Maybe<string>;
-
-  ShippingStreet?: Maybe<string>;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationTemplatedResourceShifts
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionTemplatedResourceShifts;
-
-  previous: SchemaSubscriptionTemplatedResourceShifts;
-}
-
-export interface SchemaSubscriptionTemplatedResourceShifts {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  ResourceId: string;
-
-  TemplatedShiftId: string;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationAvailabilityPatterns
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionAvailabilityPatterns;
-
-  previous: SchemaSubscriptionAvailabilityPatterns;
-}
-
-export interface SchemaSubscriptionAvailabilityPatterns {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  Description?: Maybe<string>;
-
-  Hash: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  Name: string;
-
-  Pattern: string;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationAvailabilityPatternResources
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionAvailabilityPatternResources;
-
-  previous: SchemaSubscriptionAvailabilityPatternResources;
-}
-
-export interface SchemaSubscriptionAvailabilityPatternResources {
-  AvailabilityPatternId: string;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  End?: Maybe<string>;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  ResourceId: string;
-
-  Start: string;
-
-  Status?: Maybe<string>;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationAvailabilityTemplateEntries
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionAvailabilityTemplateEntries;
-
-  previous: SchemaSubscriptionAvailabilityTemplateEntries;
-}
-
-export interface SchemaSubscriptionAvailabilityTemplateEntries {
-  AvailabilityTemplateId: string;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  FinishTime: number;
-
-  IsAvailable: boolean;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  StartTime: number;
-
-  UID: string;
-
-  Weekday: string;
-}
-
-export interface SchemaSubscriptionNotificationAccountResourceScores
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionAccountResourceScores;
-
-  previous: SchemaSubscriptionAccountResourceScores;
-}
-
-export interface SchemaSubscriptionAccountResourceScores {
-  AccountId: string;
-
-  Blacklisted: boolean;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  ResourceId: string;
-
-  UID: string;
-
-  Whitelisted: boolean;
-}
-
-export interface SchemaSubscriptionNotificationContacts
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionContacts;
-
-  previous: SchemaSubscriptionContacts;
-}
-
-export interface SchemaSubscriptionContacts {
-  AccountId?: Maybe<string>;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  Email?: Maybe<string>;
-
-  FirstName?: Maybe<string>;
-
-  FullName: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  LastName: string;
-
-  MailingCity?: Maybe<string>;
-
-  MailingPostalCode?: Maybe<string>;
-
-  MailingState?: Maybe<string>;
-
-  MailingStreet?: Maybe<string>;
-
-  MobilePhone?: Maybe<string>;
-
-  OtherCity?: Maybe<string>;
-
-  OtherPostalCode?: Maybe<string>;
-
-  OtherState?: Maybe<string>;
-
-  OtherStreet?: Maybe<string>;
-
-  Phone?: Maybe<string>;
-
-  RegionId?: Maybe<string>;
-
-  Title?: Maybe<string>;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationProducts
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionProducts;
-
-  previous: SchemaSubscriptionProducts;
-}
-
-export interface SchemaSubscriptionProducts {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  Description?: Maybe<string>;
-
-  Family?: Maybe<string>;
-
-  IsActive: boolean;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  Name: string;
-
-  ProductCode?: Maybe<string>;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationJobTasks
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionJobTasks;
-
-  previous: SchemaSubscriptionJobTasks;
-}
-
-export interface SchemaSubscriptionJobTasks {
-  Completed: boolean;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  Description?: Maybe<string>;
-
-  JobId: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  Name: string;
-
-  Seq: number;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationHolidays
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionHolidays;
-
-  previous: SchemaSubscriptionHolidays;
-}
-
-export interface SchemaSubscriptionHolidays {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  EndDate: LocalDate;
-
-  Global: boolean;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  Name: string;
-
-  StartDate: LocalDate;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationResourceRequirements
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionResourceRequirements;
-
-  previous: SchemaSubscriptionResourceRequirements;
-}
-
-export interface SchemaSubscriptionResourceRequirements {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  Description?: Maybe<string>;
-
-  Duration?: Maybe<number>;
-
-  JobAllocationCount: number;
-
-  JobAllocationTimeSource: boolean;
-
-  JobId: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  Name: string;
-
-  Quantity: number;
-
-  RelativeStart?: Maybe<number>;
-
-  ScheduledEnd?: Maybe<string>;
-
-  ScheduledStart?: Maybe<string>;
-
-  Status: string;
-
-  UID: string;
-}
-
-export interface SchemaSubscriptionNotificationJobTemplates
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionJobTemplates;
-
-  previous: SchemaSubscriptionJobTemplates;
-}
-
-export interface SchemaSubscriptionJobTemplates {
-  ClientType: string;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  DurationInHour?: Maybe<number>;
-
-  DurationInMinute?: Maybe<number>;
-
-  JobTasks?: Maybe<string>;
-
-  JobTimeConstraintsEndBefore?: Maybe<string>;
-
-  JobTimeConstraintsEndOption?: Maybe<string>;
-
-  JobTimeConstraintsStartAfter?: Maybe<string>;
-
-  JobTimeConstraintsStartBefore?: Maybe<string>;
-
-  JobTimeConstraintsStartOption?: Maybe<string>;
-
-  JobTimeConstraintsType?: Maybe<string>;
-
-  JobType: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  RecurrencePatternDaysOfWeek?: Maybe<string>;
-
-  RecurrencePatternDaysPerWeek?: Maybe<number>;
-
-  RecurrencePatternOption?: Maybe<string>;
-
-  UID: string;
-
-  Urgency?: Maybe<string>;
-}
-
-export interface SchemaSubscriptionNotificationLocationResourceScores
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionLocationResourceScores;
-
-  previous: SchemaSubscriptionLocationResourceScores;
-}
-
-export interface SchemaSubscriptionLocationResourceScores {
-  Blacklisted: boolean;
-
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  LocationId: string;
-
-  ResourceId: string;
-
-  UID: string;
-
-  Whitelisted: boolean;
-}
-
-export interface SchemaSubscriptionNotificationResourceRegions
-  extends SchemaSubscriptionNotification {
-  operation: SchemaSubscriptionOp;
-
-  timestamp: string;
-
-  data: SchemaSubscriptionResourceRegions;
-
-  previous: SchemaSubscriptionResourceRegions;
-}
-
-export interface SchemaSubscriptionResourceRegions {
-  CreatedById: string;
-
-  CreatedDate: string;
-
-  End?: Maybe<string>;
-
-  LastModifiedById: string;
-
-  LastModifiedDate: string;
-
-  RegionId: string;
-
-  ResourceId: string;
-
-  Start?: Maybe<string>;
 
   UID: string;
 }
@@ -13495,20 +9012,6 @@ export interface ContactsQueryArgs {
 export interface ContactsByIdQueryArgs {
   UID: string;
 }
-export interface DefaultAutomaticDispatchQueryArgs {
-  after?: Maybe<string>;
-
-  filter?: Maybe<EqlQueryFilterDefaultAutomaticDispatch>;
-
-  first?: Maybe<number>;
-
-  offset?: Maybe<number>;
-
-  orderBy?: Maybe<EqlOrderByClauseDefaultAutomaticDispatch>;
-}
-export interface DefaultAutomaticDispatchByIdQueryArgs {
-  UID: string;
-}
 export interface HolidayRegionsQueryArgs {
   after?: Maybe<string>;
 
@@ -13621,20 +9124,6 @@ export interface JobTasksQueryArgs {
 export interface JobTasksByIdQueryArgs {
   UID: string;
 }
-export interface JobTemplatesQueryArgs {
-  after?: Maybe<string>;
-
-  filter?: Maybe<EqlQueryFilterJobTemplates>;
-
-  first?: Maybe<number>;
-
-  offset?: Maybe<number>;
-
-  orderBy?: Maybe<EqlOrderByClauseJobTemplates>;
-}
-export interface JobTemplatesByIdQueryArgs {
-  UID: string;
-}
 export interface JobTimeConstraintsQueryArgs {
   after?: Maybe<string>;
 
@@ -13689,34 +9178,6 @@ export interface LocationsQueryArgs {
   orderBy?: Maybe<EqlOrderByClauseLocations>;
 }
 export interface LocationsByIdQueryArgs {
-  UID: string;
-}
-export interface PatientPreferenceTagsQueryArgs {
-  after?: Maybe<string>;
-
-  filter?: Maybe<EqlQueryFilterPatientPreferenceTags>;
-
-  first?: Maybe<number>;
-
-  offset?: Maybe<number>;
-
-  orderBy?: Maybe<EqlOrderByClausePatientPreferenceTags>;
-}
-export interface PatientPreferenceTagsByIdQueryArgs {
-  UID: string;
-}
-export interface PatientPreferencesQueryArgs {
-  after?: Maybe<string>;
-
-  filter?: Maybe<EqlQueryFilterPatientPreferences>;
-
-  first?: Maybe<number>;
-
-  offset?: Maybe<number>;
-
-  orderBy?: Maybe<EqlOrderByClausePatientPreferences>;
-}
-export interface PatientPreferencesByIdQueryArgs {
   UID: string;
 }
 export interface ProductsQueryArgs {
@@ -14633,11 +10094,6 @@ export interface HolidayRegionsHolidaysArgs {
 
   orderBy?: Maybe<EqlOrderByClauseHolidayRegions>;
 }
-export interface PatientPreferenceTagsPatientPreferencesArgs {
-  filter?: Maybe<EqlQueryFilterPatientPreferenceTags>;
-
-  orderBy?: Maybe<EqlOrderByClausePatientPreferenceTags>;
-}
 export interface DeleteAccountResourceScoresSchemaMutationArgs {
   UID: string;
 }
@@ -14683,9 +10139,6 @@ export interface DeleteContactTagsSchemaMutationArgs {
 export interface DeleteContactsSchemaMutationArgs {
   UID: string;
 }
-export interface DeleteDefaultAutomaticDispatchSchemaMutationArgs {
-  UID: string;
-}
 export interface DeleteHolidayRegionsSchemaMutationArgs {
   UID: string;
 }
@@ -14710,9 +10163,6 @@ export interface DeleteJobTagsSchemaMutationArgs {
 export interface DeleteJobTasksSchemaMutationArgs {
   UID: string;
 }
-export interface DeleteJobTemplatesSchemaMutationArgs {
-  UID: string;
-}
 export interface DeleteJobTimeConstraintsSchemaMutationArgs {
   UID: string;
 }
@@ -14723,12 +10173,6 @@ export interface DeleteLocationResourceScoresSchemaMutationArgs {
   UID: string;
 }
 export interface DeleteLocationsSchemaMutationArgs {
-  UID: string;
-}
-export interface DeletePatientPreferenceTagsSchemaMutationArgs {
-  UID: string;
-}
-export interface DeletePatientPreferencesSchemaMutationArgs {
   UID: string;
 }
 export interface DeleteProductsSchemaMutationArgs {
@@ -14881,9 +10325,6 @@ export interface GetContactTagsSchemaMutationArgs {
 export interface GetContactsSchemaMutationArgs {
   id: string;
 }
-export interface GetDefaultAutomaticDispatchSchemaMutationArgs {
-  id: string;
-}
 export interface GetHolidayRegionsSchemaMutationArgs {
   id: string;
 }
@@ -14908,9 +10349,6 @@ export interface GetJobTagsSchemaMutationArgs {
 export interface GetJobTasksSchemaMutationArgs {
   id: string;
 }
-export interface GetJobTemplatesSchemaMutationArgs {
-  id: string;
-}
 export interface GetJobTimeConstraintsSchemaMutationArgs {
   id: string;
 }
@@ -14921,12 +10359,6 @@ export interface GetLocationResourceScoresSchemaMutationArgs {
   id: string;
 }
 export interface GetLocationsSchemaMutationArgs {
-  id: string;
-}
-export interface GetPatientPreferenceTagsSchemaMutationArgs {
-  id: string;
-}
-export interface GetPatientPreferencesSchemaMutationArgs {
   id: string;
 }
 export interface GetProductsSchemaMutationArgs {
@@ -15109,11 +10541,6 @@ export interface InsertContactsSchemaMutationArgs {
 
   input: NewContacts;
 }
-export interface InsertDefaultAutomaticDispatchSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: NewDefaultAutomaticDispatch;
-}
 export interface InsertHolidayRegionsSchemaMutationArgs {
   idAlias?: Maybe<string>;
 
@@ -15154,11 +10581,6 @@ export interface InsertJobTasksSchemaMutationArgs {
 
   input: NewJobTasks;
 }
-export interface InsertJobTemplatesSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: NewJobTemplates;
-}
 export interface InsertJobTimeConstraintsSchemaMutationArgs {
   idAlias?: Maybe<string>;
 
@@ -15178,16 +10600,6 @@ export interface InsertLocationsSchemaMutationArgs {
   idAlias?: Maybe<string>;
 
   input: NewLocations;
-}
-export interface InsertPatientPreferenceTagsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: NewPatientPreferenceTags;
-}
-export interface InsertPatientPreferencesSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: NewPatientPreferences;
 }
 export interface InsertProductsSchemaMutationArgs {
   idAlias?: Maybe<string>;
@@ -15409,9 +10821,6 @@ export interface UpdateContactTagsSchemaMutationArgs {
 export interface UpdateContactsSchemaMutationArgs {
   input: UpdateContacts;
 }
-export interface UpdateDefaultAutomaticDispatchSchemaMutationArgs {
-  input: UpdateDefaultAutomaticDispatch;
-}
 export interface UpdateHolidayRegionsSchemaMutationArgs {
   input: UpdateHolidayRegions;
 }
@@ -15436,9 +10845,6 @@ export interface UpdateJobTagsSchemaMutationArgs {
 export interface UpdateJobTasksSchemaMutationArgs {
   input: UpdateJobTasks;
 }
-export interface UpdateJobTemplatesSchemaMutationArgs {
-  input: UpdateJobTemplates;
-}
 export interface UpdateJobTimeConstraintsSchemaMutationArgs {
   input: UpdateJobTimeConstraints;
 }
@@ -15450,12 +10856,6 @@ export interface UpdateLocationResourceScoresSchemaMutationArgs {
 }
 export interface UpdateLocationsSchemaMutationArgs {
   input: UpdateLocations;
-}
-export interface UpdatePatientPreferenceTagsSchemaMutationArgs {
-  input: UpdatePatientPreferenceTags;
-}
-export interface UpdatePatientPreferencesSchemaMutationArgs {
-  input: UpdatePatientPreferences;
 }
 export interface UpdateProductsSchemaMutationArgs {
   input: UpdateProducts;
@@ -15562,502 +10962,12 @@ export interface UpdateTemplatedShiftTagsSchemaMutationArgs {
 export interface UpdateTemplatedShiftsSchemaMutationArgs {
   input: UpdateTemplatedShifts;
 }
-export interface UpsertAccountResourceScoresSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertAccountResourceScores;
-
-  keyField: string;
-}
-export interface UpsertAccountTagsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertAccountTags;
-
-  keyField: string;
-}
-export interface UpsertAccountsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertAccounts;
-
-  keyField: string;
-}
-export interface UpsertActivitiesSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertActivities;
-
-  keyField: string;
-}
-export interface UpsertActivityResourcesSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertActivityResources;
-
-  keyField: string;
-}
-export interface UpsertAttendeesSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertAttendees;
-
-  keyField: string;
-}
-export interface UpsertAvailabilitiesSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertAvailabilities;
-
-  keyField: string;
-}
-export interface UpsertAvailabilityPatternResourcesSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertAvailabilityPatternResources;
-
-  keyField: string;
-}
-export interface UpsertAvailabilityPatternsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertAvailabilityPatterns;
-
-  keyField: string;
-}
-export interface UpsertAvailabilityTemplateEntriesSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertAvailabilityTemplateEntries;
-
-  keyField: string;
-}
-export interface UpsertAvailabilityTemplateResourcesSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertAvailabilityTemplateResources;
-
-  keyField: string;
-}
-export interface UpsertAvailabilityTemplatesSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertAvailabilityTemplates;
-
-  keyField: string;
-}
-export interface UpsertClientAvailabilitiesSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertClientAvailabilities;
-
-  keyField: string;
-}
-export interface UpsertContactTagsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertContactTags;
-
-  keyField: string;
-}
-export interface UpsertContactsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertContacts;
-
-  keyField: string;
-}
-export interface UpsertDefaultAutomaticDispatchSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertDefaultAutomaticDispatch;
-
-  keyField: string;
-}
-export interface UpsertHolidayRegionsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertHolidayRegions;
-
-  keyField: string;
-}
-export interface UpsertHolidaysSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertHolidays;
-
-  keyField: string;
-}
-export interface UpsertJobAllocationsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertJobAllocations;
-
-  keyField: string;
-}
-export interface UpsertJobDependenciesSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertJobDependencies;
-
-  keyField: string;
-}
-export interface UpsertJobOffersSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertJobOffers;
-
-  keyField: string;
-}
-export interface UpsertJobProductsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertJobProducts;
-
-  keyField: string;
-}
-export interface UpsertJobTagsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertJobTags;
-
-  keyField: string;
-}
-export interface UpsertJobTasksSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertJobTasks;
-
-  keyField: string;
-}
-export interface UpsertJobTemplatesSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertJobTemplates;
-
-  keyField: string;
-}
-export interface UpsertJobTimeConstraintsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertJobTimeConstraints;
-
-  keyField: string;
-}
-export interface UpsertJobsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertJobs;
-
-  keyField: string;
-}
-export interface UpsertLocationResourceScoresSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertLocationResourceScores;
-
-  keyField: string;
-}
-export interface UpsertLocationsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertLocations;
-
-  keyField: string;
-}
-export interface UpsertPatientPreferenceTagsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertPatientPreferenceTags;
-
-  keyField: string;
-}
-export interface UpsertPatientPreferencesSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertPatientPreferences;
-
-  keyField: string;
-}
-export interface UpsertProductsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertProducts;
-
-  keyField: string;
-}
-export interface UpsertRecurringSchedulesSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertRecurringSchedules;
-
-  keyField: string;
-}
-export interface UpsertRegionsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertRegions;
-
-  keyField: string;
-}
-export interface UpsertResourceJobOffersSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertResourceJobOffers;
-
-  keyField: string;
-}
-export interface UpsertResourceOverrideRegionsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertResourceOverrideRegions;
-
-  keyField: string;
-}
-export interface UpsertResourceOverridesSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertResourceOverrides;
-
-  keyField: string;
-}
-export interface UpsertResourceRegionsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertResourceRegions;
-
-  keyField: string;
-}
-export interface UpsertResourceRequirementTagsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertResourceRequirementTags;
-
-  keyField: string;
-}
-export interface UpsertResourceRequirementsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertResourceRequirements;
-
-  keyField: string;
-}
-export interface UpsertResourceShiftBreaksSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertResourceShiftBreaks;
-
-  keyField: string;
-}
-export interface UpsertResourceShiftOffersSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertResourceShiftOffers;
-
-  keyField: string;
-}
-export interface UpsertResourceShiftsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertResourceShifts;
-
-  keyField: string;
-}
-export interface UpsertResourceTagsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertResourceTags;
-
-  keyField: string;
-}
-export interface UpsertResourcesSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertResources;
-
-  keyField: string;
-}
-export interface UpsertScheduleTemplatesSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertScheduleTemplates;
-
-  keyField: string;
-}
-export interface UpsertShiftOfferShiftsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertShiftOfferShifts;
-
-  keyField: string;
-}
-export interface UpsertShiftOffersSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertShiftOffers;
-
-  keyField: string;
-}
-export interface UpsertShiftTagsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertShiftTags;
-
-  keyField: string;
-}
-export interface UpsertShiftsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertShifts;
-
-  keyField: string;
-}
-export interface UpsertTagsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertTags;
-
-  keyField: string;
-}
-export interface UpsertTemplatedActivitiesSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertTemplatedActivities;
-
-  keyField: string;
-}
-export interface UpsertTemplatedActivityResourcesSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertTemplatedActivityResources;
-
-  keyField: string;
-}
-export interface UpsertTemplatedAttendeesSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertTemplatedAttendees;
-
-  keyField: string;
-}
-export interface UpsertTemplatedJobAllocationsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertTemplatedJobAllocations;
-
-  keyField: string;
-}
-export interface UpsertTemplatedJobDependenciesSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertTemplatedJobDependencies;
-
-  keyField: string;
-}
-export interface UpsertTemplatedJobProductsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertTemplatedJobProducts;
-
-  keyField: string;
-}
-export interface UpsertTemplatedJobTagsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertTemplatedJobTags;
-
-  keyField: string;
-}
-export interface UpsertTemplatedJobTasksSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertTemplatedJobTasks;
-
-  keyField: string;
-}
-export interface UpsertTemplatedJobTimeConstraintsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertTemplatedJobTimeConstraints;
-
-  keyField: string;
-}
-export interface UpsertTemplatedJobsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertTemplatedJobs;
-
-  keyField: string;
-}
-export interface UpsertTemplatedResourceRequirementTagsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertTemplatedResourceRequirementTags;
-
-  keyField: string;
-}
-export interface UpsertTemplatedResourceRequirementsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertTemplatedResourceRequirements;
-
-  keyField: string;
-}
-export interface UpsertTemplatedResourceShiftsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertTemplatedResourceShifts;
-
-  keyField: string;
-}
-export interface UpsertTemplatedShiftTagsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertTemplatedShiftTags;
-
-  keyField: string;
-}
-export interface UpsertTemplatedShiftsSchemaMutationArgs {
-  idAlias?: Maybe<string>;
-
-  input: UpsertTemplatedShifts;
-
-  keyField: string;
-}
-export interface SchemaJobProductsSubscriptionArgs {
+export interface SchemaActivitiesSubscriptionArgs {
   operation?: Maybe<SchemaSubscriptionOp[]>;
 
-  filter?: Maybe<EqlRecordFilterJobProducts>;
+  filter?: Maybe<EqlRecordFilterActivities>;
 
-  extendedFilter?: Maybe<EqlRecordChangeFilterJobProducts>;
-}
-export interface SchemaTemplatedJobsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterTemplatedJobs>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterTemplatedJobs>;
-}
-export interface SchemaTagsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterTags>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterTags>;
-}
-export interface SchemaResourceShiftsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterResourceShifts>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterResourceShifts>;
-}
-export interface SchemaTemplatedShiftsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterTemplatedShifts>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterTemplatedShifts>;
+  extendedFilter?: Maybe<EqlRecordChangeFilterActivities>;
 }
 export interface SchemaJobAllocationsSubscriptionArgs {
   operation?: Maybe<SchemaSubscriptionOp[]>;
@@ -16066,131 +10976,12 @@ export interface SchemaJobAllocationsSubscriptionArgs {
 
   extendedFilter?: Maybe<EqlRecordChangeFilterJobAllocations>;
 }
-export interface SchemaResourceOverridesSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterResourceOverrides>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterResourceOverrides>;
-}
-export interface SchemaShiftOffersSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterShiftOffers>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterShiftOffers>;
-}
-export interface SchemaRecurringSchedulesSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterRecurringSchedules>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterRecurringSchedules>;
-}
-export interface SchemaJobTagsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterJobTags>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterJobTags>;
-}
-export interface SchemaTemplatedResourceRequirementsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterTemplatedResourceRequirements>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterTemplatedResourceRequirements>;
-}
-export interface SchemaTemplatedResourceRequirementTagsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterTemplatedResourceRequirementTags>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterTemplatedResourceRequirementTags>;
-}
-export interface SchemaActivitiesSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterActivities>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterActivities>;
-}
-export interface SchemaDefaultAutomaticDispatchSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterDefaultAutomaticDispatch>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterDefaultAutomaticDispatch>;
-}
-export interface SchemaAvailabilityTemplateResourcesSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterAvailabilityTemplateResources>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterAvailabilityTemplateResources>;
-}
-export interface SchemaActivityResourcesSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterActivityResources>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterActivityResources>;
-}
-export interface SchemaResourceTagsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterResourceTags>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterResourceTags>;
-}
-export interface SchemaTemplatedActivitiesSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterTemplatedActivities>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterTemplatedActivities>;
-}
-export interface SchemaJobTimeConstraintsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterJobTimeConstraints>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterJobTimeConstraints>;
-}
-export interface SchemaJobOffersSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterJobOffers>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterJobOffers>;
-}
-export interface SchemaPatientPreferencesSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterPatientPreferences>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterPatientPreferences>;
-}
-export interface SchemaResourceOverrideRegionsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterResourceOverrideRegions>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterResourceOverrideRegions>;
-}
 export interface SchemaJobsSubscriptionArgs {
   operation?: Maybe<SchemaSubscriptionOp[]>;
 
   filter?: Maybe<EqlRecordFilterJobs>;
 
   extendedFilter?: Maybe<EqlRecordChangeFilterJobs>;
-}
-export interface SchemaPatientPreferenceTagsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterPatientPreferenceTags>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterPatientPreferenceTags>;
 }
 export interface SchemaAvailabilitiesSubscriptionArgs {
   operation?: Maybe<SchemaSubscriptionOp[]>;
@@ -16199,299 +10990,12 @@ export interface SchemaAvailabilitiesSubscriptionArgs {
 
   extendedFilter?: Maybe<EqlRecordChangeFilterAvailabilities>;
 }
-export interface SchemaContactTagsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterContactTags>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterContactTags>;
-}
-export interface SchemaClientAvailabilitiesSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterClientAvailabilities>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterClientAvailabilities>;
-}
-export interface SchemaTemplatedJobAllocationsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterTemplatedJobAllocations>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterTemplatedJobAllocations>;
-}
-export interface SchemaAttendeesSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterAttendees>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterAttendees>;
-}
-export interface SchemaResourceRequirementTagsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterResourceRequirementTags>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterResourceRequirementTags>;
-}
 export interface SchemaShiftsSubscriptionArgs {
   operation?: Maybe<SchemaSubscriptionOp[]>;
 
   filter?: Maybe<EqlRecordFilterShifts>;
 
   extendedFilter?: Maybe<EqlRecordChangeFilterShifts>;
-}
-export interface SchemaTemplatedActivityResourcesSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterTemplatedActivityResources>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterTemplatedActivityResources>;
-}
-export interface SchemaTemplatedJobDependenciesSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterTemplatedJobDependencies>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterTemplatedJobDependencies>;
-}
-export interface SchemaTemplatedJobProductsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterTemplatedJobProducts>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterTemplatedJobProducts>;
-}
-export interface SchemaShiftOfferShiftsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterShiftOfferShifts>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterShiftOfferShifts>;
-}
-export interface SchemaTemplatedJobTasksSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterTemplatedJobTasks>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterTemplatedJobTasks>;
-}
-export interface SchemaTemplatedJobTagsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterTemplatedJobTags>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterTemplatedJobTags>;
-}
-export interface SchemaResourceShiftOffersSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterResourceShiftOffers>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterResourceShiftOffers>;
-}
-export interface SchemaShiftTagsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterShiftTags>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterShiftTags>;
-}
-export interface SchemaLocationsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterLocations>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterLocations>;
-}
-export interface SchemaTemplatedShiftTagsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterTemplatedShiftTags>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterTemplatedShiftTags>;
-}
-export interface SchemaTemplatedJobTimeConstraintsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterTemplatedJobTimeConstraints>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterTemplatedJobTimeConstraints>;
-}
-export interface SchemaResourceShiftBreaksSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterResourceShiftBreaks>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterResourceShiftBreaks>;
-}
-export interface SchemaTemplatedAttendeesSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterTemplatedAttendees>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterTemplatedAttendees>;
-}
-export interface SchemaAccountTagsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterAccountTags>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterAccountTags>;
-}
-export interface SchemaRegionsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterRegions>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterRegions>;
-}
-export interface SchemaJobDependenciesSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterJobDependencies>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterJobDependencies>;
-}
-export interface SchemaScheduleTemplatesSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterScheduleTemplates>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterScheduleTemplates>;
-}
-export interface SchemaUsersSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterUsers>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterUsers>;
-}
-export interface SchemaResourcesSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterResources>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterResources>;
-}
-export interface SchemaHolidayRegionsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterHolidayRegions>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterHolidayRegions>;
-}
-export interface SchemaAvailabilityTemplatesSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterAvailabilityTemplates>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterAvailabilityTemplates>;
-}
-export interface SchemaResourceJobOffersSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterResourceJobOffers>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterResourceJobOffers>;
-}
-export interface SchemaAccountsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterAccounts>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterAccounts>;
-}
-export interface SchemaTemplatedResourceShiftsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterTemplatedResourceShifts>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterTemplatedResourceShifts>;
-}
-export interface SchemaAvailabilityPatternsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterAvailabilityPatterns>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterAvailabilityPatterns>;
-}
-export interface SchemaAvailabilityPatternResourcesSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterAvailabilityPatternResources>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterAvailabilityPatternResources>;
-}
-export interface SchemaAvailabilityTemplateEntriesSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterAvailabilityTemplateEntries>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterAvailabilityTemplateEntries>;
-}
-export interface SchemaAccountResourceScoresSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterAccountResourceScores>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterAccountResourceScores>;
-}
-export interface SchemaContactsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterContacts>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterContacts>;
-}
-export interface SchemaProductsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterProducts>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterProducts>;
-}
-export interface SchemaJobTasksSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterJobTasks>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterJobTasks>;
-}
-export interface SchemaHolidaysSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterHolidays>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterHolidays>;
-}
-export interface SchemaResourceRequirementsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterResourceRequirements>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterResourceRequirements>;
-}
-export interface SchemaJobTemplatesSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterJobTemplates>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterJobTemplates>;
-}
-export interface SchemaLocationResourceScoresSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterLocationResourceScores>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterLocationResourceScores>;
-}
-export interface SchemaResourceRegionsSubscriptionArgs {
-  operation?: Maybe<SchemaSubscriptionOp[]>;
-
-  filter?: Maybe<EqlRecordFilterResourceRegions>;
-
-  extendedFilter?: Maybe<EqlRecordChangeFilterResourceRegions>;
 }
 
 // ====================================================

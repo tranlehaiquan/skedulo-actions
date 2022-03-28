@@ -95,6 +95,16 @@ export class ShareServices {
     return !!res
   }
 
+  sendSMS = async (resourceId: string, message: string, protocol?: 'push' | 'sms'): Promise<boolean> => {
+    const res = await this.httpApi.post('/notifications/oneoff', {
+      resourceId,
+      message,
+      protocol
+    })
+  
+    return !!res
+  }
+
   fetchAddressAutocomplete = async (input: string, sessionId: string, country?: string) => {
     const res = await this.httpApi.post<{ result: AutocompleteResult }>('/geoservices/autocomplete', {
       input,

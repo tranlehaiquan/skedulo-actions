@@ -256,8 +256,8 @@ export class Fetch {
     return this.request(url, body, 'POST')
   }
 
-  get(url: string, body: object) {
-    return this.request(url, body, 'GET')
+  get(url: string) {
+    return this.request(url, {}, 'GET')
   }
 
   private request = async <T = any>(url: string, body: object, method: Method) => {
