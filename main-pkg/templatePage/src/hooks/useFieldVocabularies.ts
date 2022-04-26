@@ -4,7 +4,7 @@ import appServices from '../services/appServices'
 
 const useFieldVocabularies = (objectName: string, objectField: string) => {
   const { data: vocabularies, status: currentVocabulariesStatus } = useSWR(
-    [`vocabularies?names=${objectName}`],
+    [`vocabularies?names=${objectName}&field=${objectField}`],
     async () => await appServices.fetchFieldVocabularies(objectName, objectField)
   )
 
