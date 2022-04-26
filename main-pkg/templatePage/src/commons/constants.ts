@@ -16,3 +16,10 @@ export const PATIENT_PREFERENCE_FIELDS = {
     VALUE: 'PatientPreferenceTags',
   },
 }
+
+export enum FetchStatus {
+  Idle = 'IDLE',
+  Fetching = 'FETCHING',
+  Fetched = 'FETCHED',
+  Failed = 'FAILED',
+}

@@ -228,6 +228,20 @@ export interface NewContacts {
   Title?: Maybe<string>;
 }
 
+export interface NewEmailTemplate {
+  JobType?: Maybe<string>;
+
+  Template?: Maybe<string>;
+
+  TemplateConfirmation?: Maybe<string>;
+
+  TemplateProposal?: Maybe<string>;
+
+  TitleConfirmation?: Maybe<string>;
+
+  TitleProposal?: Maybe<string>;
+}
+
 export interface NewHolidayRegions {
   HolidayId: string;
 
@@ -375,6 +389,8 @@ export interface NewJobTimeConstraints {
 }
 
 export interface NewJobs {
+  ARIAScore?: Maybe<number>;
+
   AbortReason?: Maybe<string>;
 
   AccountId?: Maybe<string>;
@@ -391,6 +407,8 @@ export interface NewJobs {
 
   CompletionNotes?: Maybe<string>;
 
+  ConfirmStatus?: Maybe<string>;
+
   ContactId?: Maybe<string>;
 
   CopiedFromId?: Maybe<string>;
@@ -401,7 +419,11 @@ export interface NewJobs {
 
   Duration: number;
 
+  EmailSent?: Maybe<boolean>;
+
   End?: Maybe<string>;
+
+  EngagementName?: Maybe<string>;
 
   EstimatedEnd?: Maybe<string>;
 
@@ -443,7 +465,21 @@ export interface NewJobs {
 
   RegionId: string;
 
+  ReminderDate?: Maybe<string>;
+
+  ReminderDays?: Maybe<number>;
+
+  RequiredCompletionDate?: Maybe<LocalDate>;
+
+  RescheduleCount?: Maybe<number>;
+
   ScheduleTemplateId?: Maybe<string>;
+
+  SchedulerNotes?: Maybe<string>;
+
+  SiteID?: Maybe<string>;
+
+  SiteName?: Maybe<string>;
 
   Start?: Maybe<string>;
 
@@ -498,6 +534,16 @@ export interface NewProducts {
   Name: string;
 
   ProductCode?: Maybe<string>;
+}
+
+export interface NewPublicPage {
+  HeaderColor?: Maybe<string>;
+
+  Logo?: Maybe<string>;
+
+  Token?: Maybe<string>;
+
+  Url?: Maybe<string>;
 }
 
 export interface NewRecurringSchedules {
@@ -1246,6 +1292,22 @@ export interface UpdateContacts {
   UID: string;
 }
 
+export interface UpdateEmailTemplate {
+  JobType?: Maybe<string>;
+
+  Template?: Maybe<string>;
+
+  TemplateConfirmation?: Maybe<string>;
+
+  TemplateProposal?: Maybe<string>;
+
+  TitleConfirmation?: Maybe<string>;
+
+  TitleProposal?: Maybe<string>;
+
+  UID: string;
+}
+
 export interface UpdateHolidayRegions {
   HolidayId?: Maybe<string>;
 
@@ -1411,6 +1473,8 @@ export interface UpdateJobTimeConstraints {
 }
 
 export interface UpdateJobs {
+  ARIAScore?: Maybe<number>;
+
   AbortReason?: Maybe<string>;
 
   AccountId?: Maybe<string>;
@@ -1427,6 +1491,8 @@ export interface UpdateJobs {
 
   CompletionNotes?: Maybe<string>;
 
+  ConfirmStatus?: Maybe<string>;
+
   ContactId?: Maybe<string>;
 
   CopiedFromId?: Maybe<string>;
@@ -1437,7 +1503,11 @@ export interface UpdateJobs {
 
   Duration?: Maybe<number>;
 
+  EmailSent?: Maybe<boolean>;
+
   End?: Maybe<string>;
+
+  EngagementName?: Maybe<string>;
 
   EstimatedEnd?: Maybe<string>;
 
@@ -1479,7 +1549,21 @@ export interface UpdateJobs {
 
   RegionId?: Maybe<string>;
 
+  ReminderDate?: Maybe<string>;
+
+  ReminderDays?: Maybe<number>;
+
+  RequiredCompletionDate?: Maybe<LocalDate>;
+
+  RescheduleCount?: Maybe<number>;
+
   ScheduleTemplateId?: Maybe<string>;
+
+  SchedulerNotes?: Maybe<string>;
+
+  SiteID?: Maybe<string>;
+
+  SiteName?: Maybe<string>;
 
   Start?: Maybe<string>;
 
@@ -1542,6 +1626,18 @@ export interface UpdateProducts {
   ProductCode?: Maybe<string>;
 
   UID: string;
+}
+
+export interface UpdatePublicPage {
+  HeaderColor?: Maybe<string>;
+
+  Logo?: Maybe<string>;
+
+  Token?: Maybe<string>;
+
+  UID: string;
+
+  Url?: Maybe<string>;
 }
 
 export interface UpdateRecurringSchedules {
@@ -2358,6 +2454,22 @@ export interface UpsertContacts {
   UID?: Maybe<string>;
 }
 
+export interface UpsertEmailTemplate {
+  JobType?: Maybe<string>;
+
+  Template?: Maybe<string>;
+
+  TemplateConfirmation?: Maybe<string>;
+
+  TemplateProposal?: Maybe<string>;
+
+  TitleConfirmation?: Maybe<string>;
+
+  TitleProposal?: Maybe<string>;
+
+  UID?: Maybe<string>;
+}
+
 export interface UpsertHolidayRegions {
   HolidayId: string;
 
@@ -2523,6 +2635,8 @@ export interface UpsertJobTimeConstraints {
 }
 
 export interface UpsertJobs {
+  ARIAScore?: Maybe<number>;
+
   AbortReason?: Maybe<string>;
 
   AccountId?: Maybe<string>;
@@ -2539,6 +2653,8 @@ export interface UpsertJobs {
 
   CompletionNotes?: Maybe<string>;
 
+  ConfirmStatus?: Maybe<string>;
+
   ContactId?: Maybe<string>;
 
   CopiedFromId?: Maybe<string>;
@@ -2549,7 +2665,11 @@ export interface UpsertJobs {
 
   Duration: number;
 
+  EmailSent?: Maybe<boolean>;
+
   End?: Maybe<string>;
+
+  EngagementName?: Maybe<string>;
 
   EstimatedEnd?: Maybe<string>;
 
@@ -2591,7 +2711,21 @@ export interface UpsertJobs {
 
   RegionId: string;
 
+  ReminderDate?: Maybe<string>;
+
+  ReminderDays?: Maybe<number>;
+
+  RequiredCompletionDate?: Maybe<LocalDate>;
+
+  RescheduleCount?: Maybe<number>;
+
   ScheduleTemplateId?: Maybe<string>;
+
+  SchedulerNotes?: Maybe<string>;
+
+  SiteID?: Maybe<string>;
+
+  SiteName?: Maybe<string>;
 
   Start?: Maybe<string>;
 
@@ -2654,6 +2788,18 @@ export interface UpsertProducts {
   ProductCode?: Maybe<string>;
 
   UID?: Maybe<string>;
+}
+
+export interface UpsertPublicPage {
+  HeaderColor?: Maybe<string>;
+
+  Logo?: Maybe<string>;
+
+  Token?: Maybe<string>;
+
+  UID?: Maybe<string>;
+
+  Url?: Maybe<string>;
 }
 
 export interface UpsertRecurringSchedules {
@@ -3362,6 +3508,9 @@ export type EqlOrderByClauseJobTimeConstraints = any;
 /** Valid values are (SLA, Timeslot) */
 export type JobTimeConstraintType = any;
 
+/** A date without a time-zone in the ISO-8601 calendar system */
+export type LocalDate = any;
+
 /** EQL query filter for object type ResourceRequirements */
 export type EqlQueryFilterResourceRequirements = any;
 
@@ -3587,9 +3736,6 @@ export type EqlQueryFilterAvailabilityTemplateEntries = any;
 /** EQL order by clause for object type AvailabilityTemplateEntries */
 export type EqlOrderByClauseAvailabilityTemplateEntries = any;
 
-/** A date without a time-zone in the ISO-8601 calendar system */
-export type LocalDate = any;
-
 /** EQL query filter for object type AvailabilityTemplateResources */
 export type EqlQueryFilterAvailabilityTemplateResources = any;
 
@@ -3604,6 +3750,12 @@ export type EqlQueryFilterAvailabilityTemplates = any;
 
 /** EQL order by clause for object type AvailabilityTemplates */
 export type EqlOrderByClauseAvailabilityTemplates = any;
+
+/** EQL query filter for object type EmailTemplate */
+export type EqlQueryFilterEmailTemplate = any;
+
+/** EQL order by clause for object type EmailTemplate */
+export type EqlOrderByClauseEmailTemplate = any;
 
 /** EQL query filter for object type HolidayRegions */
 export type EqlQueryFilterHolidayRegions = any;
@@ -3622,6 +3774,12 @@ export type EqlQueryFilterProducts = any;
 
 /** EQL order by clause for object type Products */
 export type EqlOrderByClauseProducts = any;
+
+/** EQL query filter for object type PublicPage */
+export type EqlQueryFilterPublicPage = any;
+
+/** EQL order by clause for object type PublicPage */
+export type EqlOrderByClausePublicPage = any;
 
 /** EQL query filter for object type RecurringSchedules */
 export type EqlQueryFilterRecurringSchedules = any;
@@ -3829,6 +3987,10 @@ export interface Query {
 
   contactsById?: Maybe<Contacts>;
 
+  emailTemplate: EmailTemplateConnection;
+
+  emailTemplateById?: Maybe<EmailTemplate>;
+
   holidayRegions: HolidayRegionsConnection;
 
   holidayRegionsById?: Maybe<HolidayRegions>;
@@ -3880,6 +4042,10 @@ export interface Query {
   products: ProductsConnection;
 
   productsById?: Maybe<Products>;
+
+  publicPage: PublicPageConnection;
+
+  publicPageById?: Maybe<PublicPage>;
 
   recurringSchedules: RecurringSchedulesConnection;
 
@@ -4487,6 +4653,8 @@ export interface Locations {
 }
 
 export interface Jobs {
+  ARIAScore?: Maybe<number>;
+
   AbortReason?: Maybe<string>;
 
   Account?: Maybe<Accounts>;
@@ -4506,6 +4674,8 @@ export interface Jobs {
   CanBeDeclined: boolean;
 
   CompletionNotes?: Maybe<string>;
+
+  ConfirmStatus?: Maybe<string>;
 
   Contact?: Maybe<Contacts>;
 
@@ -4527,7 +4697,11 @@ export interface Jobs {
 
   Duration: number;
 
+  EmailSent?: Maybe<boolean>;
+
   End?: Maybe<string>;
+
+  EngagementName?: Maybe<string>;
 
   EstimatedEnd?: Maybe<string>;
 
@@ -4603,11 +4777,25 @@ export interface Jobs {
 
   RegionId: string;
 
+  ReminderDate?: Maybe<string>;
+
+  ReminderDays?: Maybe<number>;
+
+  RequiredCompletionDate?: Maybe<LocalDate>;
+
+  RescheduleCount?: Maybe<number>;
+
   ResourceRequirements: ResourceRequirements[];
 
   ScheduleTemplate?: Maybe<ScheduleTemplates>;
 
   ScheduleTemplateId?: Maybe<string>;
+
+  SchedulerNotes?: Maybe<string>;
+
+  SiteID?: Maybe<string>;
+
+  SiteName?: Maybe<string>;
 
   Start?: Maybe<string>;
 
@@ -6546,6 +6734,50 @@ export interface ContactsEdge {
   offset: number;
 }
 
+export interface EmailTemplateConnection {
+  edges: EmailTemplateEdge[];
+
+  pageInfo: PageInfo;
+
+  totalCount: number;
+}
+
+export interface EmailTemplateEdge {
+  cursor: string;
+
+  node: EmailTemplate;
+
+  offset: number;
+}
+
+export interface EmailTemplate {
+  CreatedBy: Users;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  JobType?: Maybe<string>;
+
+  LastModifiedBy: Users;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Template?: Maybe<string>;
+
+  TemplateConfirmation?: Maybe<string>;
+
+  TemplateProposal?: Maybe<string>;
+
+  TitleConfirmation?: Maybe<string>;
+
+  TitleProposal?: Maybe<string>;
+
+  UID: string;
+}
+
 export interface HolidayRegionsConnection {
   edges: HolidayRegionsEdge[];
 
@@ -6802,6 +7034,46 @@ export interface ProductsEdge {
   node: Products;
 
   offset: number;
+}
+
+export interface PublicPageConnection {
+  edges: PublicPageEdge[];
+
+  pageInfo: PageInfo;
+
+  totalCount: number;
+}
+
+export interface PublicPageEdge {
+  cursor: string;
+
+  node: PublicPage;
+
+  offset: number;
+}
+
+export interface PublicPage {
+  CreatedBy: Users;
+
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  HeaderColor?: Maybe<string>;
+
+  LastModifiedBy: Users;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Logo?: Maybe<string>;
+
+  Token?: Maybe<string>;
+
+  UID: string;
+
+  Url?: Maybe<string>;
 }
 
 export interface RecurringSchedulesConnection {
@@ -7409,6 +7681,8 @@ export interface SchemaMutation {
 
   deleteContacts?: Maybe<string>;
 
+  deleteEmailTemplate?: Maybe<string>;
+
   deleteHolidayRegions?: Maybe<string>;
 
   deleteHolidays?: Maybe<string>;
@@ -7434,6 +7708,8 @@ export interface SchemaMutation {
   deleteLocations?: Maybe<string>;
 
   deleteProducts?: Maybe<string>;
+
+  deletePublicPage?: Maybe<string>;
 
   deleteRecurringSchedules?: Maybe<string>;
 
@@ -7533,6 +7809,8 @@ export interface SchemaMutation {
 
   getContacts: SimpleContacts;
 
+  getEmailTemplate: SimpleEmailTemplate;
+
   getHolidayRegions: SimpleHolidayRegions;
 
   getHolidays: SimpleHolidays;
@@ -7558,6 +7836,8 @@ export interface SchemaMutation {
   getLocations: SimpleLocations;
 
   getProducts: SimpleProducts;
+
+  getPublicPage: SimplePublicPage;
 
   getRecurringSchedules: SimpleRecurringSchedules;
 
@@ -7657,6 +7937,8 @@ export interface SchemaMutation {
 
   insertContacts: string;
 
+  insertEmailTemplate: string;
+
   insertHolidayRegions: string;
 
   insertHolidays: string;
@@ -7682,6 +7964,8 @@ export interface SchemaMutation {
   insertLocations: string;
 
   insertProducts: string;
+
+  insertPublicPage: string;
 
   insertRecurringSchedules: string;
 
@@ -7781,6 +8065,8 @@ export interface SchemaMutation {
 
   updateContacts: string;
 
+  updateEmailTemplate: string;
+
   updateHolidayRegions: string;
 
   updateHolidays: string;
@@ -7806,6 +8092,8 @@ export interface SchemaMutation {
   updateLocations: string;
 
   updateProducts: string;
+
+  updatePublicPage: string;
 
   updateRecurringSchedules: string;
 
@@ -7905,6 +8193,8 @@ export interface SchemaMutation {
 
   upsertContacts: string;
 
+  upsertEmailTemplate: string;
+
   upsertHolidayRegions: string;
 
   upsertHolidays: string;
@@ -7930,6 +8220,8 @@ export interface SchemaMutation {
   upsertLocations: string;
 
   upsertProducts: string;
+
+  upsertPublicPage: string;
 
   upsertRecurringSchedules: string;
 
@@ -8382,6 +8674,30 @@ export interface SimpleContacts {
   UID: string;
 }
 
+export interface SimpleEmailTemplate {
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  JobType?: Maybe<string>;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Template?: Maybe<string>;
+
+  TemplateConfirmation?: Maybe<string>;
+
+  TemplateProposal?: Maybe<string>;
+
+  TitleConfirmation?: Maybe<string>;
+
+  TitleProposal?: Maybe<string>;
+
+  UID: string;
+}
+
 export interface SimpleHolidayRegions {
   CreatedById: string;
 
@@ -8625,6 +8941,8 @@ export interface SimpleJobTimeConstraints {
 }
 
 export interface SimpleJobs {
+  ARIAScore?: Maybe<number>;
+
   AbortReason?: Maybe<string>;
 
   AccountId?: Maybe<string>;
@@ -8641,6 +8959,8 @@ export interface SimpleJobs {
 
   CompletionNotes?: Maybe<string>;
 
+  ConfirmStatus?: Maybe<string>;
+
   ContactId?: Maybe<string>;
 
   CopiedFromId?: Maybe<string>;
@@ -8655,7 +8975,11 @@ export interface SimpleJobs {
 
   Duration: number;
 
+  EmailSent?: Maybe<boolean>;
+
   End?: Maybe<string>;
+
+  EngagementName?: Maybe<string>;
 
   EstimatedEnd?: Maybe<string>;
 
@@ -8703,7 +9027,21 @@ export interface SimpleJobs {
 
   RegionId: string;
 
+  ReminderDate?: Maybe<string>;
+
+  ReminderDays?: Maybe<number>;
+
+  RequiredCompletionDate?: Maybe<LocalDate>;
+
+  RescheduleCount?: Maybe<number>;
+
   ScheduleTemplateId?: Maybe<string>;
+
+  SchedulerNotes?: Maybe<string>;
+
+  SiteID?: Maybe<string>;
+
+  SiteName?: Maybe<string>;
 
   Start?: Maybe<string>;
 
@@ -8792,6 +9130,26 @@ export interface SimpleProducts {
   ProductCode?: Maybe<string>;
 
   UID: string;
+}
+
+export interface SimplePublicPage {
+  CreatedById: string;
+
+  CreatedDate: string;
+
+  HeaderColor?: Maybe<string>;
+
+  LastModifiedById: string;
+
+  LastModifiedDate: string;
+
+  Logo?: Maybe<string>;
+
+  Token?: Maybe<string>;
+
+  UID: string;
+
+  Url?: Maybe<string>;
 }
 
 export interface SimpleRecurringSchedules {
@@ -9796,6 +10154,8 @@ export interface SchemaSubscriptionNotificationJobs
 }
 
 export interface SchemaSubscriptionJobs {
+  ARIAScore?: Maybe<number>;
+
   AbortReason?: Maybe<string>;
 
   AccountId?: Maybe<string>;
@@ -9812,6 +10172,8 @@ export interface SchemaSubscriptionJobs {
 
   CompletionNotes?: Maybe<string>;
 
+  ConfirmStatus?: Maybe<string>;
+
   ContactId?: Maybe<string>;
 
   CopiedFromId?: Maybe<string>;
@@ -9826,7 +10188,11 @@ export interface SchemaSubscriptionJobs {
 
   Duration: number;
 
+  EmailSent?: Maybe<boolean>;
+
   End?: Maybe<string>;
+
+  EngagementName?: Maybe<string>;
 
   EstimatedEnd?: Maybe<string>;
 
@@ -9874,7 +10240,21 @@ export interface SchemaSubscriptionJobs {
 
   RegionId: string;
 
+  ReminderDate?: Maybe<string>;
+
+  ReminderDays?: Maybe<number>;
+
+  RequiredCompletionDate?: Maybe<LocalDate>;
+
+  RescheduleCount?: Maybe<number>;
+
   ScheduleTemplateId?: Maybe<string>;
+
+  SchedulerNotes?: Maybe<string>;
+
+  SiteID?: Maybe<string>;
+
+  SiteName?: Maybe<string>;
 
   Start?: Maybe<string>;
 
@@ -10297,6 +10677,20 @@ export interface ContactsQueryArgs {
 export interface ContactsByIdQueryArgs {
   UID: string;
 }
+export interface EmailTemplateQueryArgs {
+  after?: Maybe<string>;
+
+  filter?: Maybe<EqlQueryFilterEmailTemplate>;
+
+  first?: Maybe<number>;
+
+  offset?: Maybe<number>;
+
+  orderBy?: Maybe<EqlOrderByClauseEmailTemplate>;
+}
+export interface EmailTemplateByIdQueryArgs {
+  UID: string;
+}
 export interface HolidayRegionsQueryArgs {
   after?: Maybe<string>;
 
@@ -10477,6 +10871,20 @@ export interface ProductsQueryArgs {
   orderBy?: Maybe<EqlOrderByClauseProducts>;
 }
 export interface ProductsByIdQueryArgs {
+  UID: string;
+}
+export interface PublicPageQueryArgs {
+  after?: Maybe<string>;
+
+  filter?: Maybe<EqlQueryFilterPublicPage>;
+
+  first?: Maybe<number>;
+
+  offset?: Maybe<number>;
+
+  orderBy?: Maybe<EqlOrderByClausePublicPage>;
+}
+export interface PublicPageByIdQueryArgs {
   UID: string;
 }
 export interface RecurringSchedulesQueryArgs {
@@ -11424,6 +11832,9 @@ export interface DeleteContactTagsSchemaMutationArgs {
 export interface DeleteContactsSchemaMutationArgs {
   UID: string;
 }
+export interface DeleteEmailTemplateSchemaMutationArgs {
+  UID: string;
+}
 export interface DeleteHolidayRegionsSchemaMutationArgs {
   UID: string;
 }
@@ -11461,6 +11872,9 @@ export interface DeleteLocationsSchemaMutationArgs {
   UID: string;
 }
 export interface DeleteProductsSchemaMutationArgs {
+  UID: string;
+}
+export interface DeletePublicPageSchemaMutationArgs {
   UID: string;
 }
 export interface DeleteRecurringSchedulesSchemaMutationArgs {
@@ -11610,6 +12024,9 @@ export interface GetContactTagsSchemaMutationArgs {
 export interface GetContactsSchemaMutationArgs {
   id: string;
 }
+export interface GetEmailTemplateSchemaMutationArgs {
+  id: string;
+}
 export interface GetHolidayRegionsSchemaMutationArgs {
   id: string;
 }
@@ -11647,6 +12064,9 @@ export interface GetLocationsSchemaMutationArgs {
   id: string;
 }
 export interface GetProductsSchemaMutationArgs {
+  id: string;
+}
+export interface GetPublicPageSchemaMutationArgs {
   id: string;
 }
 export interface GetRecurringSchedulesSchemaMutationArgs {
@@ -11826,6 +12246,11 @@ export interface InsertContactsSchemaMutationArgs {
 
   input: NewContacts;
 }
+export interface InsertEmailTemplateSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: NewEmailTemplate;
+}
 export interface InsertHolidayRegionsSchemaMutationArgs {
   idAlias?: Maybe<string>;
 
@@ -11890,6 +12315,11 @@ export interface InsertProductsSchemaMutationArgs {
   idAlias?: Maybe<string>;
 
   input: NewProducts;
+}
+export interface InsertPublicPageSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: NewPublicPage;
 }
 export interface InsertRecurringSchedulesSchemaMutationArgs {
   idAlias?: Maybe<string>;
@@ -12106,6 +12536,9 @@ export interface UpdateContactTagsSchemaMutationArgs {
 export interface UpdateContactsSchemaMutationArgs {
   input: UpdateContacts;
 }
+export interface UpdateEmailTemplateSchemaMutationArgs {
+  input: UpdateEmailTemplate;
+}
 export interface UpdateHolidayRegionsSchemaMutationArgs {
   input: UpdateHolidayRegions;
 }
@@ -12144,6 +12577,9 @@ export interface UpdateLocationsSchemaMutationArgs {
 }
 export interface UpdateProductsSchemaMutationArgs {
   input: UpdateProducts;
+}
+export interface UpdatePublicPageSchemaMutationArgs {
+  input: UpdatePublicPage;
 }
 export interface UpdateRecurringSchedulesSchemaMutationArgs {
   input: UpdateRecurringSchedules;
@@ -12352,6 +12788,13 @@ export interface UpsertContactsSchemaMutationArgs {
 
   keyField: string;
 }
+export interface UpsertEmailTemplateSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: UpsertEmailTemplate;
+
+  keyField: string;
+}
 export interface UpsertHolidayRegionsSchemaMutationArgs {
   idAlias?: Maybe<string>;
 
@@ -12440,6 +12883,13 @@ export interface UpsertProductsSchemaMutationArgs {
   idAlias?: Maybe<string>;
 
   input: UpsertProducts;
+
+  keyField: string;
+}
+export interface UpsertPublicPageSchemaMutationArgs {
+  idAlias?: Maybe<string>;
+
+  input: UpsertPublicPage;
 
   keyField: string;
 }
