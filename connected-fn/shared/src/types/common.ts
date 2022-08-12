@@ -48,6 +48,15 @@ export interface GraphqlListResponse<T> {
   }
 }
 
+export type GraphqlConnectionListResponse<T, K extends string = string> = {
+  [queryName in K]: {
+    edges: {
+      node: T
+    }[]
+    totalCount: number
+  }
+}
+
 export interface OrderParams {
   orderBy: string
   orderType: 'DESC' | 'ASC'

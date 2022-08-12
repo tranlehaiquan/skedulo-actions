@@ -25,3 +25,18 @@ export interface PlaceDetail {
     lng: number
   }
 }
+
+export interface DistanceMatrixResponse {
+  duration: {
+    durationInSeconds: number
+  }
+  distance: {
+    distanceInMeters: number
+  }
+  status: string
+}
+
+export interface Geocode {
+  lat: number
+  lng: number
+}
