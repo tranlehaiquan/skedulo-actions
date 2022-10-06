@@ -41,7 +41,7 @@
     "react/prop-types": "off",
     "react/display-name": "off",
     "import/order": [
-      "error",
+      "off",
       {
         "newlines-between": "always-and-inside-groups"
       }
@@ -51,6 +51,12 @@
   "settings": {
     "react": {
       "version": "detect"
+    },
+    "import/resolver": {
+      "alias": {
+        "map": [["@", "./src"]],
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
     }
   }
 }

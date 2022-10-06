@@ -1,19 +1,15 @@
 import * as React from 'react'
 import { ToastContainer } from 'react-toastify'
-
+import { SWRConfig } from 'swr'
 import { withGlobalLoading } from 'shared/dist/components/GlobalLoading'
 
-import { SWRConfig } from 'swr'
-
-import AppServices from './services/appServices'
-
-import ServicesProvider from './contexts/services'
-import makeServicesAdapter from './contexts/services/adapters/servicesAdapter'
-
-import MainPage from './pages/index'
+import AppServices from '@/services/appServices'
+import ServicesProvider from '@/contexts/services'
+import makeServicesAdapter from '@/contexts/services/adapters/servicesAdapter'
+import MainPage from '@/pages/index'
 
 import 'react-toastify/dist/ReactToastify.css'
-import { fetchStatusMiddleware } from './hooks/useSWR'
+import { fetchStatusMiddleware } from '@/hooks/useSWR'
 
 const servicesAdapter = makeServicesAdapter(AppServices)()
 

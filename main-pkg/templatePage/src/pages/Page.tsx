@@ -1,10 +1,9 @@
 import { Loading } from '@skedulo/sked-ui'
 import React from 'react'
 
-import { FetchStatus } from '../commons/constants'
-
-import { MainLayout } from '../components/Layouts'
-import useFieldVocabularies from '../hooks/useFieldVocabularies'
+import { MainLayout } from '@/components/Layouts'
+import useFieldVocabularies from '@/hooks/useFieldVocabularies'
+import { FetchStatus } from '@/commons/constants'
 
 const PatientPreferences = () => {
   const { vocabularies, currentVocabulariesStatus } = useFieldVocabularies('Jobs', 'JobStatus')

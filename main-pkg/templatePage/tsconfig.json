@@ -17,7 +17,11 @@
     "strict": true,
     "noUnusedLocals": false,
     "forceConsistentCasingInFileNames": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "src",
+    "paths": {
+      "@/*": ["*"]
+    }
   },
   "exclude": [
     "node_modules",

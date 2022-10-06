@@ -65,6 +65,7 @@
     "classnames": "^2.2.6",
     "date-fns": "^2.23.0",
     "date-fns-tz": "^1.0.10",
+    "eslint-import-resolver-alias": "^1.1.2",
     "lodash": "^4.17.15",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
