@@ -65,6 +65,9 @@ module.exports = function (env) {
       ],
       plugins: [
       ],
+      alias: {
+        '@': path.resolve(__dirname, '../src'),
+      },
     },
     module: {
       strictExportPresence: true,
