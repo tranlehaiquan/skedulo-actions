@@ -45,8 +45,7 @@
       {
         "newlines-between": "always-and-inside-groups"
       }
-    ],
-    "react-hooks/exhaustive-deps": "off"
+    ]
   },
   "settings": {
     "react": {
