@@ -35,7 +35,7 @@ module.exports = {
     {
       type: 'confirm',
       name: 'wantActionsAndReducer',
-      default: true,
+      default: false,
       message: 'Do you want an actions/constants/selectors/reducer tuple for this feature?',
     },
     // {

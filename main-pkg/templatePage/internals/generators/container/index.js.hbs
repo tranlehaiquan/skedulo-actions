@@ -5,15 +5,16 @@
  */
 
 {{#if memo}}
-import React, { memo } from 'react';
+import * as React from 'react';
+import { memo } from 'react';
 {{else}}
-import React from 'react';
+import * as React from 'react';
 {{/if}}
-interface IProps {
-  title: string
+interface Props {
+  title?: string
 }
 
-const {{ properCase name }}: React.FC<IProps> = ({ title }) => {
+const {{ properCase name }}: React.FC<Props> = ({ title }) => {
   return (
     <div>
       {title}

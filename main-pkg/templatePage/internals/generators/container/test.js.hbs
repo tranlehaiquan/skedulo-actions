@@ -6,14 +6,14 @@
  *
  */
 
-import React from 'react';
-import { render } from 'react-testing-library';
+import * as React from 'react';
+import { render } from '@testing-library/react';
 {{#if wantMessages}}
 import { IntlProvider } from 'react-intl';
 {{/if}}
 // import 'jest-dom/extend-expect'; // add some helpful assertions
 
-import { {{ properCase name }} } from '../index';
+import {{ properCase name }} from '../{{ properCase name }}';
 {{#if wantMessages}}
 import { DEFAULT_LOCALE } from '../../../i18n';
 {{/if}}
@@ -21,15 +21,14 @@ import { DEFAULT_LOCALE } from '../../../i18n';
 describe('<{{ properCase name }} />', () => {
   it('Expect to not log errors in console', () => {
     const spy = jest.spyOn(global.console, 'error');
-    const dispatch = jest.fn();
 {{#if wantMessages}}
     render(
       <IntlProvider locale={DEFAULT_LOCALE}>
-        <{{ properCase name }} dispatch={dispatch} />
+        <{{ properCase name }} />
       </IntlProvider>,
     );
 {{else}}
-    render(<{{ properCase name }} dispatch={dispatch} />);
+    render(<{{ properCase name }} />);
 {{/if}}
     expect(spy).not.toHaveBeenCalled();
   });
