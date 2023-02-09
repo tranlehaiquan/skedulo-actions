@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "skedulo-pkg-starter-fn",
+  "summary": "Skedulo Package Starter Function",
+  "components": {
+    "functions": { "items": ["mainFn"] },
+    "libraries": { "items": ["shared"] }
+  }
+}

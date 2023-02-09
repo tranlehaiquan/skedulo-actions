@@ -1,0 +1,11 @@
+{
+  "version": "1",
+  "name": "skedulo-pkg-starter",
+  "summary": "Skedulo Package Starter",
+  "components": {
+    "webpages": {
+      "items": ["templatePage"]
+    },
+    "libraries": { "items": ["shared"] }
+  }
+}

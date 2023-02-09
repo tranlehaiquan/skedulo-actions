@@ -1,0 +1,86 @@
+
+name: build-and-deploy-pkgs
+
+on:
+  push:
+    branches: [ mass-deployment ]
+
+jobs:
+  build-main-pkg:
+    name: build main-pkg
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./main-pkg
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '10'
+      - run: |
+            cd shared
+            yarn bootstrap
+            yarn compile
+            cd ..
+            cd templatePage
+            yarn bootstrap
+            yarn compile
+      - uses: actions/upload-artifact@v3
+        with:
+          name: skedulo-pkg-starter
+          path: |
+            main-pkg/shared/dist
+            main-pkg/templatePage/build
+  build-connected-fn:
+    name: build connected-fn
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./connected-fn
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '10'
+      - run: |
+            cd shared
+            yarn bootstrap
+            yarn compile
+            cd ..
+            cd mainFn
+            yarn bootstrap
+            yarn lint:fix 
+            yarn compile
+      - uses: actions/upload-artifact@v3
+        with:
+          name: skedulo-pkg-starter-fn
+          path: |
+            connected-fn/shared/dist
+            connected-fn/mainFn/dist
+  deploy-pkg:
+    name: deploy-pkg
+    needs: [build-main-pkg, build-connected-fn]
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./pkg-deployment
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/download-artifact@v3
+        with:
+          path: built
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '15.14.0'
+      - run: |
+          echo "🎉 run deployment"
+          touch .env
+          echo SKEDULO_API_SERVER=https://api.skedulo.com >> .env
+          echo SKEDULO_API_TOKEN=${{ secrets.SKEDULO_API_TOKEN }} >> .env
+          echo PACKAGE_PATH=main-pkg,connected-fn >> .env
+          echo ORG_NAME=Training Org >> .env
+          yarn install
+          yarn migrate

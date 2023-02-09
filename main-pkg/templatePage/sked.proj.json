@@ -1,0 +1,18 @@
+{
+  "type": "webpage",
+  "name": "template-page",
+  "description": "New webpage",
+  "url": "template-page",
+  "render": {
+    "showInNavBar": true,
+    "type": "page"
+  },
+  "genTypes": false,
+  "dependencies": [
+    {
+      "type": "local-node",
+      "dependencyName": "shared",
+      "options": { "devDependency": false }
+    }
+  ]
+}

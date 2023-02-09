@@ -1,0 +1,149 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine.
+# See: https://circleci.com/docs/2.0/configuration-reference
+version: 2.1
+
+# Define orbs to use
+orbs:
+  node: circleci/node@5.1.0
+
+# Specify the execution environment.
+# See: https://circleci.com/docs/configuration-reference/#machine
+executors:
+  main-executor: node/default
+
+# Define a job to be invoked later in a workflow.
+# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
+jobs:
+  say-hello:
+    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
+    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
+    docker:
+      - image: cimg/base:stable
+    # Add steps to the job
+    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+    steps:
+      - checkout
+      - run:
+          name: "Say hello"
+          command: |
+            pwd
+            ls -la -- */
+            echo Hello, World!
+
+  build-main-pkg:
+    executor: main-executor
+    # Add steps to the job
+    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+    steps:
+      - checkout
+      - node/install:
+          install-yarn: true
+          node-version: '10'
+      - run: 
+          name: "build main pkg"
+          command: |
+            pwd
+            cd main-pkg
+            cd shared
+            yarn bootstrap
+            yarn compile
+            cd ..
+            cd templatePage
+            yarn bootstrap
+            yarn compile
+      # Persist the specified paths (~/) into the workspace for use in downstream job
+      - persist_to_workspace:
+          # taken to be the root directory of the workspace.
+          root: ~/project
+          # Must be relative path from root
+          paths: 
+            - main-pkg
+
+  build-connected-fn:
+    executor: main-executor
+    # Add steps to the job
+    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+    steps:
+      - checkout
+      - node/install:
+          install-yarn: true
+          node-version: '10'
+      - run: 
+          name: "build connected-fn"
+          command: |
+            pwd
+            cd connected-fn
+            cd shared
+            yarn bootstrap
+            yarn compile
+            cd ..
+            cd mainFn
+            yarn bootstrap
+            yarn lint:fix 
+            yarn compile
+      # Persist the specified paths (~/) into the workspace for use in downstream job
+      - persist_to_workspace:
+          # taken to be the root directory of the workspace.
+          root: ~/project
+          # Must be relative path from root
+          paths: 
+            - connected-fn
+
+  deploy-pkg:
+    executor: main-executor
+    # Add steps to the job
+    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+    steps:
+      - checkout
+      - node/install:
+          install-yarn: true
+          node-version: '15.14.0'
+      - attach_workspace:
+          # Must be absolute path or relative path from working_directory
+          at: ~/project
+      - run:
+          name: "🎉 run deployment"
+          # Add source command to execute code and make variables
+          # available in current step.
+          command: |
+            pwd
+            mkdir built
+            ls -la
+            cd pkg-deployment
+            touch .env
+            echo SKEDULO_API_SERVER=https://api.skedulo.com >> .env
+            echo SKEDULO_API_TOKEN=$SKEDULO_API_TOKEN >> .env
+            echo PACKAGE_PATH=main-pkg,connected-fn >> .env
+            echo ORG_NAME=Training Org >> .env
+            yarn install
+            yarn migrate
+
+# Invoke jobs via workflows
+# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
+workflows:
+  say-hello-workflow:
+    jobs:
+      - say-hello
+  deploy-package-workflow:
+    jobs:
+      - build-main-pkg:
+          filters:  # using regex filters requires the entire branch to match
+            branches:
+              only:  # only branches matching the below regex filters will run
+                - main
+                - uat
+      - build-connected-fn:
+          filters:  # using regex filters requires the entire branch to match
+            branches:
+              only:  # only branches matching the below regex filters will run
+                - main
+                - uat
+      - deploy-pkg:
+          requires:
+            - build-main-pkg
+            - build-connected-fn
+          filters:  # using regex filters requires the entire branch to match
+            branches:
+              only:  # only branches matching the below regex filters will run
+                - main
+                - uat
