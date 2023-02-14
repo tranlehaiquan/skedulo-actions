@@ -77,6 +77,7 @@
     "bootstrap": "yarn install --pure-lockfile",
     "dev": "node -v && webpack-dev-server --config ./config/webpack.config.js",
     "test": "node scripts/test.js --env=jest-environment-jsdom-sixteen",
+    "coverage": "jest --coverage",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix",
     "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
@@ -87,7 +88,8 @@
   "jest": {
     "coverageReporters": [
       "text-summary",
-      "json-summary"
+      "json-summary",
+      "html"
     ],
     "setupFiles": [
       "<rootDir>/config/jest/test-setup.js"

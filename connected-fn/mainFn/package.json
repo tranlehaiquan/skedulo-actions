@@ -6,6 +6,8 @@
     "bootstrap": "yarn install --frozen-lockfile --audit --ignore-scripts",
     "dev": "webpack --watch --mode=development",
     "compile": "webpack --mode=production",
+    "test": "node scripts/test.js",
+    "coverage": "jest --coverage",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix"
   },
@@ -30,7 +32,10 @@
     "ts-loader": "^6.2.1",
     "typescript": "^3.8.2",
     "webpack": "^4.42.0",
-    "webpack-cli": "^3.3.11"
+    "webpack-cli": "^3.3.11",
+    "ts-jest": "^24.3.0",
+    "jest": "^24.9.0",
+    "@types/jest": "^27.0.1"
   },
   "dependencies": {
     "@skedulo/sdk-utilities": "^0.0.6",
@@ -47,5 +52,52 @@
     "moment-timezone": "^0.5.33",
     "path-to-regexp": "^3.0.0",
     "shared": "link:../shared"
+  },
+  "resolutions": {
+    "@types/babel__traverse": "7.0.6"
+  },
+  "jest": {
+    "coverageReporters": [
+      "text-summary",
+      "json-summary",
+      "html"
+    ],
+    "setupFiles": [
+      "<rootDir>/config/jest/test-setup.js"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx,ts,tsx}"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.ts?(x)",
+      "<rootDir>/src/**/?(*.)(spec|test).ts?(x)"
+    ],
+    "testEnvironment": "node",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^.+\\.tsx?$": "<rootDir>/config/jest/typescriptTransform.js",
+      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|ts|tsx)$"
+    ],
+    "moduleFileExtensions": [
+      "web.ts",
+      "ts",
+      "web.tsx",
+      "tsx",
+      "web.js",
+      "js",
+      "web.jsx",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "./tsconfig.test.json"
+      }
+    }
   }
 }

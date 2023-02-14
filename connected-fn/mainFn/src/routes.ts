@@ -32,7 +32,7 @@ function getRoutes(): FunctionRoute[] {
     {
       method: 'post',
       path: '/getAttachmentRedirectUrl',
-      handler: getAttachmentRedirectUrl
-    }
+      handler: getAttachmentRedirectUrl,
+    },
   ]
 }
