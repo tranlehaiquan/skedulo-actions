@@ -6,10 +6,13 @@
     "bootstrap": "yarn install --frozen-lockfile --audit --ignore-scripts",
     "dev": "webpack --watch --mode=development",
     "compile": "webpack --mode=production",
+    "test": "node scripts/test.js",
+    "coverage": "jest --coverage",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint:fix": "eslint \"src/**/*.{js,jsx,ts,tsx}\" --fix"
   },
   "devDependencies": {
+    "@types/jest": "^27.0.1",
     "@types/node": "8",
     "@typescript-eslint/eslint-plugin": "3",
     "@typescript-eslint/parser": "^3.5.0",
@@ -25,8 +28,10 @@
     "eslint-plugin-promise": "4",
     "eslint-plugin-standard": "4",
     "gql-loader": "^1.0.0",
+    "jest": "^24.9.0",
     "lodash": "^4.17.21",
     "prettier": "^2.3.2",
+    "ts-jest": "^24.3.0",
     "ts-loader": "^6.2.1",
     "typescript": "^3.8.2",
     "webpack": "^4.42.0",
@@ -47,5 +52,8 @@
     "moment-timezone": "^0.5.33",
     "path-to-regexp": "^3.0.0",
     "shared": "link:../shared"
+  },
+  "resolutions": {
+    "@types/babel__traverse": "7.0.6"
   }
 }
