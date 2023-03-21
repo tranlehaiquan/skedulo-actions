@@ -20,6 +20,8 @@ jobs:
           node-version: '10'
       - run: |
             cd shared
+            export SKED_BASE_URL=https://api.skedulo.com
+            export SKED_API_TOKEN=${{ secrets.SKEDULO_API_TOKEN }}
             yarn bootstrap
             yarn compile
             cd ..
@@ -46,6 +48,8 @@ jobs:
           node-version: '10'
       - run: |
             cd shared
+            export SKED_BASE_URL=https://api.skedulo.com
+            export SKED_API_TOKEN=${{ secrets.SKEDULO_API_TOKEN }}
             yarn bootstrap
             yarn compile
             cd ..
