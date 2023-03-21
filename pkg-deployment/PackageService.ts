@@ -159,7 +159,7 @@ export class PackageService {
 
     await items.map(async (project) => {
       // skip if build and dist folder does not exist
-      if (project == 'shared' || !fs.existsSync(`${outDIR}/${project}/build`) && !fs.existsSync(`${outDIR}/${project}/dist`)) {
+      if (!fs.existsSync(`${outDIR}/${project}/build`) && !fs.existsSync(`${outDIR}/${project}/dist`)) {
         return;
       }
 
@@ -185,6 +185,21 @@ export class PackageService {
       );
     });
 
+    // overwrite file /${outDIR}/sked.pkg.json, empty libraries
+    const configOverwrite = {
+      ...config,
+      components: {
+        ...config.components,
+        libraries: {
+          items: []
+        }
+      }
+    }
+
+    await fsExtra.writeFile(
+      `${outDIR}/sked.pkg.json`,
+      JSON.stringify(configOverwrite, null, 2)
+    )
 
     const targetPackageFile = path.join(buildAssetsPath, "/package.tar.gz");
     const tar = createTarBall(
