@@ -1,10 +1,9 @@
 import { Resources } from 'shared/dist/__graphql/graphql'
 
-import { VocabularyField } from 'shared/dist/types'
-
 import fetch from './shared/fetch'
 
 import { fetchResources as fetchFilteredResources } from './queries/commonQueries'
+import { VocabularyField } from 'shared/dist/types'
 
 class SkeduloService {
   async fetchResources(filter: string) {
@@ -22,11 +21,10 @@ class SkeduloService {
       return []
     }
   }
-
-  async fetchFieldVocabularies(schemaName: string, fieldName: string) {
+  
+  async fetchFieldVocabularies (schemaName: string, fieldName: string) {
     try {
       const resp = await fetch.get(`/custom/vocabulary/${schemaName}/${fieldName}`)
-
       return resp.result.filter((item: VocabularyField) => item.active) as VocabularyField[]
     } catch (error) {
       return []
