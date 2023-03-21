@@ -270,7 +270,7 @@ export class PackageService {
           throw new Error(`${this.authorizeData.ORG_NAME} ${name} build failed!`)
         }
 
-      }, 1000 * 60 * 5)
+      }, 1000 * 60)
     } catch (error) {
       if (error instanceof Error) {
         console.log(`${this.authorizeData.ORG_NAME} there is an error!!! ${error.message}`)
