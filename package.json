@@ -20,10 +20,7 @@
     "typescript": "^4.9.3"
   },
   "scripts": {
-    "compile": "tsc",
-    "migrate": "yarn run compile && node dist/index.js",
-    "printTable": "yarn run compile && node dist/utils/printTable.js",
-    "createCsv": "yarn run compile && node dist/utils/createCsv.js"
+    "compile": "npx ncc build ./src/index.js -o dist"
   },
   "dependencies": {
     "@actions/core": "^1.10.0",
