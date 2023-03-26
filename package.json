@@ -1,7 +1,7 @@
 {
   "name": "deployment-scripts",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
   "license": "MIT",
   "devDependencies": {
     "@types/axios": "^0.14.0",
