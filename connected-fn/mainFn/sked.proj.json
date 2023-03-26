@@ -1,9 +1,0 @@
-{
-  "type": "function",
-  "runtime": "nodejs12.x",
-  "name": "mainFn",
-  "description": "Main Package connected functions",
-  "dependencies": [
-    { "type": "local-node", "dependencyName": "shared", "options": { "devDependency": false } }
-  ]
-}
