@@ -23,7 +23,7 @@ jobs:
         with:
           name: skedulo-pkg-starter
           path: |
-            example/myReactApp/dist
+            example/myReactApp/build
   deploy-pkg:
     name: deploy-pkg
     needs: [build-main-pkg]
