@@ -17,6 +17,7 @@ jobs:
       - uses: actions/setup-node@v3
       - run: |
             cd myReactApp
+            yarn
             yarn build
       - uses: actions/upload-artifact@v3
         with:
