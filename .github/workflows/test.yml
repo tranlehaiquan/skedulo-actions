@@ -9,6 +9,7 @@ jobs:
     name: A job to say hello
     # You can use configuration variables with the `vars` context for dynamic jobs
     runs-on: ubuntu-latest
+    environment: test 
     steps:
     - name: Use variables
       run: |
