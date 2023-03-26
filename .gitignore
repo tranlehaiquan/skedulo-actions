@@ -2,7 +2,6 @@
 
 # Build
 pre_deploy_assets
-dist
 built
 
 # Logs
