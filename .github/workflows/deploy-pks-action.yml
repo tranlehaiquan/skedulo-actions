@@ -34,7 +34,7 @@ jobs:
         with:
           path: built
       - uses: actions/setup-node@v3
-      - uses: tranlehaiquan/skedulo-actions@v1.5
+      - uses: tranlehaiquan/skedulo-actions@v1.6
         with:
           SKEDULO_API_SERVER: ${{ vars.SKEDULO_API_SERVER }}
           SKEDULO_API_TOKEN: ${{ secrets.SKEDULO_API_TOKEN }}
