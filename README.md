@@ -1,26 +1,23 @@
-# Boilerplate codebase for platform development
+# Hello world javascript action
 
-## TODO
-- [ ] Create generated script CI for generating the complete connected page & connected fn, etc
+This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
 
-## Folder Structure
+## Inputs
 
-[TBU]
+### `who-to-greet`
 
-## Architecture
+**Required** The name of the person to greet. Default `"World"`.
 
-[TBU]
+## Outputs
 
-## Eslint + Prettier
+### `time`
 
-[TBU]
+The time we greeted you.
 
-## Testing
+## Example usage
 
-[TBU]
-
-## Deployment
-
-[TBU]
-
-## Commons
+```yaml
+uses: actions/hello-world-javascript-action@v1.1
+with:
+  who-to-greet: 'Mona the Octocat'
+```

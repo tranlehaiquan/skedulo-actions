@@ -1,7 +1,7 @@
 {
   "name": "deployment-scripts",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "license": "MIT",
   "devDependencies": {
     "@types/axios": "^0.14.0",
@@ -26,8 +26,11 @@
     "createCsv": "yarn run compile && node dist/utils/createCsv.js"
   },
   "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1",
     "@types/request": "^2.48.8",
     "@types/winston": "^2.4.4",
+    "@vercel/ncc": "^0.36.1",
     "date-fns": "^2.14.0",
     "date-fns-tz": "^1.0.10",
     "dotenv": "^16.0.3",
