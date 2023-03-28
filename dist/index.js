@@ -67260,7 +67260,7 @@ class PackageService {
         return (0, tar_1.createTarBall)(this.packagePath, targetPackageFile, tarballFileFilter);
     }
     getProjectDataPath() {
-        return path.join('../', this.packagePath, '/sked.pkg.json');
+        return path.join('./', this.packagePath, '/sked.pkg.json');
     }
     getProjectData() {
         try {
@@ -67462,11 +67462,13 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const PackageService_1 = __nccwpck_require__(943);
 const dotenv = __nccwpck_require__(2437);
 const core = __nccwpck_require__(2186);
+const fs = __nccwpck_require__(7147);
 dotenv.config();
 function deployedPackages() {
     return __awaiter(this, void 0, void 0, function* () {
         const packagePath = process.env.PACKAGE_PATH || core.getInput("PACKAGE_PATH") || "main-pkg";
         const packagePaths = packagePath.split(",");
+        fs.readdir('.', console.log);
         console.log("packagePaths", packagePaths);
         const authorizeData = {
             token: process.env.SKEDULO_API_TOKEN || core.getInput("SKEDULO_API_TOKEN") || "",

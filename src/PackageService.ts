@@ -72,7 +72,7 @@ export class PackageService {
   }
 
   private getProjectDataPath() {
-    return path.join('../', this.packagePath, '/sked.pkg.json')
+    return path.join('./', this.packagePath, '/sked.pkg.json')
   }
 
   private getProjectData() {
