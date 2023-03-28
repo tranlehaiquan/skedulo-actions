@@ -28,6 +28,10 @@ jobs:
     name: deploy-pkg
     needs: [build-main-pkg]
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./
     environment: dev
     steps:
       - uses: actions/checkout@v3
@@ -43,3 +47,4 @@ jobs:
           SKEDULO_API_TOKEN: ${{ secrets.SKEDULO_API_TOKEN }}
           ORG_NAME: ${{ vars.ORG_NAME }}
           PACKAGE_PATH: ${{ vars.PACKAGE_PATH }}
+      - run: pwd
