@@ -37,7 +37,7 @@ jobs:
       - uses: actions/setup-node@v3
       # debug vars.SKEDULO_API_SERVER, print here
       - run: echo '${{ toJSON(github) }}'
-      - uses: tranlehaiquan/skedulo-actions@v2.3
+      - uses: tranlehaiquan/skedulo-actions@v2.4
         with:
           SKEDULO_API_SERVER: ${{ vars.SKEDULO_API_SERVER }}
           SKEDULO_API_TOKEN: ${{ secrets.SKEDULO_API_TOKEN }}
