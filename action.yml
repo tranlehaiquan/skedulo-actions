@@ -23,8 +23,12 @@ runs:
     - uses: actions/setup-node@v3
       with:
         node-version: '16'
+    - uses: actions/download-artifact@v3
+      with:
+        path: built
     - run: |
             pwd
+            ls -la
             echo "🎉 run deployment"
             touch .env
             echo SKEDULO_API_SERVER=${{ inputs.SKEDULO_API_SERVER }} >> .env

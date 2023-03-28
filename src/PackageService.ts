@@ -134,11 +134,6 @@ export class PackageService {
     }
     // folder projects using for copy all project to outDIR
     const outDIR = path.join(`./built/${pgkName}`);
-
-    console.log("🚀 ---------------------------------------------------------------------------------------------------🚀")
-    console.log("🚀 ~ file: PackageService.ts:139 ~ PackageService ~ bundlePackageWithByPassCompile ~ outDIR:", outDIR)
-    console.log("🚀 ---------------------------------------------------------------------------------------------------🚀")
-    
     if (!fs.existsSync(outDIR)) {
       fs.mkdirSync(outDIR);
     }
