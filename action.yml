@@ -17,5 +17,10 @@ outputs:
   time: # id of output
     description: 'The time we greeted you'
 runs:
-  using: 'node16'
-  main: 'dist/index.js'
+  steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+    - run: yarn install
+    - run: yarn run compile && node dist/index.js
