@@ -134,7 +134,6 @@ export class PackageService {
     }
     // folder projects using for copy all project to outDIR
     const outDIR = path.join(`./built/${pgkName}`);
-    console.log('fs.existsSync(outDIR', fs.existsSync(outDIR))
     if (!fs.existsSync(outDIR)) {
       fs.mkdirSync(outDIR);
     }
@@ -160,6 +159,7 @@ export class PackageService {
 
     await items.map(async (project) => {
       // skip if build and dist folder does not exist
+      console.log('fs.existsSync(`${outDIR}/${project}/build`)', fs.existsSync(`${outDIR}/${project}/build`))
       if (!fs.existsSync(`${outDIR}/${project}/build`) && !fs.existsSync(`${outDIR}/${project}/dist`)) {
         return;
       }
@@ -179,6 +179,8 @@ export class PackageService {
         bootstrap: "echo 'bootstrap'",
         compile: "echo 'compile'",
       };
+
+      console.log('packageJsonConfig', packageJsonConfig)
 
       await fsExtra.writeFile(
         `${outDIR}/${project}/package.json`,
