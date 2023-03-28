@@ -22,5 +22,9 @@ runs:
     - uses: actions/setup-node@v2
       with:
         node-version: '16'
-    - run: yarn install
-    - run: yarn run compile && node dist/index.js
+    - run: |
+            pwd
+            yarn install
+            yarn run compile
+            node dist/index.js
+      shell: bash
