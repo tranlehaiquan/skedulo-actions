@@ -134,6 +134,7 @@ export class PackageService {
     }
     // folder projects using for copy all project to outDIR
     const outDIR = path.join(`./built/${pgkName}`);
+    console.log('fs.existsSync(outDIR', fs.existsSync(outDIR))
     if (!fs.existsSync(outDIR)) {
       fs.mkdirSync(outDIR);
     }
