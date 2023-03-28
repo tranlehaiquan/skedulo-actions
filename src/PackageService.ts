@@ -160,6 +160,8 @@ export class PackageService {
     await items.map(async (project) => {
       // skip if build and dist folder does not exist
       console.log('fs.existsSync(`${outDIR}/${project}/build`)', `${outDIR}/${project}/build`, fs.existsSync(`${outDIR}/${project}/build`))
+      fs.readdir(`${outDIR}/${project}`, console.log);
+      fs.readdir(`${outDIR}/${project}/build`, console.log);
       if (!fs.existsSync(`${outDIR}/${project}/build`) && !fs.existsSync(`${outDIR}/${project}/dist`)) {
         return;
       }
