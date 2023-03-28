@@ -67309,19 +67309,19 @@ class PackageService {
         return __awaiter(this, void 0, void 0, function* () {
             const pkg = this.getProjectData();
             const pgkName = pkg.name;
-            const buildAssetsPath = path.join('../', this.packagePath, `/pre_deploy_assets`);
+            const buildAssetsPath = path.join('./', this.packagePath, `/pre_deploy_assets`);
             if (!fs.existsSync(buildAssetsPath)) {
                 fs.mkdirSync(buildAssetsPath);
             }
             // folder projects using for copy all project to outDIR
-            const outDIR = path.join(`../built/${pgkName}`);
+            const outDIR = path.join(`./built/${pgkName}`);
             if (!fs.existsSync(outDIR)) {
                 fs.mkdirSync(outDIR);
             }
             // empty outDIR
             // await fsExtra.emptyDir(outDIR); 
             // copy folder to the current working directory outDIR
-            yield fsExtra.copy('../' + this.packagePath, `${outDIR}`, {
+            yield fsExtra.copy('./' + this.packagePath, `${outDIR}`, {
                 filter: tarballFileFilter,
                 overwrite: true
             });
