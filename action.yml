@@ -23,5 +23,17 @@ runs:
     - uses: actions/setup-node@v3
       with:
         node-version: '16'
-    - run: node dist/index.js
+    - uses: actions/download-artifact@v3
+      with:
+        path: built
+    - run: |
+            pwd
+            ls -la
+            echo "🎉 run deployment"
+            touch .env
+            echo SKEDULO_API_SERVER=${{ inputs.SKEDULO_API_SERVER }} >> .env
+            echo SKEDULO_API_TOKEN=${{ inputs.SKEDULO_API_TOKEN }} >> .env
+            echo PACKAGE_PATH=${{ inputs.PACKAGE_PATH }} >> .env
+            echo ORG_NAME=${{ inputs.ORG_NAME }} >> .env
+            node dist/index.js
       shell: bash
