@@ -1,23 +1,47 @@
 # Hello world javascript action
 
-This action prints "Hello World" or "Hello" + the name of a person to greet to the log.
+This action bundle and deploy Packages to Skedulo Platform. You need to build packages first then upload to artifact.
 
 ## Inputs
 
-### `who-to-greet`
+### `SKEDULO_API_SERVER`
 
-**Required** The name of the person to greet. Default `"World"`.
+**Required** Skedulo API Server example: https://api.skedulo.com.
 
-## Outputs
+### `SKEDULO_API_TOKEN`
 
-### `time`
+**Required** Skedulo token API using to run deploy.
 
-The time we greeted you.
+### `ORG_NAME`
 
+**Required** Skedulo org name, example: Cx training.
+
+### `PACKAGE_PATH`
+
+**Required** Path to the packages folder (the folder must contain sked.pkg.json).
+
+Example: example
+
+```
+example
+├── myReactApp
+├── sked.pkg.json
+```
 ## Example usage
 
+Here: `.github/workflows/deploy-pks-action.yml`
+
 ```yaml
-uses: actions/hello-world-javascript-action@v1.1
-with:
-  who-to-greet: 'Mona the Octocat'
+steps:
+  - uses: actions/checkout@v3
+  - uses: actions/setup-node@v3
+  - uses: actions/download-artifact@v3
+    with:
+      path: built
+  - uses: tranlehaiquan/skedulo-actions@main
+    with:
+      SKEDULO_API_SERVER: ${{ vars.SKEDULO_API_SERVER }}
+      SKEDULO_API_TOKEN: ${{ secrets.SKEDULO_API_TOKEN }}
+      ORG_NAME: ${{ vars.ORG_NAME }}
+      PACKAGE_PATH: ${{ vars.PACKAGE_PATH }}
 ```
