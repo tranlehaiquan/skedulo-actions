@@ -1,5 +1,6 @@
 const core = require("@actions/core");
 const github = require("@actions/github");
+const fs = require("fs-extra");
 
 try {
   // `who-to-greet` input defined in action metadata file
