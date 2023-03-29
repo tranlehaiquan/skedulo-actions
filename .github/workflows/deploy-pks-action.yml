@@ -36,7 +36,7 @@ jobs:
     needs: [build-main-pkg]
     runs-on: ubuntu-latest
     steps:
-      - uses: tranlehaiquan/skedulo-actions@v2.5
+      - uses: tranlehaiquan/skedulo-actions@v2.6
         with:
           SKEDULO_API_SERVER: ${{ vars.SKEDULO_API_SERVER }}
           SKEDULO_API_TOKEN: ${{ secrets.SKEDULO_API_TOKEN }}
