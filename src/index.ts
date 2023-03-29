@@ -11,7 +11,6 @@ async function deployedPackages() {
   const packagePaths = packagePath.split(",");
   fs.readdir('.', console.log);
   
-  console.log("packagePaths", packagePaths);
   const authorizeData: AuthorizeData = {
     token:
       process.env.SKEDULO_API_TOKEN || core.getInput("SKEDULO_API_TOKEN") || "",
@@ -21,7 +20,6 @@ async function deployedPackages() {
       "https://api.skedulo.com/",
     ORG_NAME: process.env.ORG_NAME || core.getInput("ORG_NAME") || "Testing",
   };
-  console.log("authorizeData", authorizeData);
 
   await Promise.all(
     packagePaths.map(async (packagePath) => {

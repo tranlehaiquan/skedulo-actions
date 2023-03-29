@@ -3,7 +3,13 @@ name: build-and-deploy-pkgs
 
 on:
   workflow_dispatch:
-
+    # select env
+    inputs:
+      env:
+        description: 'Environment'
+        required: true
+        default: 'dev'
+  
 jobs:
   build-main-pkg:
     name: build example
@@ -29,10 +35,7 @@ jobs:
     name: deploy-pkg
     needs: [build-main-pkg]
     runs-on: ubuntu-latest
-    environment: dev
     steps:
-      # debug vars.SKEDULO_API_SERVER, print here
-      - run: echo '${{ toJSON(github) }}'
       - uses: tranlehaiquan/skedulo-actions@v2.5
         with:
           SKEDULO_API_SERVER: ${{ vars.SKEDULO_API_SERVER }}

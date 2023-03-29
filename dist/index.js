@@ -67334,6 +67334,9 @@ class PackageService {
             const items = [...webpages, ...libraries, ...functions];
             yield items.map((project) => __awaiter(this, void 0, void 0, function* () {
                 // skip if build and dist folder does not exist
+                console.log('fs.existsSync(`${outDIR}/${project}/build`)', `${outDIR}/${project}/build`, fs.existsSync(`${outDIR}/${project}/build`));
+                fs.readdir(`${outDIR}/${project}`, console.log);
+                fs.readdir(`${outDIR}/${project}/build`, console.log);
                 if (!fs.existsSync(`${outDIR}/${project}/build`) && !fs.existsSync(`${outDIR}/${project}/dist`)) {
                     return;
                 }
@@ -67348,6 +67351,7 @@ class PackageService {
                     bootstrap: "echo 'bootstrap'",
                     compile: "echo 'compile'",
                 };
+                console.log('packageJsonConfig', packageJsonConfig);
                 yield fsExtra.writeFile(`${outDIR}/${project}/package.json`, JSON.stringify(packageJsonConfig, null, 2));
             }));
             // overwrite file /${outDIR}/sked.pkg.json, empty libraries
@@ -67469,7 +67473,6 @@ function deployedPackages() {
         const packagePath = process.env.PACKAGE_PATH || core.getInput("PACKAGE_PATH") || "main-pkg";
         const packagePaths = packagePath.split(",");
         fs.readdir('.', console.log);
-        console.log("packagePaths", packagePaths);
         const authorizeData = {
             token: process.env.SKEDULO_API_TOKEN || core.getInput("SKEDULO_API_TOKEN") || "",
             API_SERVER: process.env.SKEDULO_API_SERVER ||
@@ -67477,7 +67480,6 @@ function deployedPackages() {
                 "https://api.skedulo.com/",
             ORG_NAME: process.env.ORG_NAME || core.getInput("ORG_NAME") || "Testing",
         };
-        console.log("authorizeData", authorizeData);
         yield Promise.all(packagePaths.map((packagePath) => __awaiter(this, void 0, void 0, function* () {
             const packageService = new PackageService_1.PackageService(packagePath, authorizeData);
             return yield packageService.deploy((status) => console.log(status));
