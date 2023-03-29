@@ -8,6 +8,8 @@ try {
   console.log(JSON.stringify(process.env));
   const time = new Date().toTimeString();
   core.setOutput("time", time);
+  fs.readdir(".", console.log);
+  console.log(process.cwd());
   // Get the JSON webhook payload for the event that triggered the workflow
   const payload = JSON.stringify(github.context.payload, undefined, 2);
   console.log(`The event payload: ${payload}`);
