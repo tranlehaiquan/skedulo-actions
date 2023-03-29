@@ -37,6 +37,10 @@ jobs:
     needs: [build-main-pkg]
     runs-on: ubuntu-latest
     environment: ${{ github.event.inputs.environment || 'dev' }}
+    defaults:
+      run:
+        shell: bash
+        working-directory: .
     steps:
       - uses: tranlehaiquan/skedulo-actions@main
         with:
