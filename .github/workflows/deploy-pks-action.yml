@@ -5,10 +5,11 @@ on:
   workflow_dispatch:
     # select env
     inputs:
-      env:
-        description: 'Environment'
-        required: true
+      environment:
+        description: 'Environment to run deployment'
+        type: environment
         default: 'dev'
+        required: true
   
 jobs:
   build-main-pkg:
