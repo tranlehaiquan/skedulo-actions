@@ -3,10 +3,9 @@ name: build-and-deploy-pkgs
 
 on:
   workflow_dispatch:
-    # select env
     inputs:
       environment:
-        description: 'Environment to run deployment'
+        description: 'Environment to run tests against'
         type: environment
         default: 'dev'
         required: true
@@ -37,9 +36,7 @@ jobs:
     needs: [build-main-pkg]
     runs-on: ubuntu-latest
     steps:
-      - uses: tranlehaiquan/skedulo-actions@main
-        with:
-          SKEDULO_API_SERVER: ${{ vars.SKEDULO_API_SERVER }}
-          SKEDULO_API_TOKEN: ${{ secrets.SKEDULO_API_TOKEN }}
-          ORG_NAME: ${{ vars.ORG_NAME }}
-          PACKAGE_PATH: ${{ vars.PACKAGE_PATH }}
+      - run : echo "Deploying to ${{ github.event.inputs.environment }}"
+      - run : echo "Deploying to ${{ vars.SKEDULO_API_SERVER }}"
+      - run : echo "Deploying to ${{ vars.PACKAGE_PATH }}"
+      - run : echo "Deploying to ${{ vars.ORG_NAME }}"
