@@ -1,7 +1,7 @@
 import { PackageService, AuthorizeData } from "./PackageService";
 import * as dotenv from "dotenv";
 import * as core from "@actions/core";
-import * as fs from 'fs'; 
+import * as fs from "fs";
 
 dotenv.config();
 
@@ -9,8 +9,9 @@ async function deployedPackages() {
   const packagePath =
     process.env.PACKAGE_PATH || core.getInput("PACKAGE_PATH") || "main-pkg";
   const packagePaths = packagePath.split(",");
-  fs.readdir('.', console.log);
-  
+  fs.readdir(".", console.log);
+  console.log("packagePaths", packagePaths);
+
   const authorizeData: AuthorizeData = {
     token:
       process.env.SKEDULO_API_TOKEN || core.getInput("SKEDULO_API_TOKEN") || "",
@@ -20,6 +21,7 @@ async function deployedPackages() {
       "https://api.skedulo.com/",
     ORG_NAME: process.env.ORG_NAME || core.getInput("ORG_NAME") || "Testing",
   };
+  console.log("authorizeData", authorizeData);
 
   await Promise.all(
     packagePaths.map(async (packagePath) => {
