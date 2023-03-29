@@ -13,9 +13,6 @@ inputs:
   PACKAGE_PATH:  
     description: 'Folder Deploy'
     required: true
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
 runs:
   using: 'composite'
   steps:
