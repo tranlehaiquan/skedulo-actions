@@ -11,7 +11,7 @@ async function deployedPackages() {
   const packagePaths = packagePath.split(",");
   fs.readdir(".", console.log);
   console.log("packagePaths", packagePaths);
-
+  console.log(process.cwd());
   const authorizeData: AuthorizeData = {
     token:
       process.env.SKEDULO_API_TOKEN || core.getInput("SKEDULO_API_TOKEN") || "",

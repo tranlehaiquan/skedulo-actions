@@ -67474,6 +67474,7 @@ function deployedPackages() {
         const packagePaths = packagePath.split(",");
         fs.readdir(".", console.log);
         console.log("packagePaths", packagePaths);
+        console.log(process.cwd());
         const authorizeData = {
             token: process.env.SKEDULO_API_TOKEN || core.getInput("SKEDULO_API_TOKEN") || "",
             API_SERVER: process.env.SKEDULO_API_SERVER ||
