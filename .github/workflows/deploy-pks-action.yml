@@ -14,6 +14,7 @@ jobs:
   build-main-pkg:
     name: build example
     runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment || 'dev' }}
     defaults:
       run:
         shell: bash
@@ -35,8 +36,11 @@ jobs:
     name: deploy-pkg
     needs: [build-main-pkg]
     runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.environment || 'dev' }}
     steps:
-      - run : echo "Deploying to ${{ github.event.inputs.environment }}"
-      - run : echo "Deploying to ${{ vars.SKEDULO_API_SERVER }}"
-      - run : echo "Deploying to ${{ vars.PACKAGE_PATH }}"
-      - run : echo "Deploying to ${{ vars.ORG_NAME }}"
+      - uses: tranlehaiquan/skedulo-actions@main
+        with:
+          SKEDULO_API_SERVER: ${{ vars.SKEDULO_API_SERVER }}
+          SKEDULO_API_TOKEN: ${{ secrets.SKEDULO_API_TOKEN }}
+          ORG_NAME: ${{ vars.ORG_NAME }}
+          PACKAGE_PATH: ${{ vars.PACKAGE_PATH }}
